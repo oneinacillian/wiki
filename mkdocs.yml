@@ -8,6 +8,9 @@ plugins:
   - search
 nav:
   - Home: index.md
+  - Hyperion: hyperion.md
+  - Atomic API: atomic-api.md
+  - PostgreSQL: postgresql.md
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true

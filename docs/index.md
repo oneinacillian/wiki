@@ -1,1 +1,1 @@
-WAX Performance Wiki
+## WAX Performance Wiki
