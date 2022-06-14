@@ -1,0 +1,16 @@
+site_name: WAX Performance Wiki
+site_url: https://wiki.oneinacillian.io
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
+plugins:
+  - search
+nav:
+  - Home: index.md
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
