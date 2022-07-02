@@ -4,7 +4,6 @@ This will include :
 - Atomic (Assets) Api
 - Hyperion
 - Postgresql
-- Nodeos
   
 Part of the document, it will explain the end configuration and challenges which were encountered
 
