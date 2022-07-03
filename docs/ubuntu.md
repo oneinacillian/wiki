@@ -71,5 +71,39 @@ analyzing CPU 31:
 ```
 if you would like a bulk update on all CPU's to have the minimum scale = maximum scale
 ```
-for x in /sys/devices/system/cpu/cpu*/cpufreq/;do  echo 3400000 > $x/scaling_min_freq; done
+for x in /sys/devices/system/cpu/cpu*/cpufreq/;do echo 3400000 > $x/scaling_min_freq; done
+Result =>
+cpufreq-info | grep policy
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
+  current policy: frequency should be within 3.40 GHz and 3.40 GHz.
 ```
