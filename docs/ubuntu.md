@@ -69,3 +69,7 @@ analyzing CPU 31:
   current CPU frequency is 3.40 GHz (asserted by call to hardware).
   cpufreq stats: 3.40 GHz:5.95%, 2.80 GHz:0.37%, 2.20 GHz:93.68%  (685562)
 ```
+if you would like a bulk update on all CPU's to have the minimum scale = maximum scale
+```
+for x in /sys/devices/system/cpu/cpu*/cpufreq/;do  echo 3400000 > $x/scaling_min_freq; done
+```
