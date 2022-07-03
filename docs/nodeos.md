@@ -1,3 +1,5 @@
+## nodeos
+
 > nodeos is the core service daemon that runs on every EOSIO node. It can be configured to process smart contracts, validate transactions, produce blocks containing valid transactions, and confirm blocks to record them on the blockchain.
 
 Depending on the type of system (whether it is baremetal or cloud) you have configured to run your state history, you might want to isolate the cores to prevent the operating system from utilizing them for certain system processes.
@@ -58,3 +60,23 @@ taskset -cp 7 $NODEPROC1 && schedtool -B $NODEPROC1
 taskset -cp 9 $NODEPROC2 && schedtool -B $NODEPROC2
 taskset -cp 11 $NODEPROC3 && schedtool -B $NODEPROC3
 ```
+
+## Set the performance governer (baremetal instances)
+>The CPUfreq governor "userspace" allows the user, or any userspace program running with UID "root", to set the CPU to a specific frequency by making a sysfs file "scaling_setspeed" available in the CPU-device directory
+
+By default, service providers will not have their performance governer set to "performance mode" to save on power and costs + extend the lifetime of peripherals. This is a waste and you should be utilizing every core at maximum capacity as you see fit.
+
+To have a collective view of the governer set on each core, you can issue the following command
+```
+cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_gov*
+```
+To set each core profile to performance, you can issue the following
+```
+for x in /sys/devices/system/cpu/cpu*/cpufreq/;do echo performance > $x/scaling_governor; done
+```
+If you would like certain cores on powersave and some on performance
+```
+for x in /sys/devices/system/cpu/cpu[0-6]/cpufreq/;do echo performance > $x/scaling_governor; done
+for x in /sys/devices/system/cpu/cpu[7-11]/cpufreq/;do echo powersave > $x/scaling_governor; done
+```
+
