@@ -1,5 +1,3 @@
-## nodeos
-
 > nodeos is the core service daemon that runs on every EOSIO node. It can be configured to process smart contracts, validate transactions, produce blocks containing valid transactions, and confirm blocks to record them on the blockchain.
 
 Depending on the type of system (whether it is baremetal or cloud) you have configured to run your state history, you might want to isolate the cores to prevent the operating system from utilizing them for certain system processes.
