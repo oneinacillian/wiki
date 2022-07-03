@@ -42,6 +42,7 @@ schedtool -B <process id/id's>
 ```
 
 ## nodeos startup script
+
 >By this time you should be aware that nodes should execute as a daemon process to prevent the need of an interactive session during the lifetime of the process. If your session ends without gracefull termination, your state history will be out-of-sync, and you will need to replay several sets of data which is time consuming, as well put the dependent systems at risk as they should be level with the headblock
 
 When launching nodeos, there will be 3 process id's which will be registered. Ideally, you would like all 3 process id's allocated to seperate cores which is isolated from system processes (benefits explained above)
@@ -62,6 +63,7 @@ taskset -cp 11 $NODEPROC3 && schedtool -B $NODEPROC3
 ```
 
 ## Set the performance governer (baremetal instances)
+
 >The CPUfreq governor "userspace" allows the user, or any userspace program running with UID "root", to set the CPU to a specific frequency by making a sysfs file "scaling_setspeed" available in the CPU-device directory
 
 By default, service providers will not have their performance governer set to "performance mode" to save on power and costs + extend the lifetime of peripherals. This is a waste and you should be utilizing every core at maximum capacity as you see fit.
