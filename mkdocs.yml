@@ -13,6 +13,7 @@ nav:
   - PostgreSQL: postgresql.md
   - Nodeos: nodeos.md
   - Ubuntu: ubuntu.md
+  - Containers: containers.md
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
