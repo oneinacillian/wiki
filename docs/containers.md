@@ -133,6 +133,17 @@ DIR="/apps/waxdata"
         echo -ne "\rNodeos Stopped.  \n"
     fi
 ```
+- to make use of the Named Docker volume (testvolume as explained previously), create a config.ini file in your build directory and configure your blocks and state dir on the mounted volume within the container
+```
+blocks-dir = /data/blocks-2
+state-history-dir = /data/state-history
+chain-threads = 8
+wasm-runtime = eos-vm-jit
+eos-vm-oc-compile-threads = 4
+...
+...
+...
+```
 - Create your Dockerfile
 ```
 FROM ubuntu:18.04
