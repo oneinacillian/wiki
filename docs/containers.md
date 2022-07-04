@@ -65,8 +65,9 @@ docker run -d --name testvolumecontainerservice --mount source=testvolume,target
 ## Here are some examples of docker files we created to test node functionality in containers
 - Running State History in containers
 - Running Atomic-API in containers
+- Running Hyperion in containers
 
-### SHIP build artifact
+### Running State History in containers
 - Proceed to a directory from which you would like to build your SHIP images
 - Create the genesis file (testnet's one for example)
 ```
