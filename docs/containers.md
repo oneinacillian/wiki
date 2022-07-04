@@ -34,11 +34,12 @@ sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> c
 >For your data driven application which require optimized disk configuration (i.e zfs which is raided and optimized), it is best to configure a named docker volume and have it mounted inside your micro-service opposed to bind a volume for use. With docker volumes, the storage is not coupled to the lifecycle of the container, but instead exists outside of it. You’ll also find that volumes don’t increase the size of the Docker container using them. It also provides more flexible backups and data are easier to migrate.
 
 # Create a docker volume
-> **_NOTE:_** In this example, I created a docker volume named testvolume to use
 - Issue command with Docker CLI to created a volume
 - Link up the volume to an external mount point
+- Start a micro-service in daemon mode with access to the external volume
 
 ### Issue command with Docker CLI to created a volume
+> **_NOTE:_** In this example, I created a docker volume named testvolume to use
 ```
 docker volume create testvolume
 ```
@@ -51,7 +52,15 @@ sudo rm -rf /var/lib/docker/volumes/testvolume/_data/
 mkdir /apps/datavolume/testvolume
 sudo ln -s /apps/datavolume/testvolume /var/lib/docker/volumes/testvolume/_data/
 ```
-
+### Start a micro-service in daemon mode with access to the external volume
+In this example: 
+- The container name will be: testvolumecontainerservice
+- The container image used will be ubuntu:22.04
+- The named docker volume being used will be testvolume
+- The names docker volume will be accessible by the container through /data
+```
+docker run -d --name testvolumecontainerservice --mount source=testvolume,target=/data --tty ubuntu:22.04
+```
 
 
 
