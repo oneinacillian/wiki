@@ -159,6 +159,17 @@ RUN chmod +x /apps/waxdata/start.sh && chmod +x /apps/waxdata/stop.sh
 ```
 docker built -t yourrepo:yourtag -f ./yourdockerfile .
 ```
+- to start your container and expose WS and HTTP port
+```
+example:
+name of container = wax2012wax02
+state history in config.ini on port 8888
+http port in config.ini on port 9876
+named docker volume named testvolume (follow instructions in previous steps)
+named volume mounted in container @ /data
+WAX nodeos image built and tagged as 2.0.12wax02:latest
+docker run -d --name wax2012wax02 --publish 8888:8888 --publish 9876:9876 --mount source=testvolume,target=/data --tty 2.0.12wax02:latest
+```
 
 
 
