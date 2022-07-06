@@ -1,5 +1,12 @@
 >More a more users attempt to run micro-services for their applications due to the scalability, less overhead and portability. It is also provides a great efficiency
 
+## The following will be covered here
+- Install Docker
+- Configure and use a docker name volume
+- Building and running a state history container
+- Building and running an atomic container service
+- Building and running a hyperion container service
+
 ## Install docker-ce (community edition)
 - uninstall all previous docker utilities
 - Add Docker’s official GPG key
