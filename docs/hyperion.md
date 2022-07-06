@@ -8,6 +8,7 @@
 - Upgrade Elasticsearch from 7.x to 8.x
 - Recover Missing documents (failures during indexing operations)
 - Recover Missing documents via a script
+- pin up container on secondary host to participate in indexing operations
 
 ### Create an indexing snapshot
 ```
@@ -37,6 +38,9 @@ You can then have a copy of the following stored in credentials.file
 ```
 ```
 ### Recover Missing documents via a script (failures during indexing operations)
+```
+```
+### Spin up container on secondary host to participate in indexing operations
 ```
 ```
 
