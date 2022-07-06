@@ -7,4 +7,28 @@
 - Reset elastic credentials
 - Upgrade Elasticsearch from 7.x to 8.x
 - Recover Missing documents (failures during indexing operations)
+- Recover Missing documents via a script
+
+### Create an indexing snapshot
+```
+```
+### Restore a snapshot
+```
+```
+### Optimize indexing operations for bulk processing
+```
+```
+### Reset elastic credentials
+```
+```
+### Upgrade Elasticsearch from 7.x to 8.x
+```
+```
+### Recover Missing documents manually (failures during indexing operations)
+```
+```
+### Recover Missing documents via a script (failures during indexing operations)
+```
+```
+
   
