@@ -38,6 +38,8 @@ apt-cache madison docker-ce
 sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> containerd.io docker-compose-plugin
 ```
 
+# Configure and use a docker name volume
+
 >For your data driven application which require optimized disk configuration (i.e zfs which is raided and optimized), it is best to configure a named docker volume and have it mounted inside your micro-service opposed to bind a volume for use. With docker volumes, the storage is not coupled to the lifecycle of the container, but instead exists outside of it. You’ll also find that volumes don’t increase the size of the Docker container using them. It also provides more flexible backups and data are easier to migrate.
 
 ## Create a docker volume
@@ -69,10 +71,7 @@ In this example:
 docker run -d --name testvolumecontainerservice --mount source=testvolume,target=/data --tty ubuntu:22.04
 ```
 
-## Here are some examples of docker files we created to test node functionality in containers
-- Running State History in containers
-- Running Atomic-API in containers
-- Running Hyperion in containers
+# Building and running a state history container
 
 ### Running State History in containers
 - Proceed to a directory from which you would like to build your SHIP images
