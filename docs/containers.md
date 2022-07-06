@@ -38,11 +38,11 @@ apt-cache madison docker-ce
 sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> containerd.io docker-compose-plugin
 ```
 
-# Configure and use a docker name volume
+## Configure and use a docker name volume
 
 >For your data driven application which require optimized disk configuration (i.e zfs which is raided and optimized), it is best to configure a named docker volume and have it mounted inside your micro-service opposed to bind a volume for use. With docker volumes, the storage is not coupled to the lifecycle of the container, but instead exists outside of it. You’ll also find that volumes don’t increase the size of the Docker container using them. It also provides more flexible backups and data are easier to migrate.
 
-## Create a docker volume
+### Create a docker volume
 - Issue command with Docker CLI to created a volume
 - Link up the volume to an external mount point
 - Start a micro-service in daemon mode with access to the external volume
@@ -71,7 +71,7 @@ In this example:
 docker run -d --name testvolumecontainerservice --mount source=testvolume,target=/data --tty ubuntu:22.04
 ```
 
-# Building and running a state history container
+## Building and running a state history container
 
 ### Running State History in containers
 - Proceed to a directory from which you would like to build your SHIP images
@@ -101,7 +101,7 @@ docker run -d --name testvolumecontainerservice --mount source=testvolume,target
  }
 }
 ```
-- Create a startup script: start.sh
+### Create a startup script: start.sh
 ```
 #!/bin/bash
 
@@ -117,7 +117,7 @@ echo -e "Starting Nodeos \n";
 
 $NODEOSBINDIR/nodeos --disable-replay-opts --data-dir $DATADIR --config-dir $DATADIR --genesis-json=/apps/waxdata/genesis.json "$@" > $DATADIR/stdout.txt 2> $DATADIR/stderr.txt &  echo $! > $DATADIR/nodeos.pid
 ```
-- Create a shutdown script: stop.sh
+### Create a shutdown script: stop.sh
 ```
 #!/bin/bash
 DIR="/apps/waxdata"
@@ -140,7 +140,7 @@ DIR="/apps/waxdata"
         echo -ne "\rNodeos Stopped.  \n"
     fi
 ```
-- to make use of the Named Docker volume (testvolume as explained previously), create a config.ini file in your build directory and configure your blocks and state dir on the mounted volume within the container
+### To make use of the Named Docker volume (testvolume as explained previously), create a config.ini file in your build directory and configure your blocks and state dir on the mounted volume within the container
 ```
 blocks-dir = /data/blocks-2
 state-history-dir = /data/state-history
@@ -151,7 +151,7 @@ eos-vm-oc-compile-threads = 4
 ...
 ...
 ```
-- Create your Dockerfile
+### Create your Dockerfile
 ```
 FROM ubuntu:18.04
 #COPY 01norecommend /etc/apt/apt.conf.d
@@ -176,7 +176,7 @@ docker built -t yourrepo:yourtag -f ./yourdockerfile .
 docker run -d --name wax2012wax02 --publish 8888:8888 --publish 9876:9876 --mount source=testvolume,target=/data --tty 2.0.12wax02:latest
 ```
 
-# Building and running an atomic container service
+## Building and running an atomic container service
 
 ### Create your Dockerfile
 ```
