@@ -1,3 +1,5 @@
+>Take note of ubuntu performance performance when configuring a Atomic instance
+
 ## The following will be covered here
 - Create an indexing snapshot
 - Restore a snapshot
