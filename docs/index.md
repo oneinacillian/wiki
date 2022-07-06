@@ -1,1 +1,1 @@
-## WAX Performance Wiki
+# Website components are being populated
