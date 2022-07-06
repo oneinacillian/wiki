@@ -22,7 +22,7 @@
 ```
 yes | /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto > credentials.file
 ```
-You can then have a copy of the following:
+You can then have a copy of the following stored in credentials.file
 - apm_system
 - kibana_system (configured in kibana.yml)
 - kibana
