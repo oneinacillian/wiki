@@ -161,8 +161,8 @@ docker built -t yourrepo:yourtag -f ./yourdockerfile .
 ```
 ### To start your container and expose WS and HTTP port (example)
 - name of container = wax2012wax02
-- state history in config.ini on port 8888
-- http port in config.ini on port 9876
+- expose state history in config.ini on port 8888
+- expose http port in config.ini on port 9876
 - named docker volume named testvolume (follow instructions in previous steps)
 - named volume mounted in container @ /data
 - WAX nodeos image built and tagged as 2.0.12wax02:latest

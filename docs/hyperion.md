@@ -9,6 +9,7 @@
 - Recover Missing documents (failures during indexing operations)
 - Recover Missing documents via a script
 - pin up container on secondary host to participate in indexing operations
+- Move the elastic data directory
 
 ### Create an indexing snapshot
 ```
