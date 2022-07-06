@@ -20,7 +20,16 @@
 ```
 ### Reset elastic credentials
 ```
+yes | /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto > credentials.file
 ```
+You can then have a copy of the following:
+- apm_system
+- kibana_system (configured in kibana.yml)
+- kibana
+- logstash_system
+- beats_system
+- remote_monitoring_user
+- elastic (used to log into Kibana UI)
 ### Upgrade Elasticsearch from 7.x to 8.x
 ```
 ```
