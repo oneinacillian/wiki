@@ -159,8 +159,7 @@ RUN chmod +x /apps/waxdata/start.sh && chmod +x /apps/waxdata/stop.sh
 ```
 docker built -t yourrepo:yourtag -f ./yourdockerfile .
 ```
-- to start your container and expose WS and HTTP port
-```
+### to start your container and expose WS and HTTP port
 example:
 - name of container = wax2012wax02
 - state history in config.ini on port 8888
