@@ -176,6 +176,22 @@ docker built -t yourrepo:yourtag -f ./yourdockerfile .
 docker run -d --name wax2012wax02 --publish 8888:8888 --publish 9876:9876 --mount source=testvolume,target=/data --tty 2.0.12wax02:latest
 ```
 
+# Building and running an atomic container service
+
+### Create your Dockerfile
+```
+FROM ubuntu:20.04
+WORKDIR /apps
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get -y install curl && curl -o file.sh https://deb.nodesource.com/setup_16.x && chmod +x file.sh && ./file.sh && apt-get install -y nodejs \
+&& npm install pm2 -g && apt-get -y install wget ca-certificates && apt-get -y install wget && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
+&& sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list' && apt-get update && apt-get -y install postgresql postgresql-contrib \
+&& apt-get -y install vim && curl -fsSL https://packages.redis.io/gpg | gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg && echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/redis.list && apt-get update && apt-get -y install redis \
+&& npm install --global yarn && apt-get -y install git && git clone https://github.com/pinknetworkx/eosio-contract-api.git && cd /apps/eosio-contract-api && yarn install
+```
+
+
+
 
 
 
