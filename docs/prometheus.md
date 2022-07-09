@@ -57,6 +57,7 @@ service firewalld reload
 ```
 ### Add remote endpoint to allow prometheus to scrape HAPROXY stats
 >Example use here will be the following setup from which you would like to scrape. 
+```
 frontend stats
         mode http
         bind 172.168.30.10:8404
@@ -65,7 +66,7 @@ frontend stats
         stats enable
         stats uri /stats
         stats refresh 10s
-
+```
 What you will need to have is your monitor instance connecting to the instance yo scrape via a private like (check wireguard setup in this documentation)
 To start scrape the metrics which is exposed via HAPROXY, add the following to your prometheus.yml located in /etc/prometheus/
 ```
