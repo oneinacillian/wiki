@@ -14,6 +14,7 @@ nav:
   - Nodeos: nodeos.md
   - Ubuntu: ubuntu.md
   - Containers: containers.md
+  - Prometheus: prometheus.md
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
