@@ -105,7 +105,7 @@ docker run -d --name testvolumecontainerservice --mount source=testvolume,target
 ```
 #!/bin/bash
 
-for x in /sys/devices/system/cpu/cpu[0-7]/cpufreq/;do
+for x in /sys/devices/system/cpu/cpu*/cpufreq/;do
 echo performance > $x/scaling_governor
 done
 

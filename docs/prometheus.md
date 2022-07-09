@@ -2,6 +2,7 @@
 
 # The following will be covered here
 - Manual Install prometheus on Ubuntu
+- Add remote endpoint to allow prometheus to scrape HAPROXY stats 
 - Install and configure Grafana
 - Configure VPN between monitoring and remote host for scraping metrics
 - Import HA proxy dashboard to have visibility on query and history traffic
@@ -54,6 +55,27 @@ apt install firewalld
 firewall-cmd --add-port=9090/tcp --permanent
 service firewalld reload
 ```
+### Add remote endpoint to allow prometheus to scrape HAPROXY stats
+>Example use here will be the following setup from which you would like to scrape. 
+frontend stats
+        mode http
+        bind 172.168.30.10:8404
+        option http-use-htx
+        http-request use-service prometheus-exporter if { path /metrics }
+        stats enable
+        stats uri /stats
+        stats refresh 10s
+
+What you will need to have is your monitor instance connecting to the instance yo scrape via a private like (check wireguard setup in this documentation)
+To start scrape the metrics which is exposed via HAPROXY, add the following to your prometheus.yml located in /etc/prometheus/
+```
+  - job_name: wax_hyperion_test_ha_proxy
+    static_configs:
+      - targets: ['172.168.30.10:8404']
+```
+
+
+
 
 
 
