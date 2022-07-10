@@ -17,6 +17,7 @@ sudo mkdir /etc/prometheus
 sudo mkdir /var/lib/prometheus
 sudo chown prometheus:prometheus /etc/prometheus
 sudo chown prometheus:prometheus /var/lib/prometheus
+cd /opt/
 wget https://github.com/prometheus/prometheus/releases/download/v2.26.0/prometheus-2.26.0.linux-amd64.tar.gz
 sha256sum prometheus-2.26.0.linux-amd64.tar.gz
 tar -xvf prometheus-2.26.0.linux-amd64.tar.gz
