@@ -15,6 +15,7 @@ nav:
   - Ubuntu: ubuntu.md
   - Containers: containers.md
   - Prometheus: prometheus.md
+  - Loadtest setup using Locust: locust.md
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
