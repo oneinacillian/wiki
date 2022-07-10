@@ -58,7 +58,8 @@ service firewalld reload
 #------------------------------------
 ```
 ### Add remote endpoint to allow prometheus to scrape proxy stats
->Example use here will be the following setup from which you would like to scrape. 
+>Example use here will be the following setup from which you would like to scrape.
+
 ```
 frontend stats
         mode http

@@ -14,7 +14,7 @@ nav:
   - Nodeos: nodeos.md
   - Ubuntu: ubuntu.md
   - Containers: containers.md
-  - Prometheus: prometheus.md
+  - Monitoring (Prometheus/Grafana): monitoring.md
   - Loadtest setup using Locust: locust.md
 markdown_extensions:
   - pymdownx.highlight:
