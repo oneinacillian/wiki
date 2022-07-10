@@ -10,6 +10,7 @@
 
 ### Manual Install prometheus on Ubuntu
 ```
+#------install Prometheus begin------
 export RELEASE="2.2.1"
 sudo useradd --no-create-home --shell /bin/false prometheus
 sudo mkdir /etc/prometheus
@@ -54,6 +55,7 @@ sudo systemctl enable prometheus
 apt install firewalld
 firewall-cmd --add-port=9090/tcp --permanent
 service firewalld reload
+#------------------------------------
 ```
 ### Add remote endpoint to allow prometheus to scrape proxy stats
 >Example use here will be the following setup from which you would like to scrape. 
@@ -74,9 +76,21 @@ To start scrape the metrics which is exposed via proxy, add the following to you
     static_configs:
       - targets: ['172.168.30.10:8404']
 ```
+### Install and configure Grafana
+>Grafana will be configured here to use prometheus as a datasource for viewing the time scaled data (data over time for as long as your retention is set on the datasource db for prometheus)
 
-
-
+```
+#------install Grafana begin------
+wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+sudo apt-get update
+sudo apt-get install grafana
+sudo systemctl start grafana-server
+sudo systemctl enable grafana-server.service
+firewall-cmd --add-port=3000/tcp --permanent
+service firewalld reload
+#---------------------------------
+```
 
 
 
