@@ -94,9 +94,17 @@ service firewalld reload
 #---------------------------------
 ```
 > Connect to the Grafana interface via your public/private ip, or a DNS address you have configured
+
 <img src="/assets/Login Grafana.png"/>
 
+> Select to configure a prometheus datasource for your monitoring data
 
+<img src="/assets/datasource Grafana.png"/>
+
+> Configure your prometheus datasource
+
+<img src="/assets/datasource 1.png"/>
+<img src="/assets/datasource 2.png"/>
 
 
 
