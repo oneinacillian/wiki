@@ -42,7 +42,7 @@ service firewalld reload
 ### Run a load test using the Locust interface
 > You can access Locust by hitting your public/private ip on the exposed port above
 
-<img src="/assets/locustfile.py.png" alt="MarineGEO circle logo" style="height: 800px; width:800px;"/>
+<img src="/assets/locustfile.py.png"/>
 
 
 
