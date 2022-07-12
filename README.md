@@ -5,6 +5,10 @@ This will include :
 - Hyperion
 - Postgresql
 - Nodeos
+- Ubuntu
+- Containers
+- Monitoring
+- Load testing
   
 Part of the document, it will explain the end configuration and challenges which were encountered
 
