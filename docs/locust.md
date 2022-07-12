@@ -50,7 +50,7 @@ service firewalld reload
 <img src="/assets/runtime for locustfile.py.png"/>
 
 > View results
-<img src="/assets/runtime for results for locustfile.py.png"/>
+<img src="/assets/results for locustfile.py.png"/>
 
 
 
