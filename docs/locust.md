@@ -34,10 +34,15 @@ Response =>
 ```
 - The application will bind to port 8089 which will automatically be exposed to the operating system
 - If you would like to access the GUI for Locust remotely, be sure to enable it on your server firewall
+  
 ```
 firewall-cmd --add-port=8089/tcp --permanent
 service firewalld reload
 ```
+### Run a load test using the Locust interface
+> You can access Locust by hitting your public/private ip on the exposed port above
+
+<img src="/assets/locustfile.py.png" alt="MarineGEO circle logo" style="height: 100px; width:100px;"/>
 
 
 
