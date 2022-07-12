@@ -41,8 +41,16 @@ service firewalld reload
 ```
 ### Run a load test using the Locust interface
 > You can access Locust by hitting your public/private ip on the exposed port above
-
 <img src="/assets/locustfile.py.png"/>
+
+> Run Locust
+<img src="/assets/run locustfile.py.png"/>
+
+> Change runtime parameters
+<img src="/assets/runtime for locustfile.py.png"/>
+
+> View results
+<img src="/assets/runtime for results for locustfile.py.png"/>
 
 
 
