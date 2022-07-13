@@ -4,7 +4,7 @@
 - Manual Install prometheus on Ubuntu
 - Add remote endpoint to allow prometheus to scrape proxy (haproxy) stats 
 - Install and configure Grafana
-- Configure VPN between monitoring and remote host for scraping metrics
+- Configure VPN between monitoring and remote host for scraping metrics using wireguard
 - Import HA proxy dashboard to have visibility on query and history traffic
 - Automate deploy using Ansible playbook
 
@@ -119,6 +119,45 @@ Continue with the prompts until the dashboard is installed
 <img src="/assets/haproxy2 full - Grafana.png"/>
 <img src="/assets/haproxy_options - Grafana.png"/>
 You can expand any statistic to get a full representation of how your ingress/egress is performing, as well as health statistics of the proxy service
+
+### Configure VPN between monitoring and remote host for scraping metrics using wireguard
+> WireGuard is a secure network tunnel, operating at layer 3, implemented as a kernel virtual network
+interface for Linux, which aims to replace both IPsec for most use cases, as well as popular user space and/or
+TLS-based solutions like OpenVPN, while being more secure, more performant, and easier to use
+
+> **_NOTE:_** In this example, I will configure Monitoring host on 172.168.25.1 and host to be monitored on 172.168.25.2
+
+On the monitoring system install the wireguard suite as follows
+```
+sudo apt install wireguard
+wg genkey > private
+wg pubkey < private
+ip link add wg0 type wireguard
+ip addr add 172.168.25.1/24 dev wg0
+wg set wg0 private-key ./private
+ip link set wg0 up
+wg showconf wg0 > /etc/wireguard/wg0.conf
+echo "SaveConfig = true" >> /etc/wireguard/wg0.conf
+wg-quick save wg0
+wg show
+```
+Take note of interface: wg0 public key and listening port
+<img src="/assets/wg show.png"/>
+On the host to be monitored, configure as follows
+```
+sudo apt install wireguard
+wg genkey > private
+wg pubkey < private
+ip link add wg0 type wireguard
+ip addr add 172.168.25.2/24 dev wg0
+wg set wg0 private-key ./private
+ip link set wg0 up
+wg showconf wg0 > /etc/wireguard/wg0.conf
+echo "SaveConfig = true" >> /etc/wireguard/wg0.conf
+wg-quick save wg0
+```
+
+
 
 
 
