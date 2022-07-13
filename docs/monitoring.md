@@ -117,6 +117,8 @@ Continue with the prompts until the dashboard is installed
 > The dashboard should be visible here
 
 <img src="/assets/haproxy2 full - Grafana.png"/>
+<img src="/assets/haproxy_options - Grafana.png"/>
+You can expand any statistic to get a full representation of how your ingress/egress is performing, as well as health statistics of the proxy service
 
 
 
