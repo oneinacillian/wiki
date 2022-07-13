@@ -106,6 +106,19 @@ service firewalld reload
 <img src="/assets/datasource 1.png"/>
 <img src="/assets/datasource 2.png"/>
 
+> Load you haproxy2 dashboard
+
+Please find the dashboard json to import [here](./assets/haproxy2full.json)
+
+<img src="/assets/import1 - Grafana.png"/>
+<img src="/assets/import2 - Grafana.png"/>
+Continue with the prompts until the dashboard is installed
+
+> The dashboard should be visible here
+
+<img src="/assets/haproxy2 full - Grafana.png"/>
+
+
 
 
 

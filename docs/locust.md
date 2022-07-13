@@ -5,8 +5,7 @@
 - Configure a basic test using the Locustfile.py
 - Deploy Locust as a single container
 - Run a load test using the Locust interface
-- Deploy Locust Master as a microservices
-- Deploy Locust Slaves as microservices
+- Deploy Locust Master and slaves as a microservice
 - Configure a load test against Atomic API
 - Configure a load test against Hyperion API
 - Configure a load test against History API
