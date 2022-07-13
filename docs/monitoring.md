@@ -5,8 +5,8 @@
 - Add remote endpoint to allow prometheus to scrape proxy (haproxy) stats 
 - Install and configure Grafana
 - Import HA proxy dashboard to have visibility on query and history traffic
-- Configure VPN between monitoring and remote host for scraping metrics using wireguard - <span style="color:red">**not yet complete** text</span>
-- Automate deploy using Ansible playbook - <span style="color:red">**not yet complete** text</span>
+- Configure VPN between monitoring and remote host for scraping metrics using wireguard - <span style="color:red">**not yet complete**</span>
+- Automate deploy using Ansible playbook - <span style="color:red">**not yet complete**</span>
 
 ### Manual Install prometheus on Ubuntu
 ```

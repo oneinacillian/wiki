@@ -4,8 +4,8 @@
 - Install Docker
 - Configure and use a docker name volume
 - Building and running a state history container
-- Building and running an atomic container service
-- Building and running a hyperion container service
+- Building and running an atomic container service - <span style="color:red">**not yet complete**</span>
+- Building and running a hyperion container service - <span style="color:red">**not yet complete**</span>
 
 ## Install docker-ce (community edition)
 - uninstall all previous docker utilities
@@ -175,6 +175,11 @@ docker built -t yourrepo:yourtag -f ./yourdockerfile .
 - WAX nodeos image built and tagged as 2.0.12wax02:latest
 ```
 docker run -d --name wax2012wax02 --publish 8888:8888 --publish 9876:9876 --mount source=testvolume,target=/data --tty 2.0.12wax02:latest
+```
+You can now start the nodeos process in the container
+```
+cd /apps/waxdata
+./start.sh
 ```
 
 ## Building and running an atomic container service

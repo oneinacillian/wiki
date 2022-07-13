@@ -2,13 +2,13 @@
 
 # The following will be covered here
 - Create an indexing snapshot
-- Restore a snapshot - <span style="color:red">**not yet complete** text</span>
-- Optimize indexing operations for bulk processing - <span style="color:red">**not yet complete** text</span>
+- Restore a snapshot - <span style="color:red">**not yet complete**</span>
+- Optimize indexing operations for bulk processing - <span style="color:red">**not yet complete**</span>
 - Reset elastic credentials
-- Upgrade Elasticsearch from 7.x to 8.x using upgrade assistant - <span style="color:red">**not yet complete** text</span>
-- Recover Missing documents (failures during indexing operations) - <span style="color:red">**not yet complete** text</span>
-- Recover Missing documents via a script - <span style="color:red">**not yet complete** text</span>
-- pin up container on secondary host to participate in indexing operations - <span style="color:red">**not yet complete** text</span>
+- Upgrade Elasticsearch from 7.x to 8.x using upgrade assistant - <span style="color:red">**not yet complete**</span>
+- Recover Missing documents (failures during indexing operations) - <span style="color:red">**not yet complete**</span>
+- Recover Missing documents via a script - <span style="color:red">**not yet complete**</span>
+- pin up container on secondary host to participate in indexing operations - <span style="color:red">**not yet complete**</span>
 
 ### Create an indexing snapshot
 - add path.repo: ["/data/snapshots"] to elasticsearch.yml where you would like to store your snapshots
