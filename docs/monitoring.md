@@ -141,8 +141,15 @@ echo "SaveConfig = true" >> /etc/wireguard/wg0.conf
 wg-quick save wg0
 wg show
 ```
-Take note of interface: wg0 public key and listening port
+
+Take note of interface: wg0 public key and listening port on the monitoring host
 <img src="/assets/wg show.png"/>
+Open up the firewall for the port on which wg expose the endpoint
+```
+firewall-cmd --add-port=<listening port>/tcp --permanent
+service firewalld reload
+```
+
 On the host to be monitored, configure as follows
 ```
 sudo apt install wireguard
@@ -157,7 +164,12 @@ echo "SaveConfig = true" >> /etc/wireguard/wg0.conf
 wg-quick save wg0
 ```
 
-
+Take note of interface: wg0 public key and listening port as the monitored host as well
+Open up the firewall for the port on which wg expose the endpoint
+```
+firewall-cmd --add-port=<listening port>/tcp --permanent
+service firewalld reload
+```
 
 
 
