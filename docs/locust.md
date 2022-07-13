@@ -5,10 +5,10 @@
 - Configure a basic test using the Locustfile.py
 - Deploy Locust as a single container
 - Run a load test using the Locust interface
-- Deploy Locust Master and slaves as a microservice
-- Configure a load test against Atomic API
-- Configure a load test against Hyperion API
-- Configure a load test against History API
+- Deploy Locust Master and slaves as a microservice  - <span style="color:red">**not yet complete** text</span>
+- Configure a load test against Atomic API  - <span style="color:red">**not yet complete** text</span>
+- Configure a load test against Hyperion API  - <span style="color:red">**not yet complete** text</span>
+- Configure a load test against History API  - <span style="color:red">**not yet complete** text</span>
 
 ### Configure a basic test using the Locustfile.py
 > You will stage the python module and import to Locust to define your test. In this example it will perform a single get method against your specific URL+(/v1/chain/get_info). Note that this file needs to be mounted when starting the container service
