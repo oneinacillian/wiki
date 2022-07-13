@@ -4,7 +4,7 @@
 - Manual Install prometheus on Ubuntu
 - Add remote endpoint to allow prometheus to scrape proxy (haproxy) stats 
 - Install and configure Grafana
-- Configure VPN between monitoring and remote host for scraping metrics using wireguard
+- Configure VPN between monitoring and remote host for scraping metrics using wireguard - <span style="color:red">some **not yet complete** text</span>
 - Import HA proxy dashboard to have visibility on query and history traffic
 - Automate deploy using Ansible playbook
 
@@ -144,6 +144,7 @@ wg show
 
 Take note of interface: wg0 public key and listening port on the monitoring host
 <img src="/assets/wg show.png"/>
+
 Open up the firewall for the port on which wg expose the endpoint
 ```
 firewall-cmd --add-port=<listening port>/tcp --permanent
