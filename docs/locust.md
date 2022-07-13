@@ -31,9 +31,10 @@ Response =>
 [2022-07-12 18:59:48,317] 425d50cb7761/INFO/locust.main: Starting web interface at http://0.0.0.0:8089 (accepting connections from all network interfaces)
 [2022-07-12 18:59:48,326] 425d50cb7761/INFO/locust.main: Starting Locust 2.10.1
 ```
+
 - The application will bind to port 8089 which will automatically be exposed to the operating system
 - If you would like to access the GUI for Locust remotely, be sure to enable it on your server firewall
-  
+
 ```
 firewall-cmd --add-port=8089/tcp --permanent
 service firewalld reload
