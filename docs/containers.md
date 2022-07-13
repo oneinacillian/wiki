@@ -63,6 +63,7 @@ sudo ln -s /apps/datavolume/testvolume /var/lib/docker/volumes/testvolume/_data/
 ```
 ### Start a micro-service in daemon mode with access to the external volume
 In this example: 
+
 - The container name will be: testvolumecontainerservice
 - The container image used will be ubuntu:22.04
 - The named docker volume being used will be testvolume
@@ -161,7 +162,7 @@ RUN apt-get update && apt -y install git && git clone https://github.com/worldwi
 COPY config.ini genesis.json start.sh stop.sh /apps/waxdata/
 RUN chmod +x /apps/waxdata/start.sh && chmod +x /apps/waxdata/stop.sh
 ```
-- Execute your build command
+Execute your build command
 ```
 docker built -t yourrepo:yourtag -f ./yourdockerfile .
 ```
