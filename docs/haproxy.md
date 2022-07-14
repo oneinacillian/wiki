@@ -191,7 +191,7 @@ Explanation for the <span style="color:green">**values**</span> above:
 - <span style="color:green">**identifier_for_rule**</span> can be any rule name you provide
 - <span style="color:green">**backend_system**</span> can be any name of the backend system you will configure next so that the front-end requests know where to offload data
 - <span style="color:green">**hostheader_to_offload**</span> the hostheader received by the call made to the proxy
-- For tls communication, a certificate needs to be loaded so that the traffic between the (public client) and the proxy can be encrypted. In the configuration above, the certificate needs to be placed in <span style="color:green">**/etc/haproxy/certs**</span>
+- For tls communication, a certificate needs to be loaded so that the traffic between the (public client) and the proxy can be encrypted. In the configuration above, the certificate needs to be placed in <span style="color:green">**/etc/haproxy/certs**</span>. WAX requires **TLSv1.2** as a minimum
 
 > **_NOTE:_** In this example I am offloading to 2 hyperion instances, both with their API's exposed on port 7000
 
@@ -223,7 +223,7 @@ Explanation for the <span style="color:green">**components**</span> above: <br>
 
 - <span style="color:green">**track-sc0**</span> tracking specific event. Multiple rules can exist, which means <span style="color:green">**track-sc1**</span>, <span style="color:green">**track-sc2**</span>, etc <br>
 - <span style="color:green">**src table wax_api_servers**</span> the table which should be referenced for the evaluated data. **Please note that for each rule (i.e. track-sc1,track-sc2), it needs to use a unique table** <br>
-- <span style="color:green">**if { url_beg /v1/chain/push_transaction }**</span> will only apply the rule when the client calls a specific URL <br>
+- <span style="color:green">**if { url_beg /v1/chain/push_transaction }**</span> will only apply the rule when the client calls a specific URL. In this case the API being hit resides in /v1/chain/push_transaction <br>
 - <span style="color:green">**tarpit**</span> will stall the request for a period of time before returning an error response <br>
 - <span style="color:green">**deny_status 429 if { sc_http_req_rate(0) gt 20 } { url_beg /v1/chain/push_transaction }**</span> return status code 429 if the request rate in table <span style="color:green">**track-sc0**</span> is higher than the allowed value specified in the stick-table
 
