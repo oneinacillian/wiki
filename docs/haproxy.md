@@ -11,7 +11,7 @@
 - Cors setup
 - Letsencrypt to generate a public certificate
 
-## HAProxy 
+### HAProxy 
 
 Installation on Ubuntu (this installation was performed on ubuntu 18.04, but will be the same on 20.04)
 ```
