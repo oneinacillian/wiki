@@ -104,7 +104,7 @@ Result =>
            |-721 /usr/sbin/haproxy -sf 725 -x /run/haproxy/admin.sock -Ws -f /etc/haproxy/haproxy.cfg -p /run/haproxy.pid -S /run/haproxy-master.sock
            `-775 /usr/sbin/haproxy -sf 725 -x /run/haproxy/admin.sock -Ws -f /etc/haproxy/haproxy.cfg -p /run/haproxy.pid -S /run/haproxy-master.sock
 ```
-There are four essential sections to an HAProxy configuration file. They are global, defaults, frontend, and backend. These four sections define how the server as a whole performs, what your default settings are, and how client requests are received and routed to your backend servers.
+There are four essential sections to an HAProxy configuration file. They are **global**, **defaults**, **frontend**, and **backend**. These four sections define how the server as a whole performs, what your default settings are, and how client requests are received and routed to your backend servers.
 
 The structure is as follows
 ```
@@ -120,7 +120,7 @@ frontend
 backend
     # servers that fulfill the requests
 ```
-The following section will explain a typical configuration for Wax node use
+The following section will explain a typical configuration for **Wax node** use
 
 > **_NOTE:_** That the only difference here from the default configuration for the global section provided by the template is the enablement of CORS. This will be explained in more detail later
 
@@ -184,10 +184,10 @@ frontend eoshttp
         http-response lua.cors "GET,PUT,POST" "*"
         use_backend <backend_system> if <identifier_for_rule>
 ```
-Explanation for the <vaules> above:
-- \<identifier_for_rule> can be any rule name you provide
-- \<backend_system> can be any name of the backend system you will configure next so that the front-end requests know where to offload data
-- \<hostheader_to_offload> the hostheader received by the call made to the proxy
+Explanation for the <span style="color:green">**vaules**</span> above:
+- <span style="color:green">**identifier_for_rule**</span> can be any rule name you provide
+- <span style="color:green">**backend_system**</span> can be any name of the backend system you will configure next so that the front-end requests know where to offload data
+- <span style="color:green">**hostheader_to_offload**</span> the hostheader received by the call made to the proxy
 
 > **_NOTE:_** In this example I am offloading two hyperion instances, both with their API's exposed on port 7000
 
