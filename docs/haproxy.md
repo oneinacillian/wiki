@@ -1,15 +1,15 @@
 > To expose your Hyperion, History or Atomic API you need a load balancer. There are several community balancers available for use and the following ones will be explained
 
 - HAProxy
-- NGINX
-- Traefik
+- NGINX - <span style="color:red">**not yet complete**</span>
+- Traefik - <span style="color:red">**not yet complete**</span>
 
 > Other components that will be covered
 
 - ACL
 - Rate limiting with explanation and examples **(stick-tables, tarpit, etc)**
-- Cors setup
-- Letsencrypt to generate a public certificate
+- Cors setup - <span style="color:red">**not yet complete**</span>
+- Letsencrypt to generate a public certificate - <span style="color:red">**not yet complete**</span>
 
 > **_NOTE:_** In each section, the input commands will be numbered, followed by an output
 
@@ -209,7 +209,7 @@ backend <backend_system>
 #### Setting the Maximum Connections
 Use the maxconn parameter on a server line to cap the number of concurrent connections that will be sent. **Look at the example above which limits it too 3000 connections**
 
-If all 30 connections are being used on all three servers, or in other words 90 connections are active, then new connections will have to wait in line for a slot to free up. This means that the servers themselves won’t become overloaded.
+If all 3000 connections are being used both servers, or in other words 6000 connections are active, then new connections will have to wait in line for a slot to free up. This means that the servers themselves won’t become overloaded.
 
 #### Sliding Window Rate Limiting
 Limit the number of requests that a user can make within a certain period of time **to a certain url in this example** <br>
