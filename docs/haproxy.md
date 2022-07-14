@@ -191,6 +191,7 @@ Explanation for the <span style="color:green">**values**</span> above:
 - <span style="color:green">**identifier_for_rule**</span> can be any rule name you provide
 - <span style="color:green">**backend_system**</span> can be any name of the backend system you will configure next so that the front-end requests know where to offload data
 - <span style="color:green">**hostheader_to_offload**</span> the hostheader received by the call made to the proxy
+- For tls communication, a certificate needs to be loaded so that the traffic between the (public client) and the proxy can be encrypted. In the configuration above, the certificate needs to be placed in <span style="color:green">**/etc/haproxy/certs**</span>
 
 > **_NOTE:_** In this example I am offloading to 2 hyperion instances, both with their API's exposed on port 7000
 
