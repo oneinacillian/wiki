@@ -6,6 +6,7 @@
 
 > Other components that will be covered
 
+- ACL
 - Rate limiting with explanation and examples
 - Cors setup
 - Letsencrypt to generate a public certificate
@@ -122,6 +123,7 @@ backend
 > The following section will explain a typical configuration for Wax node use
 
 > **_NOTE:_** That the only difference here from the default configuration for the global section provided by the template is the enablement of CORS. This will be explained in more detail later
+
 Global: 
 ```
 global
@@ -163,6 +165,43 @@ defaults
 > **_NOTE:_** This is a basic example you need to allow both http/s traffic to be accepted to be offloaded to the backend/s
 Frontend:
 ```
+frontend eoshttps
+        bind *:443 ssl crt /etc/haproxy/certs alpn h2,http/1.1
+        http-request set-header X-Forwarded-Proto https
+        acl <identifier_for_rule> hdr(host) -i <hostheader_to_offload>
+        http-request lua.cors
+        http-response lua.cors "GET,PUT,POST" "*"
+        use_backend <backend_system> if <identifier_for_rule>
+
+frontend eoshttp
+        bind *:80
+        mode http
+        http-request track-sc0 src table wax_api_servers if { url_beg /v1/chain/get_info }
+        http-request tarpit deny_status 429 if { sc_http_req_rate(0) gt 10 } { url_beg /v1/chain/get_info }
+        acl <identifier_for_rule> hdr(host) -i <hostheader_to_offload>
+        http-request lua.cors
+        http-response lua.cors "GET,PUT,POST" "*"
+        use_backend <backend_system> if <identifier_for_rule>
+```
+Explanation for the <vaules> above:
+- <identifier_for_rule> can be any rule name you provide
+- <backend_system> can be any name of the backend system you will configure next so that the front-end requests know where to offload data
+- <hostheader_to_offload> the hostheader received by the call made to the proxy
+
+> **_NOTE:_** In this example I am offloading two hyperion instances, both with their API's exposed on port 7000
+Backend:
+```
+backend <backend_system>
+        server wax 172.168.40.100:7000 maxconn 3000
+        server wax 172.168.40.101:7000 maxconn 3000
+```
+
+
+
+
+
+
+
 
 
 
