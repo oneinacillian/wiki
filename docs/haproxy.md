@@ -13,7 +13,9 @@
 
 > **_NOTE:_** In each section, the input commands will be numbered, followed by an output
 
-### HAProxy 
+## HAProxy
+
+### Install
 
 Installation on Ubuntu (this installation was performed on ubuntu 18.04, but will be the same on 20.04)
 ```
@@ -199,3 +201,12 @@ backend <backend_system>
         server wax 172.168.40.100:7000 maxconn 3000
         server wax 172.168.40.101:7000 maxconn 3000
 ```
+
+### Rate limiting
+> Rate limiting can reduce your traffic and potentially improve throughput by reducing the number of records sent to a service over a given period of time. <br>
+> This can also be used to mitigate abuse where your frontend and backends will be overloaded by abusers, affecting the availability of your service <br> 
+
+#### Setting the Maximum Connections
+Use the maxconn parameter on a server line to cap the number of concurrent connections that will be sent. **Look at the example above which limits it too 3000 connections**
+
+If all 30 connections are being used on all three servers, or in other words 90 connections are active, then new connections will have to wait in line for a slot to free up. This means that the servers themselves won’t become overloaded.
