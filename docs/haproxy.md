@@ -124,7 +124,7 @@ The following section will explain a typical configuration for **Wax node** use
 
 > **_NOTE:_** That the only difference here from the default configuration for the global section provided by the template is the enablement of CORS. This will be explained in more detail later
 
-Global: 
+Global and Defaults: 
 ```
 global
         log /dev/log    local0
@@ -185,6 +185,7 @@ frontend eoshttp
         use_backend <backend_system> if <identifier_for_rule>
 ```
 Explanation for the <span style="color:green">**vaules**</span> above:
+
 - <span style="color:green">**identifier_for_rule**</span> can be any rule name you provide
 - <span style="color:green">**backend_system**</span> can be any name of the backend system you will configure next so that the front-end requests know where to offload data
 - <span style="color:green">**hostheader_to_offload**</span> the hostheader received by the call made to the proxy
