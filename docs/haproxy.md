@@ -7,9 +7,11 @@
 > Other components that will be covered
 
 - ACL
-- Rate limiting with explanation and examples
+- Rate limiting with explanation and examples **(stick-tables, tarpit, etc)**
 - Cors setup
 - Letsencrypt to generate a public certificate
+
+> **_NOTE:_** In each section, the input commands will be numbered, followed by an output
 
 ### HAProxy 
 
@@ -184,13 +186,13 @@ frontend eoshttp
         http-response lua.cors "GET,PUT,POST" "*"
         use_backend <backend_system> if <identifier_for_rule>
 ```
-Explanation for the <span style="color:green">**vaules**</span> above:
+Explanation for the <span style="color:green">**values**</span> above:
 
 - <span style="color:green">**identifier_for_rule**</span> can be any rule name you provide
 - <span style="color:green">**backend_system**</span> can be any name of the backend system you will configure next so that the front-end requests know where to offload data
 - <span style="color:green">**hostheader_to_offload**</span> the hostheader received by the call made to the proxy
 
-> **_NOTE:_** In this example I am offloading two hyperion instances, both with their API's exposed on port 7000
+> **_NOTE:_** In this example I am offloading to 2 hyperion instances, both with their API's exposed on port 7000
 
 Backend:
 ```
