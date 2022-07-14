@@ -120,7 +120,7 @@ frontend
 backend
     # servers that fulfill the requests
 ```
-> The following section will explain a typical configuration for Wax node use
+The following section will explain a typical configuration for Wax node use
 
 > **_NOTE:_** That the only difference here from the default configuration for the global section provided by the template is the enablement of CORS. This will be explained in more detail later
 
@@ -163,6 +163,7 @@ defaults
         errorfile 504 /etc/haproxy/errors/504.http
 ```
 > **_NOTE:_** This is a basic example you need to allow both http/s traffic to be accepted to be offloaded to the backend/s
+
 Frontend:
 ```
 frontend eoshttps
@@ -189,6 +190,7 @@ Explanation for the <vaules> above:
 - <hostheader_to_offload> the hostheader received by the call made to the proxy
 
 > **_NOTE:_** In this example I am offloading two hyperion instances, both with their API's exposed on port 7000
+
 Backend:
 ```
 backend <backend_system>
