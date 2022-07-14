@@ -76,13 +76,169 @@ You can then have a copy of the following stored in credentials.file
 <img src="/assets/Upgrade Assistant - Elastic.png"/>
 ```
 ```
+
 ### Recover Missing documents manually (failures during indexing operations)
+> It often can happen that during the indexing operation you encountered a component failure which causes the indexing operation to miss certain blocks during the indexing
+
+Determine the amount of documents stored in each bucket, which should contain 10000000 items
 ```
+POST wax-block-*/_search
+{
+  "aggs": {
+    "block_histogram": {
+      "histogram": {
+        "field": "block_num",
+        "interval": 10000000,
+        "min_doc_count": 1
+      },
+      "aggs": {
+        "max_block": {
+          "max": {
+            "field": "block_num"
+          }
+        }
+      }
+    }
+  },
+  "size": 0,
+  "query": {
+    "match_all": {}
+  }
+} 
 ```
+Result will look like follows =>
+```
+"aggregations" : {
+    "block_histogram" : {
+      "buckets" : [
+        {
+          "key" : 0.0,
+          "doc_count" : 9999998,
+          "max_block" : {
+            "value" : 9999999.0
+          }
+        },
+        {
+          "key" : 1.0E7,
+          "doc_count" : 10000000,
+          "max_block" : {
+            "value" : 1.9999999E7
+          }
+        },
+        {
+          "key" : 2.0E7,
+          "doc_count" : 10000000,
+          "max_block" : {
+            "value" : 2.9999999E7
+          }
+        },
+        {
+          "key" : 3.0E7,
+          "doc_count" : 10000000,
+          "max_block" : {
+            "value" : 3.9999999E7
+          }
+        },
+        {
+          "key" : 4.0E7,
+          "doc_count" : 10000000,
+          "max_block" : {
+            "value" : 4.9999999E7
+          }
+        },
+        {
+          "key" : 5.0E7,
+          "doc_count" : 10000000,
+          "max_block" : {
+            "value" : 5.9999999E7
+          }
+        },
+        {
+          "key" : 6.0E7,
+          "doc_count" : 10000000,
+          "max_block" : {
+            "value" : 6.9999999E7
+          }
+        },
+        {
+          "key" : 7.0E7,
+          "doc_count" : 10000000,
+          "max_block" : {
+            "value" : 7.9999999E7
+          }
+        },
+        {
+          "key" : 8.0E7,
+          "doc_count" : 10000000,
+          "max_block" : {
+            "value" : 8.9999999E7
+          }
+        },
+        {
+          "key" : 9.0E7,
+          "doc_count" : 10000000,
+          "max_block" : {
+            "value" : 9.9999999E7
+          }
+        },
+        {
+          "key" : 1.0E8,
+          "doc_count" : 10000000,
+          "max_block" : {
+            "value" : 1.09999999E8
+          }
+        },
+        {
+          "key" : 1.1E8,
+          "doc_count" : 10000000,
+          "max_block" : {
+            "value" : 1.19999999E8
+          }
+        },
+        {
+          "key" : 1.2E8,
+          "doc_count" : 10000000,
+          "max_block" : {
+            "value" : 1.29999999E8
+          }
+        },
+        {
+          "key" : 1.3E8,
+          "doc_count" : 10000000,
+          "max_block" : {
+            "value" : 1.39999999E8
+          }
+        },
+        {
+          "key" : 1.4E8,
+          "doc_count" : 10000000,
+          "max_block" : {
+            "value" : 1.49999999E8
+          }
+        },
+        {
+          "key" : 1.5E8,
+          "doc_count" : 10000000,
+          "max_block" : {
+            "value" : 1.59999999E8
+          }
+        },
+        {
+          "key" : 1.6E8,
+          "doc_count" : 3904020,
+          "max_block" : {
+            "value" : 1.639114E8
+          }
+        }
+      ]
+    }
+  }
 ### Recover Missing documents via a script (failures during indexing operations)
+
 ```
 ```
 ### Spin up container on secondary host to participate in indexing operations
+
 ```
 ```
 
