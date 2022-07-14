@@ -219,11 +219,12 @@ http-request track-sc0 src table wax_api_servers if { url_beg /v1/chain/push_tra
 http-request tarpit deny_status 429 if { sc_http_req_rate(0) gt 20 } { url_beg /v1/chain/push_transaction }
 timeout tarpit 10s
 ```
-Explanation for the <span style="color:green">**components**</span> above:
-- <span style="color:green">**track-sc0**</span> tracking specific event. Multiple rules can exist, which means <span style="color:green">**track-sc1**</span>, <span style="color:green">**track-sc2**</span>, etc
-- <span style="color:green">**src table wax_api_servers**</span> the table which should be referenced for the evaluated data. **Please note that for each rule (i.e. track-sc1,track-sc2), it needs to use a unique table**
-- <span style="color:green">**if { url_beg /v1/chain/push_transaction }**</span> will only apply the rule when the client calls a specific URL
-- <span style="color:green">**tarpit**</span> will stall the request for a period of time before returning an error response
+Explanation for the <span style="color:green">**components**</span> above: <br>
+
+- <span style="color:green">**track-sc0**</span> tracking specific event. Multiple rules can exist, which means <span style="color:green">**track-sc1**</span>, <span style="color:green">**track-sc2**</span>, etc <br>
+- <span style="color:green">**src table wax_api_servers**</span> the table which should be referenced for the evaluated data. **Please note that for each rule (i.e. track-sc1,track-sc2), it needs to use a unique table** <br>
+- <span style="color:green">**if { url_beg /v1/chain/push_transaction }**</span> will only apply the rule when the client calls a specific URL <br>
+- <span style="color:green">**tarpit**</span> will stall the request for a period of time before returning an error response <br>
 - <span style="color:green">**deny_status 429 if { sc_http_req_rate(0) gt 20 } { url_beg /v1/chain/push_transaction }**</span> return status code 429 if the request rate in table <span style="color:green">**track-sc0**</span> is higher than the allowed value specified in the stick-table
 
 In your backend configuration =>
@@ -231,11 +232,11 @@ In your backend configuration =>
 backend wax_api_servers
         stick-table type ip size 1m expire 60s store http_req_rate(20s)
 ```        
-Explanation for the <span style="color:green">**components**</span> above:
+Explanation for the <span style="color:green">**components**</span> above: <br>
 
-- <span style="color:green">**wax_api_servers**</span> will be the table backend configured in the frontend reference
-- <span style="color:green">**stick-table type ip**</span> directive creates a key-value store for storing counters like the HTTP request rate per client. The key is the client’s IP address, as configured by the type parameter, which is used to store and aggregate that client’s number of requests. he counters begin to be recorded as soon as the IP is added
-- <span style="color:green">**size 1m**</span> we are allowing 1 million records to be stored in the table
-- <span style="color:green">**expire 60s**</span> amount of time before the table record expires and is removed after a period of inactivity by the client
+- <span style="color:green">**wax_api_servers**</span> will be the table backend configured in the frontend reference <br>
+- <span style="color:green">**stick-table type ip**</span> directive creates a key-value store for storing counters like the HTTP request rate per client. The key is the client’s IP address, as configured by the type parameter, which is used to store and aggregate that client’s number of requests. he counters begin to be recorded as soon as the IP is added <br>
+- <span style="color:green">**size 1m**</span> we are allowing 1 million records to be stored in the table <br>
+- <span style="color:green">**expire 60s**</span> amount of time before the table record expires and is removed after a period of inactivity by the client <br>
 - <span style="color:green">**http_req_rate(20s)**</span> counts the requests over a period of 20 seconds. Meaning, in the frontend example above <span style="color:green">**if { sc_http_req_rate(0) gt 20 }**</span>, if the request is greater than 20 within a timewindow of 20 seconds as specified in the backend <span style="color:green">**http_req_rate(20s)**</span>, it will deny the request with a 429 <span style="color:green">**deny_status 429**</span> which will wait 10s <span style="color:green">**timeout tarpit 10s**</span> before sending the response back
 
