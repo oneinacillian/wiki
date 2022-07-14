@@ -185,9 +185,9 @@ frontend eoshttp
         use_backend <backend_system> if <identifier_for_rule>
 ```
 Explanation for the <vaules> above:
-- <identifier_for_rule> can be any rule name you provide
-- <backend_system> can be any name of the backend system you will configure next so that the front-end requests know where to offload data
-- <hostheader_to_offload> the hostheader received by the call made to the proxy
+- \<identifier_for_rule> can be any rule name you provide
+- \<backend_system> can be any name of the backend system you will configure next so that the front-end requests know where to offload data
+- \<hostheader_to_offload> the hostheader received by the call made to the proxy
 
 > **_NOTE:_** In this example I am offloading two hyperion instances, both with their API's exposed on port 7000
 
