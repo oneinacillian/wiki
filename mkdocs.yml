@@ -16,6 +16,7 @@ nav:
   - Containers: containers.md
   - Monitoring (Prometheus/Grafana): monitoring.md
   - Loadtest setup using Locust: locust.md
+  - HAProxy: haproxy.md
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
