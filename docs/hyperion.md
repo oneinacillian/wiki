@@ -78,7 +78,7 @@ You can then have a copy of the following stored in credentials.file
 ```
 
 ### Recover Missing documents manually (failures during indexing operations)
-> It often can happen that during the indexing operation you encountered a component failure which causes the indexing operation to miss certain blocks during the indexing
+> It often can happen that during the indexing operation you encountered a component failure which causes the indexing operation to miss certain blocks during the indexing. In this section, I will explain the manual process of finding the blocks and recovering the manually via the wax-indexer operations.
 
 Determine the amount of documents stored in each bucket, which should contain 10000000 items
 ```
