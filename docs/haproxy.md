@@ -4,9 +4,15 @@
 - NGINX
 - Traefik
 
+> Other components that will be covered
+
+- Rate limiting with explanation and examples
+- Cors setup
+- Letsencrypt to generate a public certificate
+
 ## HAProxy 
 
-Installation on Ubuntu 18.04 (performed on an updated system)
+Installation on Ubuntu (this installation was performed on ubuntu 18.04, but will be the same on 20.04)
 ```
 1. sudo apt install --no-install-recommends software-properties-common
 2. sudo add-apt-repository ppa:vbernat/haproxy-2.4 -y
@@ -115,7 +121,7 @@ backend
 ```
 > The following section will explain a typical configuration for Wax node use
 
-> **_NOTE:_** That the only difference here from the default configuration for the global section provided by the template is the enablement of CORS
+> **_NOTE:_** That the only difference here from the default configuration for the global section provided by the template is the enablement of CORS. This will be explained in more detail later
 Global: 
 ```
 global
@@ -154,6 +160,10 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 ```
+> **_NOTE:_** This is a basic example you need to allow both http/s traffic to be accepted to be offloaded to the backend/s
+Frontend:
+```
+
 
 
 
