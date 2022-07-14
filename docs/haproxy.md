@@ -179,8 +179,6 @@ frontend eoshttps
 frontend eoshttp
         bind *:80
         mode http
-        http-request track-sc0 src table wax_api_servers if { url_beg /v1/chain/get_info }
-        http-request tarpit deny_status 429 if { sc_http_req_rate(0) gt 10 } { url_beg /v1/chain/get_info }
         acl <identifier_for_rule> hdr(host) -i <hostheader_to_offload>
         http-request lua.cors
         http-response lua.cors "GET,PUT,POST" "*"
@@ -201,15 +199,3 @@ backend <backend_system>
         server wax 172.168.40.100:7000 maxconn 3000
         server wax 172.168.40.101:7000 maxconn 3000
 ```
-
-
-
-
-
-
-
-
-
-
-
-
