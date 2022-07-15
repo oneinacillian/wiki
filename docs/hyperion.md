@@ -6,8 +6,8 @@
 - Optimize indexing operations for bulk processing - <span style="color:red">**not yet complete**</span>
 - Reset elastic credentials
 - Upgrade Elasticsearch from 7.x to 8.x using upgrade assistant - <span style="color:red">**not yet complete**</span>
-- Recover Missing documents (failures during indexing operations) - <span style="color:red">**not yet complete**</span>
 - Recover Missing documents via a script - <span style="color:red">**not yet complete**</span>
+- Recover Missing documents manually (failures during indexing operations) - <span style="color:red">**not yet complete**</span>
 - pin up container on secondary host to participate in indexing operations - <span style="color:red">**not yet complete**</span>
 
 ### Create an indexing snapshot
@@ -77,8 +77,54 @@ You can then have a copy of the following stored in credentials.file
 ```
 ```
 
+### Recover Missing documents via a script which was provided by one of the Guild members. 
+> It often can happen that during the indexing operation you encountered a component failure which causes the indexing operation to miss certain blocks during the indexing.
+
+One of you valued community members has provided a python based utility to automate the recovery of documents which were lost during the indexing operations.
+
+[Please follow this link as a first attempt to resolve all missing documents](https://github.com/eosrio/hyperion-history-api/tree/v3.3.5/scripts/fix_missing_blocks) 
+
+To confirm that no block data is missing, connect to Kibana and open **dev tools** under management <br>
+<img src="/assets/dev tools - Elastic.png"/> <br>
+Run the following POST command to view the block histogram. **Note** that each bucket contains 10,000,000 documents <br>
+This way you can also easily verify which bucket has missing data <br>
+<img src="/assets/missing_block_1  - Elastic.png"/> <br>
+```
+POST wax-block-*/_search
+{
+  "aggs": {
+    "block_histogram": {
+      "histogram": {
+        "field": "block_num",
+        "interval": 10000000,
+        "min_doc_count": 1
+      },
+      "aggs": {
+        "max_block": {
+          "max": {
+            "field": "block_num"
+          }
+        }
+      }
+    }
+  },
+  "size": 0,
+  "query": {
+    "match_all": {}
+  }
+}
+```
+Check the block histogram on the results pane to see if any documents are missing. The expectation here is that each bucket prior to the bucket in which documents are indexed, are fully populated with 10,000,000 documents <br>
+Run the wax indexer utility until you catch up with headblock the run the following to query hyperion health
+```
+http://hyperion.oiac.io/v2/health
+```
+The expected respone will be to have your head_block_num, last_indexed_block and total_indexed_blocks in sync <br>
+<img src="/assets/elastic block status.png"/> <br>
+Should this not be the case, start the manual recovery process as explained in the below section
+
 ### Recover Missing documents manually (failures during indexing operations)
-> It often can happen that during the indexing operation you encountered a component failure which causes the indexing operation to miss certain blocks during the indexing. In this section, I will explain the manual process of finding the blocks and recovering the manually via the wax-indexer operations.
+ In this section, I will explain the manual process of finding the blocks and recovering the manually via the wax-indexer operations.
 
 Determine the amount of documents stored in each bucket, which should contain 10000000 items
 ```
@@ -233,10 +279,8 @@ Result will look like follows =>
       ]
     }
   }
-### Recover Missing documents via a script (failures during indexing operations)
+```
 
-```
-```
 ### Spin up container on secondary host to participate in indexing operations
 
 ```
