@@ -6,7 +6,7 @@
 - Optimize indexing operations for bulk processing - <span style="color:red">**not yet complete**</span>
 - Reset elastic credentials
 - Upgrade Elasticsearch from 7.x to 8.x using upgrade assistant - <span style="color:red">**not yet complete**</span>
-- Recover Missing documents via a script - <span style="color:red">**not yet complete**</span>
+- Recover Missing documents via a script
 - Recover Missing documents manually (failures during indexing operations) - <span style="color:red">**not yet complete**</span>
 - pin up container on secondary host to participate in indexing operations - <span style="color:red">**not yet complete**</span>
 
@@ -114,12 +114,13 @@ POST wax-block-*/_search
   }
 }
 ```
-Check the block histogram on the results pane to see if any documents are missing. The expectation here is that each bucket prior to the bucket in which documents are indexed, are fully populated with 10,000,000 documents <br>
+Check the block histogram on the results pane to see if any documents are missing. <br>
+The expectation here is that each bucket prior to the bucket in which documents are indexed, are fully populated with 10,000,000 documents <br>
 Run the wax indexer utility until you catch up with headblock the run the following to query hyperion health
 ```
 http://hyperion.oiac.io/v2/health
 ```
-The expected respone will be to have your head_block_num, last_indexed_block and total_indexed_blocks in sync <br>
+The expected respone will be to have your **head_block_num**, **last_indexed_block** and **total_indexed_blocks** in sync <br>
 <img src="/assets/elastic block status.png"/> <br>
 Should this not be the case, start the manual recovery process as explained in the below section
 
