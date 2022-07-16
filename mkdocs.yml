@@ -18,6 +18,7 @@ nav:
   - Monitoring (Prometheus/Grafana): monitoring.md
   - Loadtest setup using Locust: locust.md
   - HAProxy: haproxy.md
+  - VPN: wireguard.md
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
