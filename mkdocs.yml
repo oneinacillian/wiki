@@ -8,6 +8,7 @@ plugins:
   - search
 nav:
   - Home: index.md
+  - Installations: installation.md
   - Hyperion: hyperion.md
   - Atomic API: atomic-api.md
   - PostgreSQL: postgresql.md
