@@ -10,7 +10,7 @@
 - Recover Missing documents manually (failures during indexing operations) - <span style="color:red">**not yet complete**</span>
 - pin up container on secondary host to participate in indexing operations - <span style="color:red">**not yet complete**</span>
 
-### Create an indexing snapshot
+### *Create an indexing snapshot*
 - add path.repo: ["/data/snapshots"] to elasticsearch.yml where you would like to store your snapshots
 - stop your hyperion indexer and api process
 - restart elasticsearch
@@ -52,13 +52,13 @@ You should now see the configure snapshot policy
 Trigger a run to make sure that the index/s you selected, backed up successfully
 <img src="/assets/snapshot complete.png"/>
 
-### Restore a snapshot
+### *Restore a snapshot*
 ```
 ```
-### Optimize indexing operations for bulk processing
+### *Optimize indexing operations for bulk processing*
 ```
 ```
-### Reset elastic credentials
+### *Reset elastic credentials*
 ```
 yes | /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto > credentials.file
 ```
@@ -72,12 +72,12 @@ You can then have a copy of the following stored in credentials.file
 - remote_monitoring_user
 - elastic (used to log into Kibana UI)
   
-### Upgrade Elasticsearch from 7.x to 8.x
+### *Upgrade Elasticsearch from 7.x to 8.x*
 <img src="/assets/Upgrade Assistant - Elastic.png"/>
 ```
 ```
 
-### Recover Missing documents via a script which was provided by one of the Guild members. 
+### *Recover Missing documents via a script*
 > It often can happen that during the indexing operation you encountered a component failure which causes the indexing operation to miss certain blocks during the indexing.
 
 One of you valued community members has provided a python based utility to automate the recovery of documents which were lost during the indexing operations.
@@ -124,7 +124,7 @@ The expected respone will be to have your **head_block_num**, **last_indexed_blo
 <img src="/assets/elastic block status.png"/> <br>
 Should this not be the case, start the manual recovery process as explained in the below section
 
-### Recover Missing documents manually (failures during indexing operations)
+### *Recover Missing documents manually*
  In this section, I will explain the manual process of finding the blocks and recovering the manually via the wax-indexer operations.
 
 Determine the amount of documents stored in each bucket, which should contain 10000000 items
@@ -282,7 +282,7 @@ Result will look like follows =>
   }
 ```
 
-### Spin up container on secondary host to participate in indexing operations
+### *Spin up container on secondary host to participate in indexing operations*
 
 ```
 ```
