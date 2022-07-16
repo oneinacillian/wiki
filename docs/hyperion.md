@@ -80,7 +80,8 @@ You can then have a copy of the following stored in credentials.file
 ### *Recover Missing documents via a script*
 > It often can happen that during the indexing operation you encountered a component failure which causes the indexing operation to miss certain blocks during the indexing.
 
-One of you valued community members has provided a python based utility to automate the recovery of documents which were lost during the indexing operations.
+#### *Recover via a script*
+> One of you valued community members has provided a python based utility to automate the recovery of documents which were lost during the indexing operations.
 
 [Please follow this link as a first attempt to resolve all missing documents](https://github.com/eosrio/hyperion-history-api/tree/v3.3.5/scripts/fix_missing_blocks) 
 
@@ -124,8 +125,8 @@ The expected respone will be to have your **head_block_num**, **last_indexed_blo
 <img src="/assets/elastic block status.png"/> <br>
 Should this not be the case, start the manual recovery process as explained in the below section
 
-### *Recover Missing documents manually*
- In this section, I will explain the manual process of finding the blocks and recovering the manually via the wax-indexer operations.
+#### *Recover Missing documents manually*
+In this section, I will explain the manual process of finding the blocks and recovering the manually via the wax-indexer operations.
 
 Determine the amount of documents stored in each bucket, which should contain 10000000 items
 ```
