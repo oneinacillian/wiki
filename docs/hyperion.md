@@ -11,11 +11,11 @@
 - pin up container on secondary host to participate in indexing operations - <span style="color:red">**not yet complete**</span>
 
 ### *Create an indexing snapshot*
-- add path.repo: ["/data/snapshots"] to elasticsearch.yml where you would like to store your snapshots
-- stop your hyperion indexer and api process
-- restart elasticsearch
-- log into kibana
-- Using dev tools under management, create a snapshot repository
+1. add path.repo: ["/data/snapshots"] to elasticsearch.yml where you would like to store your snapshots
+2. stop your hyperion indexer and api process
+3. restart elasticsearch
+4. log into kibana
+5. Using dev tools under management, create a snapshot repository
 ```
 PUT /_snapshot/my_repository
 {
@@ -25,10 +25,11 @@ PUT /_snapshot/my_repository
   }
 }
 ```
-<img src="/assets/Configure snapshot repo - Elastic.png"/>
-You should now see your repository being visible for snapshots
+<img src="/assets/Configure snapshot repo - Elastic.png"/> <br>
+You should now see your repository being visible for snapshots <br>
 <img src="/assets/repo visible - Elastic.png"/>
-- Create a daily snapshot policy
+
+6. Create a daily snapshot policy
 ```
 PUT /_slm/policy/daily_snapshot
 {
@@ -47,9 +48,11 @@ PUT /_slm/policy/daily_snapshot
   }
 }
 ```
-You should now see the configure snapshot policy
+You should now see the configure snapshot policy <br>
 <img src="/assets/snapshot policy - Elastic.png"/>
-Trigger a run to make sure that the index/s you selected, backed up successfully
+
+7. Trigger a run to make sure that the index/s you selected, backed up successfully <br>
+
 <img src="/assets/snapshot complete.png"/>
 
 ### *Restore a snapshot*
