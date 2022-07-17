@@ -69,5 +69,5 @@ wg set wg0 peer <HOST-A public key> persistent-keepalive 25
 wg-quick down wg0
 wg-quick up wg0
 ```
-The persistent-keepalive between HOST-A and HOST-B will send a packet to each peer to keep tunnel active
+The persistent-keepalive between HOST-A and HOST-B will send a packet to each peer to keep tunnel active <br>
 Both hosts should now be reachable via a secure VPN tunnel 

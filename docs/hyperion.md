@@ -285,6 +285,159 @@ Result will look like follows =>
     }
   }
 ```
+In this example above, you can see that each bucket starts at a key which defines the starting block number <br>
+In this case, there are 16 buckets, 15 should contain 10,000,000 documents each, with the last one still indexing <br>
+If at any time you do not have a doc_count of 10,000,000 in each bucket (except for the last one), there are document missing and validators will mark the system as incomplete <br>
+> Example of 2 buckets having missing data<br>
+
+```
+        {
+          "key" : 1.4E8,
+          "doc_count" : 9950000,
+          "max_block" : {
+            "value" : 1.49999999E8
+          }
+        },
+        {
+          "key" : 1.5E8,
+          "doc_count" : 9998000,
+          "max_block" : {
+            "value" : 1.59999999E8
+          }
+        },
+```
+Above you can see 
+- Bucket starting at 140000000 has <span style="color:red">**50,000**</span> documents missing
+- Bucket starting at 150000000 has <span style="color:red">**2,000**</span> documents missing
+
+Next would be to view the individual buckets to narrow down the searches to find and index the missing documents <br>
+Let us start by working on the **1st index** which has missing data <br>
+Narrow down the search to 1,000,000 documents <br>
+> Run the following command to retrieve 1,000,000 items at a time on bucket starting at 140,000,000
+```
+POST wax-block-*/_search
+{
+  "aggs": {
+    "block_histogram": {
+      "histogram": {
+        "field": "block_num",
+        "interval": 1000000,
+        "min_doc_count": 1
+      },
+      "aggs": {
+        "max_block": {
+          "max": {
+            "field": "block_num"
+          }
+        }
+      }
+    }
+  },
+  "size": 0,
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "range": {
+            "block_num": {
+              "gte": 140000000,
+              "lte": 150000000
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+```
+<img src="/assets/recover docs 1 - Elastic.png"/> <br>
+Viewing the results of the above query, either the documents can be missing in multiple buckets, or in only 1, but the recovery process remains the same <br>
+The recovery process that be run for the entire bucket as well, but could be time consuming <br>
+For the purpose of this document, I will recover missing documents from 2 buckets <br>
+```
+        {
+          "key" : 1.45E8,
+          "doc_count" : 975000,
+          "max_block" : {
+            "value" : 1.45999999E8
+          }
+        },
+        {
+          "key" : 1.46E8,
+          "doc_count" : 975000,
+          "max_block" : {
+            "value" : 1.46999999E8
+          }
+        },
+```
+Above, you can see
+
+- bucket starting 145000000 (represented by key 1.45E8) has <span style="color:red">**25,000**</span> blocks missing <br>
+- bucket starting 146000000 (represented by key 1.46E8) has <span style="color:red">**25,000**</span> blocks missing <br>
+
+To start recovery the missing blocks, we need to use the wax indexer app provided as part of the hyperion install, and which is used to run the main indexing operations <br>
+Stop your current indexing
+```
+./stop.sh wax-indexer
+```
+Then modify the following in your wax.config.json to recover the first bucket missing 25,000 blocks <br>
+<img src="/assets/recover docs 2 - Elastic.png"/> <br>
+```
+  "indexer": {
+    "enabled": true,
+    "node_max_old_space_size": 8192,
+    "start_on": 145975000,
+    "stop_on": 146000000,
+    "rewrite": true,
+    "purge_queues": true,
+    "live_reader": false,
+    "live_only_mode": false,
+    "abi_scan_mode": false,
+    "fetch_block": true,
+    "fetch_traces": true,
+    "disable_reading": false,
+    "disable_indexing": false,
+    "process_deltas": true,
+    "disable_delta_rm": true
+  },
+```
+
+- disable **live_reader**
+- enable **purge_queues** and **rewrite**
+- configure the **start_on** and **stop_on** parameters which will tell the indexer which blocks to recover (note examples used for recovery above)
+
+Start your idexing operations to recover the first 25,000 blocks. <br>
+```
+./run.sh wax-indexer
+```
+Once completed, modify the **start_on** and **stop_on** parameters to recover missing blocks for the next bucket (note examples used for recovery above) <br>
+**_NOTE:_** to restart your wax-indexer after each change to take effect
+
+```
+  "indexer": {
+    "enabled": true,
+    "node_max_old_space_size": 8192,
+    "start_on": 145975000,
+    "stop_on": 146000000,
+    "rewrite": true,
+    "purge_queues": true,
+    "live_reader": false,
+    "live_only_mode": false,
+    "abi_scan_mode": false,
+    "fetch_block": true,
+    "fetch_traces": true,
+    "disable_reading": false,
+    "disable_indexing": false,
+    "process_deltas": true,
+    "disable_delta_rm": true
+  },
+```
+Once all the blocks has been restored
+
+- disable **purge_queues** and **rewrite**
+- enable **live_reader**
+
+Restart and let it catch up to headblock again.
 
 ### *Spin up container on secondary host to participate in indexing operations*
 
