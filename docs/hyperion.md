@@ -21,10 +21,14 @@ PUT /_snapshot/my_repository
 {
   "type": "fs",
   "settings": {
-    "location": "/data/snapshots"
+    "location": "/data/snapshots",
+    "compress": true,
+    "max_restore_bytes_per_sec": "1gb",
+    "max_snapshot_bytes_per_sec": "1gb"    
   }
 }
 ```
+Please note that the above settings has been optimized for throughput <br>
 <img src="/assets/Configure snapshot repo - Elastic.png"/> <br>
 You should now see your repository being visible for snapshots <br>
 <img src="/assets/repo visible - Elastic.png"/> <br>
