@@ -83,9 +83,13 @@ You can then have a copy of the following stored in credentials.file
 <img src="/assets/Upgrade Assistant - Elastic.png"/> <br>
 
 1. Create snapshot of all your elastic indexes
+2. Migrate system indices (if not already ticked)
+3. Review deprecated settings and resole issues for critical errors (if not already ticked)
+4. Address API deprecations if necessary
 
 #### Create snapshot of all your elastic indexes
 > Create the following **policy**
+
 ```
 PUT /_slm/policy/upgrade_snapshot
 {
@@ -103,9 +107,56 @@ PUT /_slm/policy/upgrade_snapshot
     "max_count": 50 
   }
 }
+
 ```
-Kick off the above policy to backup all your wax indexes
+Kick off the above policy to backup all your wax indexes <br>
 <img src="/assets/index snapshot prior upgrade.png"/> <br>
+> Indexes (at the time of the upgrade on testnet)
+
+```
+wax-abi-v1
+wax-action-v1-000001
+wax-action-v1-000002
+wax-action-v1-000003
+wax-action-v1-000004
+wax-action-v1-000005
+wax-action-v1-000006
+wax-action-v1-000007
+wax-action-v1-000008
+wax-action-v1-000009
+wax-action-v1-000010
+wax-action-v1-000011
+wax-action-v1-000012
+wax-action-v1-000013
+wax-action-v1-000014
+wax-action-v1-000015
+wax-action-v1-000016
+wax-action-v1-000017
+wax-block-v1
+wax-delta-v1-000001
+wax-delta-v1-000002
+wax-delta-v1-000003
+wax-delta-v1-000004
+wax-delta-v1-000005
+wax-delta-v1-000006
+wax-delta-v1-000007
+wax-delta-v1-000008
+wax-delta-v1-000009
+wax-delta-v1-000010
+wax-delta-v1-000011
+wax-delta-v1-000012
+wax-delta-v1-000013
+wax-delta-v1-000014
+wax-delta-v1-000015
+wax-delta-v1-000016
+wax-delta-v1-000017
+wax-link-v1
+wax-logs-v1
+wax-perm-v1
+wax-table-accounts-v1
+wax-table-proposals-v1
+wax-table-voters-v1
+```
 
 ### *Recover Missing documents via a script*
 > It often can happen that during the indexing operation you encountered a component failure which causes the indexing operation to miss certain blocks during the indexing.
