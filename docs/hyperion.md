@@ -11,10 +11,10 @@
 - pin up container on secondary host to participate in indexing operations - <span style="color:red">**not yet complete**</span>
 
 ### *Create an indexing snapshot*
-1. add path.repo: ["/data/snapshots"] to elasticsearch.yml where you would like to store your snapshots
-2. stop your hyperion indexer and api process
-3. restart elasticsearch
-4. log into kibana
+1. Add path.repo: ["/data/snapshots"] to elasticsearch.yml where you would like to store your snapshots
+2. Stop your hyperion indexer and api process
+3. Restart elasticsearch
+4. Log into kibana
 5. Using dev tools under management, create a snapshot repository
 ```
 PUT /_snapshot/my_repository
@@ -27,9 +27,13 @@ PUT /_snapshot/my_repository
 ```
 <img src="/assets/Configure snapshot repo - Elastic.png"/> <br>
 You should now see your repository being visible for snapshots <br>
-<img src="/assets/repo visible - Elastic.png"/>
+<img src="/assets/repo visible - Elastic.png"/> <br>
 
-6. Create a daily snapshot policy
+6. Make sure that you set ownership to elasticsearch on the snapshot directory
+```
+chown -R elasticsearch:elasticsearch /data/snapshots
+```
+7. Create a daily snapshot policy
 ```
 PUT /_slm/policy/daily_snapshot
 {
@@ -49,9 +53,9 @@ PUT /_slm/policy/daily_snapshot
 }
 ```
 You should now see the configure snapshot policy <br>
-<img src="/assets/snapshot policy - Elastic.png"/>
+<img src="/assets/snapshot policy - Elastic.png"/> <br>
 
-7. Trigger a run to make sure that the index/s you selected, backed up successfully <br>
+8. Trigger a run to make sure that the index/s you selected, backed up successfully <br>
 
 <img src="/assets/snapshot complete.png"/>
 
@@ -76,9 +80,32 @@ You can then have a copy of the following stored in credentials.file
 - elastic (used to log into Kibana UI)
   
 ### *Upgrade Elasticsearch from 7.x to 8.x*
-<img src="/assets/Upgrade Assistant - Elastic.png"/>
+<img src="/assets/Upgrade Assistant - Elastic.png"/> <br>
+
+1. Create snapshot of all your elastic indexes
+
+#### Create snapshot of all your elastic indexes
+> Create the following **policy**
 ```
+PUT /_slm/policy/upgrade_snapshot
+{
+  "schedule": "0 30 1 * * ?", 
+  "name": "upgrade_snapshot", 
+  "repository": "my_repository", 
+  "config": { 
+    "indices": ["wax-*"], 
+    "ignore_unavailable": false,
+    "include_global_state": false
+  },
+  "retention": { 
+    "expire_after": "30d", 
+    "min_count": 5, 
+    "max_count": 50 
+  }
+}
 ```
+Kick off the above policy to backup all your wax indexes
+<img src="/assets/index snapshot prior upgrade.png"/> <br>
 
 ### *Recover Missing documents via a script*
 > It often can happen that during the indexing operation you encountered a component failure which causes the indexing operation to miss certain blocks during the indexing.
@@ -286,7 +313,7 @@ Result will look like follows =>
   }
 ```
 In this example above, you can see that each bucket starts at a key which defines the starting block number <br>
-In this case, there are 16 buckets, 15 should contain 10,000,000 documents each, with the last one still indexing <br>
+In this case, there are 16 buckets, 15 should contain 10,000,000 blocks each, with the last one still indexing <br>
 If at any time you do not have a doc_count of 10,000,000 in each bucket (except for the last one), there are document missing and validators will mark the system as incomplete <br>
 > Example of 2 buckets having missing data<br>
 
@@ -310,7 +337,7 @@ Above you can see
 - Bucket starting at 140000000 has <span style="color:red">**50,000**</span> documents missing
 - Bucket starting at 150000000 has <span style="color:red">**2,000**</span> documents missing
 
-Next would be to view the individual buckets to narrow down the searches to find and index the missing documents <br>
+Next would be to view the individual buckets to narrow down the searches to find and index the missing blocks <br>
 Let us start by working on the **1st index** which has missing data <br>
 Narrow down the search to 1,000,000 documents <br>
 > Run the following command to retrieve 1,000,000 items at a time on bucket starting at 140,000,000
@@ -351,9 +378,9 @@ POST wax-block-*/_search
 }
 ```
 <img src="/assets/recover docs 1 - Elastic.png"/> <br>
-Viewing the results of the above query, either the documents can be missing in multiple buckets, or in only 1, but the recovery process remains the same <br>
+Viewing the results of the above query, either the blocks can be missing in multiple buckets, or in only 1, but the recovery process remains the same <br>
 The recovery process that be run for the entire bucket as well, but could be time consuming <br>
-For the purpose of this document, I will recover missing documents from 2 buckets <br>
+For the purpose of this document, I will recover missing blocks from 2 buckets <br>
 ```
         {
           "key" : 1.45E8,
