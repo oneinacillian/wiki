@@ -83,7 +83,7 @@ You can then have a copy of the following stored in credentials.file
 - remote_monitoring_user
 - elastic (used to log into Kibana UI)
   
-### *Upgrade Elasticsearch from 7.x to 8.x* ==> <span style="color:red">**!!Do not perform the upgrade yet as this process is being tested!!**</span> <br>
+### *Upgrade Elasticsearch from 7.x to 8.x* ==> <span style="color:red">**!!Do not perform the upgrade yet as this process is being written/tested!!**</span> <br>
 <img src="/assets/Upgrade Assistant - Elastic.png"/> <br>
 
 1. Create snapshot of all your elastic indexes
