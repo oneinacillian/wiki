@@ -83,7 +83,7 @@ You can then have a copy of the following stored in credentials.file
 - remote_monitoring_user
 - elastic (used to log into Kibana UI)
   
-### *Upgrade Elasticsearch from 7.x to 8.x*
+### *Upgrade Elasticsearch from 7.x to 8.x* ==> <span style="color:red">**!!Do not perform the upgrade yet as this process is being tested!!**</span> <br>
 <img src="/assets/Upgrade Assistant - Elastic.png"/> <br>
 
 1. Create snapshot of all your elastic indexes
@@ -162,6 +162,58 @@ wax-table-proposals-v1
 wax-table-voters-v1
 ```
 > Using the optimized repository settings specific earlier in **Create an indexing snapshot**, it took 428s to snapshot 315GB of data
+
+<img src="/assets/snapshot result.png"/> <br>
+
+To Upgrade you elasticsearch, perform the following:
+
+1. Disable shard allocation
+```
+PUT _cluster/settings
+{
+  "persistent": {
+    "cluster.routing.allocation.enable": "primaries"
+  }
+}
+```
+2. Stop non-essential indexing and perform a flush
+```
+POST /_flush
+```
+3. Temporarily stop the tasks associated with active machine learning jobs and datafeeds
+```
+POST _ml/set_upgrade_mode?enabled=true
+```
+4. Shutdown node
+```
+sudo -i service elasticsearch stop
+```
+5. Register the new stable package apt source for elastic-8.x
+```
+rm -rf /etc/apt/sources.list.d/elastic-7.x.list
+echo "deb https://artifacts.elastic.co/packages/8.x/apt stable main" | tee /etc/apt/sources.list.d/elastic-8.x.list
+apt-get update
+```
+> You should see **https://artifacts.elastic.co/packages/8.x/apt stable InRelease** in the repository being listed
+
+6.  Upgrade elasticsearch to 8.x
+```
+root@26b4315c7b5c:/etc/apt/sources.list.d# apt-get upgrade elasticsearch
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Calculating upgrade... Done
+The following packages will be upgraded:
+  curl dirmngr elasticsearch erlang-asn1 erlang-base erlang-crypto erlang-eldap erlang-ftp erlang-inets erlang-mnesia erlang-os-mon erlang-parsetools erlang-public-key erlang-runtime-tools erlang-snmp
+  erlang-ssl erlang-syntax-tools erlang-tftp erlang-tools erlang-xmerl git git-man gnupg gnupg-l10n gnupg-utils gpg gpg-agent gpg-wks-client gpg-wks-server gpgconf gpgsm gpgv kibana libcurl3-gnutls
+  libcurl4 libhttp-daemon-perl libpython2.7-minimal libpython2.7-stdlib libpython3.8 libpython3.8-minimal libpython3.8-stdlib libssl-dev libssl1.1 linux-libc-dev openssl python2.7 python2.7-minimal
+  python3.8 python3.8-minimal rabbitmq-server redis redis-server redis-tools
+53 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 870 MB of archives.
+After this operation, 606 MB of additional disk space will be used.
+```
+
+
 
 ### *Recover Missing documents via a script*
 > It often can happen that during the indexing operation you encountered a component failure which causes the indexing operation to miss certain blocks during the indexing.
