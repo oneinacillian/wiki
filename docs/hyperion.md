@@ -161,6 +161,7 @@ wax-table-accounts-v1
 wax-table-proposals-v1
 wax-table-voters-v1
 ```
+> Using the optimized repository settings specific earlier in **Create an indexing snapshot**, it took 428s to snapshot 315GB of data
 
 ### *Recover Missing documents via a script*
 > It often can happen that during the indexing operation you encountered a component failure which causes the indexing operation to miss certain blocks during the indexing.
