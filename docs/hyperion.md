@@ -184,6 +184,20 @@ POST /_flush
 ```
 POST _ml/set_upgrade_mode?enabled=true
 ```
+
+> still to check
+```
+PUT /_cluster/settings
+{
+  "transient": {
+    "cluster.routing.allocation.enable": null
+  },
+  "persistent": {
+    "cluster.routing.allocation.enable": null
+  }
+}
+```
+
 4. Shutdown node
 ```
 sudo -i service elasticsearch stop
