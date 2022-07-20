@@ -54,7 +54,7 @@ WantedBy=multi-user.target' > /etc/systemd/system/prometheus.service
 sudo systemctl daemon-reload
 sudo systemctl start prometheus
 sudo systemctl enable prometheus
-apt install firewalld
+apt-get install -y firewalld
 firewall-cmd --add-port=9090/tcp --permanent
 service firewalld reload
 #------------------------------------
@@ -87,11 +87,12 @@ To start scrape the metrics which is exposed via proxy, add the following to you
 wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
 echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
 sudo apt-get update
-sudo apt-get install grafana
+sudo apt-get install -y grafana
 sudo systemctl start grafana-server
 sudo systemctl enable grafana-server.service
 firewall-cmd --add-port=3000/tcp --permanent
 service firewalld reload
+service grafana-server start
 #---------------------------------
 ```
 > Connect to the Grafana interface via your public/private ip, or a DNS address you have configured
