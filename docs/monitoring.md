@@ -126,50 +126,77 @@ You can expand any statistic to get a full representation of how your ingress/eg
 
 ### *Configure a telegram bot*
 
-1. Proceed to alert setup <br>
-<img src="/assets/telegram 1 - Grafana.png"/> <br>
+1. Open Telegram, and create a new Bot by searching for @BotFather. Select the certified one as per the identification badge <br>
 
-2. Create a new contact point <br>
-<img src="/assets/telegram 2 - Grafana.png"/> <br>
-
-3. Select a name and type for telegram alert spec <br>
-<img src="/assets/telegram 3 - Grafana.png"/> <br>
-
-4. Open Telegram, and create a new Bot by searching for @BotFather. Select the certified one as per the identification badge <br>
 <img src="/assets/telegram - search botfather.png"/> <br>
 
-5. Click on start <br>
+2. Click on start <br>
+
 <img src="/assets/telegram - click on start.png"/> <br>
 
-6. Create new bot <br>
+3. Create new bot <br>
+
 <img src="/assets/telegram - create a new bot.png"/> <br>
 
-7. Choose a name for the bot <br>
+4. Choose a name for the bot <br>
+
 <img src="/assets/telegram - select name for bot.png"/> <br>
 
-8. Create username for the bot <br>
+5. Create username for the bot <br>
+
 <img src="/assets/telegram - create username for bot.png"/> <br>
 
-9. Take note of API token and bot link <br>
+6. Take note of API token and bot link <br>
+
 <img src="/assets/telegram - API token.png"/> <br>
 
-10. Start the bot <br>
+7. Start the bot <br>
+
 <img src="/assets/telegram - start bot.png"/> <br>
 <img src="/assets/telegram - start bot2.png"/> <br> 
 
-11. Create a new group in telegram <br>
+8. Create a new group in telegram <br>
+
 <img src="/assets/telegram - create new group.png"/> <br> 
 
-12. Add the bot to the group (find by bot link) <br>
+9. Add the bot to the group (find by bot link) <br>
+
 <img src="/assets/telegram - add bot to group.png"/> <br> 
 
-13. Select a group name of your choice (where you want to receive your alerts) <br>
+10. Select a group name of your choice (where you want to receive your alerts) <br>
+
 <img src="/assets/telegram - name group.png"/> <br> 
 
-14. Verify that the newly created group exists <br>
+11. Verify that the newly created group exists <br>
+
 <img src="/assets/telegram - verify that group exists.png"/> <br> 
 
+### *Configure Alerting in Grafana to post alert messages to telegram*
 
+1. Proceed to alert setup <br>
+
+<img src="/assets/telegram 1 - Grafana.png"/> <br>
+
+1. Create a new contact point <br>
+
+<img src="/assets/telegram 2 - Grafana.png"/> <br>
+
+3. Select a name and type for telegram alert spec <br>
+
+<img src="/assets/telegram 3 - Grafana.png"/> <br>
+
+4. Enter you bot API token, as per step 6 of configuring your telegram bot (data should still be in your telegram)
+5. Enter your chat ID for your group (can be gathered by viewing the group info) <span style="color:red">**will only work if you bot has been started. Step 7 on setting up a telegram bot**</span>
+```
+https://api.telegram.org/bot<YOUR_API_TOKEN_KEY>/getUpdates 
+```
+> Your chat ID with the numeric digits prefixed by the '-'
+
+Alternatively, you can open telegram web, proceed to the group and retrieve your chat ID which is indicated by your url after the # sign
+
+6. Configure your Message and notification settings (for auto resolving) as you please and save contact point
+
+<img src="/assets/telegram 4 - Grafana.png"/> <br>
 
 
 
