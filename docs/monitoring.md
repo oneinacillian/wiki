@@ -5,7 +5,7 @@
 - Add remote endpoint to allow prometheus to scrape proxy (haproxy) stats 
 - Install and configure Grafana
 - Import HA proxy dashboard to have visibility on query and history traffic
-- Configure a telegram bot - <span style="color:red">**not yet complete**</span>
+- Configure a telegram bot
 - Configure Alerting in Grafana to post alert messages to telegram - <span style="color:red">**not yet complete**</span>
 - Automate deploy using Ansible playbook - <span style="color:red">**not yet complete**</span>
 
@@ -123,6 +123,51 @@ Continue with the prompts until the dashboard is installed
 <img src="/assets/haproxy2 full - Grafana.png"/> <br>
 <img src="/assets/haproxy_options - Grafana.png"/> <br>
 You can expand any statistic to get a full representation of how your ingress/egress is performing, as well as health statistics of the proxy service
+
+### *Configure a telegram bot*
+
+1. Proceed to alert setup
+<img src="/assets/telegram 1 - Grafana.png"/> <br>
+
+2. Create a new contact point
+<img src="/assets/telegram 2 - Grafana.png"/> <br>
+
+3. Select a name and type for telegram alert spec
+<img src="/assets/telegram 3 - Grafana.png"/> <br>
+
+4. Open Telegram, and create a new Bot by searching for @BotFather. Select the certified one as per the identification badge
+<img src="/assets/telegram - search botfather.png"/> <br>
+
+5. Click on start
+<img src="/assets/telegram - click on start.png"/> <br>
+
+6. Create new bot
+<img src="/assets/telegram - create a new bot.png"/> <br>
+
+7. Choose a name for the bot
+<img src="/assets/telegram - select name for bot.png"/> <br>
+
+8. Create username for the bot
+<img src="/assets/telegram - create username for bot.png"/> <br>
+
+9. Take note of API token and bot link
+<img src="/assets/telegram - API token.png"/> <br>
+
+10. Start the bot
+<img src="/assets/telegram - start bot.png"/> <br>
+<img src="/assets/telegram - start bot2.png"/> <br> 
+
+11. Create a new group in telegram
+<img src="/assets/telegram - create new group.png"/> <br> 
+
+12. Add the bot to the group (find by bot link)
+<img src="/assets/telegram - add bot to group.png"/> <br> 
+
+13. Select a group name of your choice (where you want to receive your alerts)
+<img src="/assets/telegram - name group.png"/> <br> 
+
+14. Verify that the newly created group exists
+<img src="/assets/telegram - verify that group exists.png"/> <br> 
 
 
 
