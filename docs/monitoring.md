@@ -126,47 +126,47 @@ You can expand any statistic to get a full representation of how your ingress/eg
 
 ### *Configure a telegram bot*
 
-1. Proceed to alert setup
+1. Proceed to alert setup <br>
 <img src="/assets/telegram 1 - Grafana.png"/> <br>
 
-2. Create a new contact point
+2. Create a new contact point <br>
 <img src="/assets/telegram 2 - Grafana.png"/> <br>
 
-3. Select a name and type for telegram alert spec
+3. Select a name and type for telegram alert spec <br>
 <img src="/assets/telegram 3 - Grafana.png"/> <br>
 
-4. Open Telegram, and create a new Bot by searching for @BotFather. Select the certified one as per the identification badge
+4. Open Telegram, and create a new Bot by searching for @BotFather. Select the certified one as per the identification badge <br>
 <img src="/assets/telegram - search botfather.png"/> <br>
 
-5. Click on start
+5. Click on start <br>
 <img src="/assets/telegram - click on start.png"/> <br>
 
-6. Create new bot
+6. Create new bot <br>
 <img src="/assets/telegram - create a new bot.png"/> <br>
 
-7. Choose a name for the bot
+7. Choose a name for the bot <br>
 <img src="/assets/telegram - select name for bot.png"/> <br>
 
-8. Create username for the bot
+8. Create username for the bot <br>
 <img src="/assets/telegram - create username for bot.png"/> <br>
 
-9. Take note of API token and bot link
+9. Take note of API token and bot link <br>
 <img src="/assets/telegram - API token.png"/> <br>
 
-10. Start the bot
+10. Start the bot <br>
 <img src="/assets/telegram - start bot.png"/> <br>
 <img src="/assets/telegram - start bot2.png"/> <br> 
 
-11. Create a new group in telegram
+11. Create a new group in telegram <br>
 <img src="/assets/telegram - create new group.png"/> <br> 
 
-12. Add the bot to the group (find by bot link)
+12. Add the bot to the group (find by bot link) <br>
 <img src="/assets/telegram - add bot to group.png"/> <br> 
 
-13. Select a group name of your choice (where you want to receive your alerts)
+13. Select a group name of your choice (where you want to receive your alerts) <br>
 <img src="/assets/telegram - name group.png"/> <br> 
 
-14. Verify that the newly created group exists
+14. Verify that the newly created group exists <br>
 <img src="/assets/telegram - verify that group exists.png"/> <br> 
 
 
