@@ -7,7 +7,7 @@
 - Import HA proxy dashboard to have visibility on query and history traffic
 - Configure a telegram bot
 - Configure contact point
-- Configure Alerting in Grafana to post alert messages to telegram - <span style="color:red">**not yet complete**</span>
+- Configure Alerting in Grafana to post alert messages to telegram
 - Automate deploy using Ansible playbook - <span style="color:red">**not yet complete**</span>
 
 ### *Manual Install prometheus on Ubuntu*
