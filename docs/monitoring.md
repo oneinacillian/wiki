@@ -6,6 +6,7 @@
 - Install and configure Grafana
 - Import HA proxy dashboard to have visibility on query and history traffic
 - Configure a telegram bot
+- Configure contact point
 - Configure Alerting in Grafana to post alert messages to telegram - <span style="color:red">**not yet complete**</span>
 - Automate deploy using Ansible playbook - <span style="color:red">**not yet complete**</span>
 
@@ -171,7 +172,7 @@ You can expand any statistic to get a full representation of how your ingress/eg
 
 <img src="/assets/telegram - verify that group exists.png"/> <br> 
 
-### *Configure Alerting in Grafana to post alert messages to telegram*
+### *Configure contact point*
 
 > Proceed to alert setup <br>
 
@@ -195,9 +196,39 @@ Your **chat ID** with the numeric digits prefixed by the '-'
 
 Alternatively, you can open telegram web, proceed to the group and retrieve your chat ID which is indicated by your url after the **#** sign
 
-> Configure your Message and notification settings (for auto resolving) as you please and save contact point
+> Leave your message empty and notification settings empty and click on save
 
 <img src="/assets/telegram 4 - Grafana.png"/> <br>
+
+### *Configure contact point*
+
+> Browse to your dashboard and select the graph you want to be alerted on (in my case number of connections)
+
+<img src="/assets/alert 1 - Grafana.png"/> <br>
+
+> Click on alert for the graph you are editing
+
+<img src="/assets/alert 2 - Grafana.png"/> <br>
+
+> Create an alert
+
+<img src="/assets/alert 3 - Grafana.png"/> <br>
+
+> Choose alert condition (in my test, I alerted on connections exceeding 3)
+
+<img src="/assets/alert 4 - Grafana.png"/> <br>
+
+> Put annotations to your alert notifications to make it more fruitfull
+
+<img src="/assets/alert 5 - Grafana.png"/> <br>
+
+> Save your alert and exit. Then if you condition is triggered, await your alert on telegram
+
+<img src="/assets/alert 6 - Grafana.png"/> <br>
+
+> When the issue has cleared
+
+<img src="/assets/alert 7 - Grafana.png"/> <br>
 
 
 
