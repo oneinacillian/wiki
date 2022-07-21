@@ -226,7 +226,7 @@ Alternatively, you can open telegram web, proceed to the group and retrieve your
 
 <img src="/assets/alert 6 - Grafana.png"/> <br>
 
-> When the issue has cleared
+> When the issue has cleared (I have deleted the alert to just show the resolved status, **ignore the value**)
 
 <img src="/assets/alert 7 - Grafana.png"/> <br>
 
