@@ -358,5 +358,4 @@ Your publicly signed certificate is now ready to be used
 > CORS is a mechanism for whitelisting domains that would otherwise have been restricted by the browser’s same-origin policy.
 
 Please find the CORS module [here](./assets/cors.lua)
-<a id="raw-url" href="https://raw.githubusercontent.com/oneinacillian/wiki/master/assets/cors.lua">Download FILE</a>
 
