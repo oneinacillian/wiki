@@ -6,9 +6,9 @@
 
 > Other components that will be covered
 
-- ACL
+- ACL <span style="color:red">**some examples will be added soon**</span>
 - Rate limiting with explanation and examples **(stick-tables, tarpit, etc)**
-- Cors setup - <span style="color:red">**not yet complete**</span>
+- Cors setup
 - Letsencrypt to generate a public certificate
 
 ## *HAProxy*
@@ -358,4 +358,21 @@ Your publicly signed certificate is now ready to be used
 > CORS is a mechanism for whitelisting domains that would otherwise have been restricted by the browser’s same-origin policy.
 
 Please find the CORS module [here](./assets/cors.lua)
+Copy the file content to a file named cors.lua in /etc/haproxy
+
+> Add the following to your proxy configuration
+
+```
+global
+        lua-load /etc/haproxy/cors.lua
+
+frontend eoshttps
+        http-request lua.cors
+        http-response lua.cors "GET,PUT,POST" "*"
+
+frontend eoshttp
+        http-request lua.cors
+        http-response lua.cors "GET,PUT,POST" "*"
+```
+
 
