@@ -11,8 +11,6 @@
 - Cors setup - <span style="color:red">**not yet complete**</span>
 - Letsencrypt to generate a public certificate
 
-> **_NOTE:_** In each section, the input commands will be numbered, followed by an output
-
 ## *HAProxy*
 
 ### *Install*
@@ -356,5 +354,9 @@ openssl rsa -in wikibuild.oiac.io.pem -check
 
 Your publicly signed certificate is now ready to be used
 
+### *Cors setup*
+> CORS is a mechanism for whitelisting domains that would otherwise have been restricted by the browser’s same-origin policy.
 
+Please find the CORS module [here](./assets/cors.lua)
+<a id="raw-url" href="https://raw.githubusercontent.com/oneinacillian/wiki/master/assets/cors.lua">Download FILE</a>
 
