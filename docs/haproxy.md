@@ -303,7 +303,11 @@ service certbot start
 
 ```
 certbot certonly --standalone -d wikibuild.oiac.io --non-interactive --agree-tos --email ********@gmail.com --http-01-port=8889
+```
+
 Result=>
+
+```
 root@vultr:/etc/haproxy# certbot certonly --standalone -d wikibuild.oiac.io --non-interactive --agree-tos --email ********@gmail.com --http-01-port=8889
 Saving debug log to /var/log/letsencrypt/letsencrypt.log
 Plugins selected: Authenticator standalone, Installer None
