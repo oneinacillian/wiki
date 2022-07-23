@@ -200,7 +200,7 @@ Alternatively, you can open telegram web, proceed to the group and retrieve your
 
 <img src="/assets/telegram 4 - Grafana.png"/> <br>
 
-### *Configure contact point*
+### *CConfigure Alerting in Grafana to post alert messages to telegram*
 
 > Browse to your dashboard and select the graph you want to be alerted on (in my case number of connections)
 
