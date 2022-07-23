@@ -195,3 +195,78 @@ RUN apt-get update && apt-get -y install curl && curl -o file.sh https://deb.nod
 && apt-get -y install vim && curl -fsSL https://packages.redis.io/gpg | gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg && echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/redis.list && apt-get update && apt-get -y install redis \
 && npm install --global yarn && apt-get -y install git && git clone https://github.com/pinknetworkx/eosio-contract-api.git && cd /apps/eosio-contract-api && yarn install
 ```
+
+## Building and running an hyperion container service
+
+### Create your Dockerfile
+```
+FROM ubuntu:20.04
+WORKDIR /apps
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update \
+&& apt-get -y upgrade \
+&& apt -y install npm git wget curl vim htop systemctl aptitude git lxc-utils netfilter-persistent sysstat ntp gpg \
+&& wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add - \
+&& apt-get install apt-transport-https \
+&& echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | tee /etc/apt/sources.list.d/elastic-7.x.list \
+&& apt-get update \
+&& apt-get install elasticsearch \
+&& git clone https://github.com/eosrio/hyperion-history-api.git --branch v3.3.5 \
+&& echo "-Xms31g" >> /etc/elasticsearch/jvm.options \
+&& echo "-Xmx31g" >> /etc/elasticsearch/jvm.options \
+#&& sed -i 's/var\/lib\/elasticsearch/data\/es-data/g' /etc/elasticsearch/elasticsearch.yml \
+#&& sed -i 's/var\/log\/elasticsearch/data\/es-logs/g' /etc/elasticsearch/elasticsearch.yml \
+&& service elasticsearch start \
+&& echo "xpack.security.enabled: true" >> /etc/elasticsearch/elasticsearch.yml \
+&& service elasticsearch restart && sleep 20 \
+&& yes | /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto > credentials.file \
+&& wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add - \
+&& apt-get install apt-transport-https \
+&& echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | tee -a /etc/apt/sources.list.d/elastic-7.x.list \
+&& apt-get update && apt-get install kibana \
+&& echo "server.host: 0.0.0.0" >> /etc/kibana/kibana.yml \
+&& cred=$(cat credentials.file | awk '/PASSWORD elastic = /{print}' | cut -d '=' -f 2 | sed 's/ //') \
+&& echo 'elasticsearch.username: "kibana_system"' >> /etc/kibana/kibana.yml \
+&& echo "elasticsearch.password: \"$cred\"" >> /etc/kibana/kibana.yml >> /etc/kibana/kibana.yml \
+&& service kibana start \
+&& curl -o nodefile.sh https://deb.nodesource.com/setup_16.x && chmod +x nodefile.sh \
+&& apt-get install -y nodejs && node -v \
+&& curl -fsSL https://packages.redis.io/gpg | gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg  \
+&& echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb focal main" | tee /etc/apt/sources.list.d/redis.list \
+&& apt-get update && apt-get -y install redis \
+&& sed -i 's/supervised auto/supervised systemd/g' /etc/redis/redis.conf \
+&& service redis-server start \
+&& npm install pm2@latest -g \
+&& pm2 startup \
+&& apt-get install curl gnupg apt-transport-https -y \
+&& curl -1sLf "https://keys.openpgp.org/vks/v1/by-fingerprint/0A9AF2115F4687BD29803A206B73A36E6026DFCA" | gpg --dearmor | tee /usr/share/keyrings/com.rabbitmq.team.gpg > /dev/null \
+&& curl -1sLf "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xf77f1eda57ebb1cc" | gpg --dearmor | tee /usr/share/keyrings/net.launchpad.ppa.rabbitmq.erlang.gpg > /dev/null \
+&& curl -1sLf "https://packagecloud.io/rabbitmq/rabbitmq-server/gpgkey" | gpg --dearmor | tee /usr/share/keyrings/io.packagecloud.rabbitmq.gpg > /dev/null \
+&& echo "deb [signed-by=/usr/share/keyrings/net.launchpad.ppa.rabbitmq.erlang.gpg] http://ppa.launchpad.net/rabbitmq/rabbitmq-erlang/ubuntu bionic main" >> /etc/apt/sources.list.d/rabbitmq.list \
+&& echo "deb-src [signed-by=/usr/share/keyrings/net.launchpad.ppa.rabbitmq.erlang.gpg] http://ppa.launchpad.net/rabbitmq/rabbitmq-erlang/ubuntu bionic main" >> /etc/apt/sources.list.d/rabbitmq.list \
+&& echo "deb [signed-by=/usr/share/keyrings/io.packagecloud.rabbitmq.gpg] https://packagecloud.io/rabbitmq/rabbitmq-server/ubuntu/ bionic main" >> /etc/apt/sources.list.d/rabbitmq.list \
+&& echo "deb-src [signed-by=/usr/share/keyrings/io.packagecloud.rabbitmq.gpg] https://packagecloud.io/rabbitmq/rabbitmq-server/ubuntu/ bionic main" >> /etc/apt/sources.list.d/rabbitmq.list \
+&& apt-get update -y \
+&& apt-get install -y erlang-base erlang-asn1 erlang-crypto erlang-eldap erlang-ftp erlang-inets erlang-mnesia erlang-os-mon erlang-parsetools erlang-public-key erlang-runtime-tools erlang-snmp erlang-ssl erlang-syntax-tools erlang-tftp erlang-tools erlang-xmerl \
+&& apt-get install rabbitmq-server -y --fix-missing \
+&& service rabbitmq-server start \
+&& rabbitmq-plugins enable rabbitmq_management \
+&& rabbitmqctl add_vhost hyperion \
+&& rabbitmqctl add_user hyper 123456 \
+&& rabbitmqctl set_user_tags hyper administrator \
+&& rabbitmqctl set_permissions -p hyperion hyper ".*" ".*" ".*" \
+&& rabbitmqctl add_vhost /hyperion \
+&& rabbitmqctl set_permissions -p /hyperion hyper ".*" ".*" ".*" \
+&& cd /apps/hyperion-history-api && npm install \
+&& echo "service elasticsearch start" >> /apps/startup.sh \
+&& echo "service kibana start" >> /apps/startup.sh \
+&& echo "service rabbitmq-server start" >> /apps/startup.sh \
+&& echo "service redis-server start" >> /apps/startup.sh \
+&& echo "service elasticsearch stop" >> /apps/stop.sh \
+&& echo "service kibana stop" >> /apps/stop.sh \
+&& echo "service rabbitmq-server stop" >> /apps/stop.sh \
+&& echo "service redis-server stop" >> /apps/stop.sh \
+&& chmod +x /apps/startup.sh \
+&& chmod +x /apps/stop.sh
+RUN apt-get install -y systemd
+```

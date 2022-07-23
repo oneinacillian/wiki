@@ -357,7 +357,7 @@ Your publicly signed certificate is now ready to be used
 ### *Cors setup*
 > CORS is a mechanism for whitelisting domains that would otherwise have been restricted by the browser’s same-origin policy.
 
-Please find the CORS module [here](./assets/cors.lua)
+Please find the CORS module [here](./assets/cors.lua) <br>
 Copy the file content to a file named cors.lua in /etc/haproxy
 
 > Add the following to your proxy configuration
