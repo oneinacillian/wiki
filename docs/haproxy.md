@@ -9,7 +9,7 @@
 - ACL
 - Rate limiting with explanation and examples **(stick-tables, tarpit, etc)**
 - Cors setup - <span style="color:red">**not yet complete**</span>
-- Letsencrypt to generate a public certificate - <span style="color:red">**not yet complete**</span>
+- Letsencrypt to generate a public certificate
 
 > **_NOTE:_** In each section, the input commands will be numbered, followed by an output
 
@@ -239,4 +239,118 @@ Explanation for the <span style="color:green">**components**</span> above: <br>
 - <span style="color:green">**size 1m**</span> we are allowing 1 million records to be stored in the table <br>
 - <span style="color:green">**expire 60s**</span> amount of time before the table record expires and is removed after a period of inactivity by the client <br>
 - <span style="color:green">**http_req_rate(20s)**</span> counts the requests over a period of 20 seconds. Meaning, in the frontend example above <span style="color:green">**if { sc_http_req_rate(0) gt 20 }**</span>, if the request is greater than 20 within a timewindow of 20 seconds as specified in the backend <span style="color:green">**http_req_rate(20s)**</span>, it will deny the request with a 429 <span style="color:green">**deny_status 429**</span> which will wait 10s <span style="color:green">**timeout tarpit 10s**</span> before sending the response back
+
+### *Letsencrypt to generate a public certificate*
+
+> Install certbot
+
+```
+sudo add-apt-repository -y ppa:certbot/certbot
+sudo apt-get install -y certbot
+```
+
+> Add the following in your proxy configuration (I used haproxy in this example)
+
+```
+frontend fe-scalinglaravel
+       bind *:80
+       acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+       use_backend letsencrypt-backend if letsencrypt-acl
+
+backend letsencrypt-backend
+       server letsencrypt 127.0.0.1:8889
+```
+
+> Open up the firewall to accept public callback on letsencrypt backend
+
+```
+firewall-cmd --add-port=80/tcp --permanent
+service firewalld reload
+```
+
+> Ensure that your DNS record exist. In this example, I created wikibuild.oiac.io to point to the public interface
+
+```
+root@vultr:/etc/haproxy# dig wikibuild.oiac.io
+
+; <<>> DiG 9.16.1-Ubuntu <<>> wikibuild.oiac.io
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 39166
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;wikibuild.oiac.io.             IN      A
+
+;; ANSWER SECTION:
+wikibuild.oiac.io.      1505    IN      A       45.77.55.245
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53)
+;; WHEN: Sat Jul 23 18:21:35 UTC 2022
+;; MSG SIZE  rcvd: 62
+```
+
+> Ensure that your certbot has started
+
+```
+service certbot start
+```
+
+> Generate a certificate using certbot **configure your e-mail address accordingly**
+
+```
+certbot certonly --standalone -d wikibuild.oiac.io --non-interactive --agree-tos --email ********@gmail.com --http-01-port=8889
+Result=>
+root@vultr:/etc/haproxy# certbot certonly --standalone -d wikibuild.oiac.io --non-interactive --agree-tos --email ********@gmail.com --http-01-port=8889
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Plugins selected: Authenticator standalone, Installer None
+Obtaining a new certificate
+Performing the following challenges:
+http-01 challenge for wikibuild.oiac.io
+Waiting for verification...
+Cleaning up challenges
+
+IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at:
+   /etc/letsencrypt/live/wikibuild.oiac.io/fullchain.pem
+   Your key file has been saved at:
+   /etc/letsencrypt/live/wikibuild.oiac.io/privkey.pem
+   Your cert will expire on 2022-10-21. To obtain a new or tweaked
+   version of this certificate in the future, simply run certbot
+   again. To non-interactively renew *all* of your certificates, run
+   "certbot renew"
+ - If you like Certbot, please consider supporting our work by:
+
+   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+   Donating to EFF:                    https://eff.org/donate-le
+```
+
+Take note of your full certificate chain and private key which is listed in the result run of the above
+
+> Combine your certificate chain and private key, then save it to where haproxy will reference it for SSL termination
+
+```
+CERTIFICATE=wikibuild.oiac.io
+mkdir -p /etc/haproxy/certs
+cat /etc/letsencrypt/live/$CERTIFICATE/fullchain.pem /etc/letsencrypt/live/$CERTIFICATE/privkey.pem > /etc/haproxy/certs/$CERTIFICATE.pem
+```
+
+> Check your certificate
+
+```
+openssl x509 -in wikibuild.oiac.io.pem -text -noout
+```
+
+> Check your key as well which is now contained in the same file 
+
+```
+openssl rsa -in wikibuild.oiac.io.pem -check
+```
+
+Your publicly signed certificate is now ready to be used
+
+
 
