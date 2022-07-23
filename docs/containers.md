@@ -182,7 +182,7 @@ cd /apps/waxdata
 ./start.sh
 ```
 
-## Building and running an atomic container service
+## Building and running an atomic container service - <span style="color:red">**not yet complete**</span>
 
 ### Create your Dockerfile
 ```
@@ -196,7 +196,7 @@ RUN apt-get update && apt-get -y install curl && curl -o file.sh https://deb.nod
 && npm install --global yarn && apt-get -y install git && git clone https://github.com/pinknetworkx/eosio-contract-api.git && cd /apps/eosio-contract-api && yarn install
 ```
 
-## Building and running an hyperion container service
+## Building and running an hyperion container service - <span style="color:red">**not yet complete**</span>
 
 ### Create your Dockerfile
 ```
