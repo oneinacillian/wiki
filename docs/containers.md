@@ -59,7 +59,7 @@ docker volume create testvolume
 ```
 sudo rm -rf /var/lib/docker/volumes/testvolume/_data/
 mkdir /apps/datavolume/testvolume
-sudo ln -s /apps/datavolume/testvolume /var/lib/docker/volumes/testvolume/_data/
+sudo ln -s /apps/datavolume/testvolume /var/lib/docker/volumes/testvolume/_data
 ```
 ### Start a micro-service in daemon mode with access to the external volume
 In this example: 
