@@ -221,11 +221,9 @@ RUN apt-get update \
 && service elasticsearch restart && sleep 20 \
 && yes | /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto > credentials.file \
 && wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add - \
-&& apt-get install apt-transport-https \
-&& echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | tee -a /etc/apt/sources.list.d/elastic-7.x.list \
 && apt-get update && apt-get install kibana \
 && echo "server.host: 0.0.0.0" >> /etc/kibana/kibana.yml \
-&& cred=$(cat credentials.file | awk '/PASSWORD elastic = /{print}' | cut -d '=' -f 2 | sed 's/ //') \
+&& cred=$(cat credentials.file | awk '/PASSWORD kibana_system = /{print}' | cut -d '=' -f 2 | sed 's/ //') \
 && echo 'elasticsearch.username: "kibana_system"' >> /etc/kibana/kibana.yml \
 && echo "elasticsearch.password: \"$cred\"" >> /etc/kibana/kibana.yml >> /etc/kibana/kibana.yml \
 && service kibana start \
