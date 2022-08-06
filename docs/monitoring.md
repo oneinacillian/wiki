@@ -5,6 +5,7 @@
 - Add remote endpoint to allow prometheus to scrape proxy (haproxy) stats 
 - Install and configure Grafana
 - Import HA proxy dashboard to have visibility on query and history traffic
+- Configure Node exporter for full visibility in on host resources - <span style="color:red">**not yet complete**</span>
 - Configure a telegram bot
 - Configure contact point
 - Configure Alerting in Grafana to post alert messages to telegram
