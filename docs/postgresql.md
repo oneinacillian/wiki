@@ -8,17 +8,20 @@
 ## Perform a database dump (backup) of your atomic database
 
 > Connect using the postgres user
+
 ```
 su - postgres
 ```
 
-> List your databases to retrieve the exact name of your wax atomic database\
+> List your databases to retrieve the exact name of your wax atomic database
+
 ```
 psql
 \l
 ```
 
 > Results should look something like this
+
 ```
 postgres-# \l+
                                                                        List of databases
@@ -34,6 +37,7 @@ postgres-# \l+
 ```
 
 > Perform a database dump of your atomic database
+
 ```
 pg_dump -Fc "api-wax-mainnet-atomic-1" > /data/postgres_backups/atomictest.dump
 ```

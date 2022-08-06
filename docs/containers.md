@@ -185,6 +185,7 @@ cd /apps/waxdata
 ## Building and running an atomic container service - <span style="color:red">**not yet complete**</span>
 
 > Create your Dockerfile
+
 ```
 FROM ubuntu:20.04
 WORKDIR /apps
@@ -197,11 +198,13 @@ RUN apt-get update && apt-get -y install curl && curl -o file.sh https://deb.nod
 ```
 
 > Build your docker images
+
 ```
 docker build -t atomicimage:atomicimage -f ./Dockerfile .
 ```
 
 > Map an external volume for your container persistent data
+
 ```
 docker volume create atomictest
 rm -rf /var/lib/docker/volumes/atomictest/_data/
@@ -210,6 +213,7 @@ sudo ln -s /data/containers/atomictest /var/lib/docker/volumes/atomictest/_data
 ```
 
 > Start up atomic container, publishing the ports necessary to expose the API to the community
+
 ```
 docker run -d --name atomictest --publish 9000:9000 --publish 9001:9001 --mount source=atomictest,target=/data --tty atomictest:atomictest
 ```
