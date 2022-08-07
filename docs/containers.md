@@ -264,13 +264,46 @@ postgres=# SHOW data_directory;
 (1 row)
 ```
 
+> Restore n atomic database
 
+create the database which you would like to restore and attempt the restore
 
+```
+postgres=# CREATE DATABASE "api-wax-mainnet-atomic-1";
+pg_restore --verbose -Fc -d api-wax-mainnet-atomic-1 -1 /data/backups/atomictest.dump
+```
 
+> **_NOTE:_** The backup was create by a guild member that used a specific role as the owner of the database
 
+If you encounter issues with the restore process as such:
+```
 
+pg_restore: error: could not execute query: ERROR:  role "wecan_user" does not exist
+```
 
+Create a role with the same name the backup was created
 
+```
+postgres=# CREATE ROLE wecan_user;
+```
+
+Reattempt the restore and it should complete, unless you encounter issue with the backup
+
+> View the database once restored by using psql
+
+```
+postgres=# \l+
+                                                                       List of databases
+           Name           |  Owner   | Encoding | Collate |  Ctype  |   Access privileges   |  Size   | Tablespace |                Description                 
+--------------------------+----------+----------+---------+---------+-----------------------+---------+------------+--------------------------------------------
+ api-wax-mainnet-atomic-1 | postgres | UTF8     | C.UTF-8 | C.UTF-8 |                       | 20 GB   | pg_default | 
+ postgres                 | postgres | UTF8     | C.UTF-8 | C.UTF-8 |                       | 8545 kB | pg_default | default administrative connection database
+ template0                | postgres | UTF8     | C.UTF-8 | C.UTF-8 | =c/postgres          +| 8377 kB | pg_default | unmodifiable empty database
+                          |          |          |         |         | postgres=CTc/postgres |         |            | 
+ template1                | postgres | UTF8     | C.UTF-8 | C.UTF-8 | =c/postgres          +| 8529 kB | pg_default | default template for new databases
+                          |          |          |         |         | postgres=CTc/postgres |         |            | 
+(4 rows)
+```
 
 
 
