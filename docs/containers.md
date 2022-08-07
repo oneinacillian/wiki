@@ -218,6 +218,59 @@ sudo ln -s /data/containers/atomictest /var/lib/docker/volumes/atomictest/_data
 docker run -d --name atomictest --publish 9000:9000 --publish 9001:9001 --mount source=atomictest,target=/data --tty atomictest:atomictest
 ```
 
+> Exec into the container and start postgresql. Get your current data directory
+
+```
+postgres@52c2bc761f47:~$ psql
+psql (14.4 (Ubuntu 14.4-1.pgdg20.04+1))
+Type "help" for help.
+
+postgres=# SHOW data_directory;
+       data_directory        
+-----------------------------
+ /var/lib/postgresql/14/main
+(1 row)
+```
+
+In the above instance, you can see that the data directory is mapped inside the container in /var/lib
+Ideally you want your data to persistent on a faster volume, which is not bound to the container
+
+> Move the data directory and update postgresql config
+
+```
+service postgresql stop
+cp -var /var/lib/postgresql/ /data/
+nano /etc/postgresql/14/main/postgresql.conf
+****
+update data directory
+data_directory = '/data/postgresql/14/main'             # use data in another directory
+****
+```
+
+> Confirm that your postgresl directory is on the newly specified volume
+
+```
+root@36bbb3a2788d:/etc/postgresql/14/main# service postgresql start
+ * Starting PostgreSQL 14 database server                                                                                                                                                                                                                                                                                                 [ OK ] 
+root@36bbb3a2788d:/etc/postgresql/14/main# su - postgres
+postgres@36bbb3a2788d:~$ psql
+psql (14.4 (Ubuntu 14.4-1.pgdg20.04+1))
+Type "help" for help.
+
+postgres=# SHOW data_directory;
+      data_directory      
+--------------------------
+ /data/postgresql/14/main
+(1 row)
+```
+
+
+
+
+
+
+
+
 
 
 
