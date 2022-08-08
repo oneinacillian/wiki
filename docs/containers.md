@@ -311,9 +311,12 @@ postgres=# \l+
 - server.config.json
 - connections.config.json (confirm that your postgresql authentication is configured properly as well as your ship settings)
 
-> Start your atomic filler until is has caught up to the main block, then your API as well.
+> Start your atomic filler until is has caught up to the main block, then your API as well (run from within your /apps/eosio-contract-api folder).
 
-
+```
+pm2 start ecosystems.config.json --only eosio-contract-api-filler
+pm2 start ecosystems.config.json --only eosio-contract-api-server
+```
 
 ## Building and running an hyperion container service - <span style="color:red">**not yet complete**</span>
 
