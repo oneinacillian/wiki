@@ -4,7 +4,7 @@
 - Install Docker
 - Configure and use a docker name volume
 - Building and running a state history container
-- Building and running an atomic container service - <span style="color:red">**not yet complete**</span>
+- Building and running an atomic container service
 - Building and running a hyperion container service - <span style="color:red">**not yet complete**</span>
 
 ## Install docker-ce (community edition)
@@ -182,7 +182,7 @@ cd /apps/waxdata
 ./start.sh
 ```
 
-## Building and running an atomic container service - <span style="color:red">**not yet complete**</span>
+## Building and running an atomic container service
 
 > Create your Dockerfile
 
@@ -304,6 +304,14 @@ postgres=# \l+
                           |          |          |         |         | postgres=CTc/postgres |         |            | 
 (4 rows)
 ```
+
+> Configure your eosio contract configuration files accordingly. 
+
+- readers.config.json
+- server.config.json
+- connections.config.json (confirm that your postgresql authentication is configured properly as well as your ship settings)
+
+> Start your atomic filler until is has caught up to the main block, then your API as well.
 
 
 
