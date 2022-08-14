@@ -2,7 +2,7 @@
 
 # The following will be covered here
 - Create an indexing snapshot
-- Restore a snapshot - <span style="color:red">**not yet complete**</span>
+- Restore a snapshot
 - Optimize indexing operations for bulk processing - <span style="color:red">**not yet complete**</span>
 - Reset elastic credentials
 - Upgrade Elasticsearch from 7.x to 8.x using upgrade assistant - <span style="color:red">**not yet complete**</span>
@@ -63,9 +63,13 @@ You should now see the configure snapshot policy <br>
 
 <img src="/assets/snapshot complete.png"/>
 
-### *Restore a snapshot*
+### *Restore a snapshot from url*
+> Configure your repository URL from which you want to restart in your allowed list within the elasticsearch.yml
 ```
-```
+repositories.url.allowed_urls: "http://23.88.71.224:8080/downloads/"
+``` 
+<img src="/assets/snapshot restore.png"/> <br>
+
 ### *Optimize indexing operations for bulk processing*
 ```
 ```
