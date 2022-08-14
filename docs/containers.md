@@ -5,7 +5,7 @@
 - Configure and use a docker name volume
 - Building and running a state history container
 - Building and running an atomic container service
-- Building and running a hyperion container service - <span style="color:red">**not yet complete**</span>
+- Building and running a hyperion container service
 
 ## Install docker-ce (community edition)
 - uninstall all previous docker utilities
@@ -318,7 +318,7 @@ pm2 start ecosystems.config.json --only eosio-contract-api-filler
 pm2 start ecosystems.config.json --only eosio-contract-api-server
 ```
 
-## Building and running an hyperion container service - <span style="color:red">**not yet complete**</span>
+## Building and running an hyperion container service
 
 ### Create your Dockerfile
 ```
@@ -390,3 +390,286 @@ RUN apt-get update \
 && chmod +x /apps/stop.sh
 RUN apt-get install -y systemd
 ```
+
+> build your docker image
+
+```
+docker build -t hyperiontest:latest -f ./Dockerfile .
+```
+
+> Map an external volume for your container persistent data
+
+```
+docker volume create hyperiontest
+rm -rf /var/lib/docker/volumes/hyperiontest/_data/
+mkdir /data/containers/hyperiontest
+sudo ln -s /data/containers/hyperiontest /var/lib/docker/volumes/hyperiontest/_data
+```
+
+> Start up atomic container, publishing the ports necessary to expose the API to the community
+
+```
+docker run -d --name hyperiontest --publish 7000:7000 --publish 5601:5601 --mount source=hyperiontest,target=/data --tty hyperiontest:latest
+```
+
+> Execute to a terminal in the hyperion container
+
+```
+docker exec -ti hyperiontest /bin/bash
+```
+
+> Move the data and log volumes for elasticsearch to your named volume
+
+```
+chown -R elasticsearch:elasticsearch /data
+mkdir -p /data/es-data
+mkdir -p /data/es-logs
+cp -var /var/lib/elasticsearch/* /data/es-data
+cp -var /var/log/elasticsearch/* /data/es-logs
+```
+
+> Modify the configuration (elasticsearch) to reference the new volumes for data and log management (elasticsearch.yml)
+
+```
+path.data: /data/es-data
+path.logs: /data/es-logs
+```
+
+> Startup elasticsearch and all dependant services. You will have a stop and startup.sh file located in /apps
+
+```
+bash /apps/startup.sh
+```
+
+Once all the application has been started, proceed to kibana through your web console on the port you expose (in this example, ::5601)
+
+**_NOTE:_** Should you have trouble starting Kibana, reset the elastic passwords (yes | /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto > credentials.file, take not of the password and update your password reference in /etc/kibana/kibana.yml)
+
+> Restore snapshot (if not indexing from the 1st block). In this example, I exposed a snapshot via http "http://23.88.71.224:8080/downloads/" and named the repository "gipi-repo". Perform this using DEV tools under management
+
+Create repository
+```
+PUT _snapshot/gipi-repo
+{
+   "type": "url",
+   "settings": {
+       "url": "http://23.88.71.224:8080/downloads/",
+       "max_restore_bytes_per_sec": "1gb",
+       "max_snapshot_bytes_per_sec": "1gb"
+   }
+}
+```
+
+List all snapshots
+```
+GET _snapshot/gipi-repo/_all
+```
+
+Set the repository url as trusted by elasticsearch (modification in elasticsearch.yml) and restart elasticsearch
+```
+repositories.url.allowed_urls: "http://23.88.71.224:8080/downloads/"
+``` 
+
+Start a restore of a snapshot (DEV tools)
+```
+POST _snapshot/gipi-repo/daily_snapshot-qu4_uyc0tuotoaj1x3lsjq/_restore
+{
+  "indices": "*,-.*"
+}
+```
+
+> Wait for the restore to complete, then configure your hyperion contract information
+
+- /apps/hyperion-history-api/connections.json **NOTE** RabbitMQ password will be what you have defined in the Dockerfile build 
+```
+{
+  "amqp": {
+    "host": "127.0.0.1:5672",
+    "api": "127.0.0.1:15672",
+    "protocol": "http",
+    "user": "<from dockerfile>",
+    "pass": "<from dockerfile>",
+    "vhost": "hyperion",
+    "frameMax": "0x10000"
+  },
+  "elasticsearch": {
+    "protocol": "http",
+    "host": "127.0.0.1:9200",
+    "ingest_nodes": [
+      "127.0.0.1:9200"
+    ],
+    "user": "elastic",
+    "pass": "<from credentials file in /apps>"
+  },
+  "redis": {
+    "host": "127.0.0.1",
+    "port": "6379"
+  },
+  "chains": {
+    "wax": {
+      "name": "Wax",
+      "ship": "ws://172.168.40.201:10876",
+      "http": "http://172.168.40.201:9888",
+      "chain_id": "f16b1833c747c43682f4386fca9cbb327929334a762755ebec17f6f23c9b8a12",
+      "WS_ROUTER_HOST": "127.0.0.1",
+      "WS_ROUTER_PORT": 7001
+    }
+  }
+}
+```
+- /apps/hyperion-history-api/chains/wax.config.json
+```
+{
+  "api": {
+    "enabled": true,
+    "pm2_scaling": 1,
+    "node_max_old_space_size": 1024,
+    "chain_name": "wax",
+    "server_addr": "172.168.40.100",
+    "server_port": 7000,
+    "server_name": "hyperion-test.oiac.io",
+    "provider_name": "Oneinacillian",
+    "provider_url": "https://oiac.io",
+    "chain_api": "",
+    "push_api": "",
+    "chain_logo_url": "",
+    "enable_caching": true,
+    "cache_life": 1,
+    "limits": {
+      "get_actions": 1000,
+      "get_voters": 100,
+      "get_links": 1000,
+      "get_deltas": 1000,
+      "get_trx_actions": 200
+    },
+    "access_log": false,
+    "chain_api_error_log": false,
+    "custom_core_token": "",
+    "enable_export_action": false,
+    "disable_rate_limit": false,
+    "rate_limit_rpm": 1000,
+    "rate_limit_allow": [],
+    "disable_tx_cache": false,
+    "tx_cache_expiration_sec": 3600,
+    "v1_chain_cache": [
+      {
+        "path": "get_block",
+        "ttl": 3000
+      },
+      {
+        "path": "get_info",
+        "ttl": 500
+      }
+    ]
+  },
+  "indexer": {
+    "enabled": true,
+    "node_max_old_space_size": 4096,
+    "start_on": 0,
+    "stop_on": 0,
+    "rewrite": false,
+    "purge_queues": false,
+    "live_reader": true,
+    "live_only_mode": false,
+    "abi_scan_mode": false,
+    "fetch_block": true,
+    "fetch_traces": true,
+    "disable_reading": false,
+    "disable_indexing": false,
+    "process_deltas": true,
+    "disable_delta_rm": true
+  },
+  "settings": {
+    "preview": false,
+    "chain": "wax",
+    "eosio_alias": "eosio",
+    "parser": "1.8",
+    "auto_stop": 0,
+    "index_version": "v1",
+    "debug": false,
+    "bp_logs": false,
+    "bp_monitoring": false,
+    "ipc_debug_rate": 60000,
+    "allow_custom_abi": false,
+    "rate_monitoring": true,
+    "max_ws_payload_mb": 1024,
+    "ds_profiling": false,
+    "auto_mode_switch": false,
+    "hot_warm_policy": false,
+    "custom_policy": "",
+    "bypass_index_map": true,
+    "index_partition_size": 10000000,
+    "es_replicas": 0
+  },
+  "blacklists": {
+    "actions": [],
+    "deltas": []
+  },
+  "whitelists": {
+    "actions": [],
+    "deltas": [],
+    "max_depth": 10,
+    "root_only": false
+  },
+  "scaling": {
+    "readers": 1,
+    "ds_queues": 1,
+    "ds_threads": 1,
+    "ds_pool_size": 1,
+    "indexing_queues": 1,
+    "ad_idx_queues": 1,
+    "dyn_idx_queues": 1,
+    "max_autoscale": 4,
+    "batch_size": 5000,
+    "resume_trigger": 5000,
+    "auto_scale_trigger": 20000,
+    "block_queue_limit": 10000,
+    "max_queue_limit": 100000,
+    "routing_mode": "round_robin",
+    "polling_interval": 10000
+  },
+  "features": {
+    "streaming": {
+      "enable": true,
+      "traces": true,
+      "deltas": true
+    },
+    "tables": {
+      "proposals": true,
+      "accounts": true,
+      "voters": true
+    },
+    "index_deltas": true,
+    "index_transfer_memo": true,
+    "index_all_deltas": true,
+    "deferred_trx": false,
+    "failed_trx": false,
+    "resource_limits": false,
+    "resource_usage": false
+  },
+  "prefetch": {
+    "read": 50,
+    "block": 100,
+    "index": 500
+  },
+  "plugins": {}
+}
+```
+
+> Start your api indexer to allow your data to index from the SHIP node
+
+```
+./run.sh wax-indexer
+```
+
+> Once it has indexed all the outstanding blocks, you can expose the api
+
+```
+./run.sh wax-api
+``` 
+
+
+
+
+
+
