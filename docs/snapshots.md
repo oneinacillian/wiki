@@ -46,4 +46,5 @@ POST _snapshot/partial-mainnet-snapshots/11-09-2022-partial-hyperion-nbnbmnl8qeu
 {
   "indices": "*"
 }
+```
 
