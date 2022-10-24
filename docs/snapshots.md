@@ -1,16 +1,18 @@
-> 6 week snapshot listing
+> 6 week snapshot listing <br>
 
 **Please note that the following on the snapshots**
-- Validated for no missing blocks (used hyperion 3.3.6)
-- Syned up to headblock at the time of the snapshot
-- The snapshot naming convention is as follows
+
+- Validated for no missing blocks (used hyperion 3.3.6) <br>
+- Syned up to headblock at the time of the snapshot <br>
+- The snapshot naming convention is as follows <br>
 
 <img src="/assets/snapshot-name.png"/> <br>
 
 The name (for instance 11-09-22) will be the identifier for which data is contained in the snapshot. <br>
 For instance, in the case above, the indexes will contain data populated from 11-09-2022 00:00:00 GMT +2
 
-To restore the snapshot to your hyperion instance, the following will be necessary
+**To restore the snapshot to your hyperion instance, the following will be necessary**
+
 1. Update your Elasticsearch.yml to trust the repository from which you will download the snapshotted data
 
 ```
@@ -33,7 +35,7 @@ PUT _snapshot/partial-mainnet-snapshots
 }
 ```
 
-1. List the snapshots
+3. List the snapshots
 
 ```
 GET _snapshot/partial-mainnet-snapshots/_all
