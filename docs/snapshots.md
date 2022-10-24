@@ -8,7 +8,7 @@
 <img src="/assets/snapshot-name.png"/> <br>
 
 The name (for instance 11-09-22) will be the identifier for which data is contained in the snapshot. <br>
-For instance, in the case above, the indexes will contain data populated from 11-00-2022 00:00:00 GMT +2
+For instance, in the case above, the indexes will contain data populated from 11-09-2022 00:00:00 GMT +2
 
 To restore the snapshot to your hyperion instance, the following will be necessary
 1. Update your Elasticsearch.yml to trust the repository from which you will download the snapshotted data
