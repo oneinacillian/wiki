@@ -4,7 +4,7 @@ It is clear that the elastic indexes are growing at a rapid pace in terms of siz
 This will make it extremely difficult to maintain full hyperion history, or even get started since you need to pull an entire snapshot before any maintenance can be done. <br>
 Since the OIG still validate 6 weeks of Hyperion history as partial and for running partial Hyperion you receive scoring, I started creating snapshots daily that contains all data later than 6 weeks. <br>
 
-**Please note that the following on the snapshots**
+**Please note the following on the snapshots**
 
 - Validated for no missing blocks (used hyperion 3.3.6) <br>
 - Syned up to headblock at the time of the snapshot <br>
