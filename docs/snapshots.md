@@ -1,5 +1,9 @@
 > 6 week snapshot listing <br>
 
+It is clear that the elastic indexes are growing at a rapid pace in terms of sizing. <br>
+This will make it extremely difficult to maintain full hyperion history, or even get started since you need to pull an entire snapshot before any maintenance can be done. <br>
+Since the OIG still validate 6 weeks of Hyperion history as partial and for running partial Hyperion you receive scoring, I started creating snapshots daily that contains all data later that 6 weeks. <br>
+
 **Please note that the following on the snapshots**
 
 - Validated for no missing blocks (used hyperion 3.3.6) <br>
@@ -21,7 +25,7 @@ service elasticsearch restart
 ```
 
 2. Add the repository using dev tools in elasticsearch <br>
-**Note:** I name the repository partial-mainnet-snapshots
+**Note:** I named the repository partial-mainnet-snapshots
 
 ```
 PUT _snapshot/partial-mainnet-snapshots
