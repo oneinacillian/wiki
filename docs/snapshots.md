@@ -50,7 +50,7 @@ GET _snapshot/partial-mainnet-snapshots/_all
 <img src="/assets/snapshot_latest.png"/> <br>
 
 ```
-POST _snapshot/partial-mainnet-snapshots/11-09-2022-partial-hyperion-nbnbmnl8qeumcdsn2es8qa/_restore
+POST _snapshot/partial-mainnet-snapshots/02-10-2022-partial-hyperion-yrvehaihro2tg-wyx9gvja/_restore
 {
   "indices": "*"
 }
