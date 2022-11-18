@@ -17,14 +17,14 @@ For instance, in the case above, the indexes will contain data populated from 11
 
 **To restore the snapshot to your hyperion instance, the following will be necessary**
 
-1. Update your Elasticsearch.yml to trust the repository from which you will download the snapshotted data
+> Update your Elasticsearch.yml to trust the repository from which you will download the snapshotted data
 
 ```
 repositories.url.allowed_urls: ["https://snapshots.oiac.io/downloads/partialsnapshots/"]
 service elasticsearch restart
 ```
 
-2. Add the repository using dev tools in elasticsearch <br>
+> Add the repository using dev tools in elasticsearch <br>
 **Note:** I named the repository partial-mainnet-snapshots
 
 ```
@@ -39,13 +39,13 @@ PUT _snapshot/partial-mainnet-snapshots
 }
 ```
 
-3. List the snapshots
+> List the snapshots
 
 ```
 GET _snapshot/partial-mainnet-snapshots/_all
 ```
 
-4. Restore the snapshot you want (in your case the latest will make sense) <br>
+> Restore the snapshot you want (in your case the latest will make sense) <br>
 
 <img src="/assets/snapshot_latest.png"/> <br>
 
