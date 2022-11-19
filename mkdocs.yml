@@ -19,7 +19,7 @@ nav:
   - Loadtest setup using Locust: locust.md
   - HAProxy: haproxy.md
   - VPN: wireguard.md
-  - Snapshots: snapshots.md
+  - Hyperion Snapshots: snapshots.md
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
