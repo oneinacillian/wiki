@@ -60,6 +60,7 @@ POST _snapshot/partial-mainnet-snapshots/02-10-2022-partial-hyperion-yrvehaihro2
 
 | Snapshot                                           | Repository                | Indices | Shards | Failed shards | Date created                | Duration |
 |----------------------------------------------------|---------------------------|---------|--------|---------------|-----------------------------|----------|
+| 11-10-2022-partial-hyperion-fesewejtrhgv92xp515jpg | partial-mainnet-snapshots | 13      | 33     | 0             | Nov 23, 2022 8:40 PM GMT+2  | 21ßs      |
 | 10-10-2022-partial-hyperion-fjo3ryzttdubtrzb-wxocg | partial-mainnet-snapshots | 13      | 33     | 0             | Nov 22, 2022 9:11 PM GMT+2  | 32s      |
 | 09-10-2022-partial-hyperion-13ibqjmnq8eweed_f79q6q | partial-mainnet-snapshots | 13      | 33     | 0             | Nov 21, 2022 8:35 PM GMT+2  | 15s      |
 | 08-10-2022-partial-hyperion-ymtnf2jws3w-ffwefvqyiw | partial-mainnet-snapshots | 13      | 33     | 0             | Nov 21, 2022 7:43 AM GMT+2  | 22s      |
@@ -87,4 +88,3 @@ POST _snapshot/partial-mainnet-snapshots/02-10-2022-partial-hyperion-yrvehaihro2
 | 12-09-2022-partial-hyperion-33jyfujbtie1nx_1qd-oma | partial-mainnet-snapshots | 13      | 33     | 0             | Oct 25, 2022 8:25 PM GMT+2  | 25s      |
 | 11-09-2022-partial-hyperion-nbnbmnl8qeumcdsn2es8qa | partial-mainnet-snapshots | 13      | 33     | 0             | Oct 24, 2022 8:56 PM GMT+2  | 23s      |
 | 10-09-2022-partial-hyperion-8iylp-ivsz2xxvmixv1n3q | partial-mainnet-snapshots | 13      | 33     | 0             | Oct 23, 2022 7:29 PM GMT+2  | 26s      |
-
