@@ -213,3 +213,10 @@ curl -v http://127.0.0.1:7000/v2/health | json_pp
 0|wax-inde | 2022-11-24T02:42:16: [3003206 - 00_master] W:40 | R:2 | C:2 | A:860.2 | D:954 | I:2359.4
 0|wax-inde | 2022-11-24T02:42:21: [3003206 - 00_master] W:40 | R:2 | C:2 | A:878.6 | D:1104.6 | I:2242.4
 ```
+
+> Estimated restore time (based on only having 4 shards available) <br>
+
+```
+21:25 -> 07:36 (9 hours, 11 minutes)
+Note that you can restore quicker if you have more nodes available (i.e. more shards to do the work)
+```
