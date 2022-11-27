@@ -60,6 +60,7 @@ POST _snapshot/partial-mainnet-snapshots/02-10-2022-partial-hyperion-yrvehaihro2
 
 | Snapshot                                           | Repository                | Indices | Shards | Failed shards | Date created                | Duration |
 |----------------------------------------------------|---------------------------|---------|--------|---------------|-----------------------------|----------|
+| 15-10-2022-partial-hyperion-ltftyliyqiov6yz_vxv8og | partial-mainnet-snapshots | 13      | 33     | 0             | Nov 27, 2022 11:41 AM GMT+2 | 18s      |
 | 14-10-2022-partial-hyperion-pjf76n5prvm8fposhca_bw | partial-mainnet-snapshots | 13      | 33     | 0             | Nov 26, 2022 9:52 PM GMT+2  | 27s      |
 | 13-10-2022-partial-hyperion-qbnlzswnsuizyb8t-6eeyw | partial-mainnet-snapshots | 13      | 33     | 0             | Nov 26, 2022 5:36 PM GMT+2  | 40s      |
 | 12-10-2022-partial-hyperion-xvgrp-l1slgbfyw2y_d_oa | partial-mainnet-snapshots | 13      | 33     | 0             | Nov 24, 2022 10:31 PM GMT+2 | 34s      |
