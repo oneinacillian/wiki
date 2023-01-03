@@ -60,6 +60,7 @@ POST _snapshot/partial-mainnet-snapshots/02-10-2022-partial-hyperion-yrvehaihro2
 
 | Snapshot                                           | Repository                | Indices | Shards | Failed shards | Date created                | Duration |
 |----------------------------------------------------|---------------------------|---------|--------|---------------|-----------------------------|----------|
+| 18-11-2022-partial-hyperion-4yggkxhqsm2hwtco9a--fw | partial-mainnet-snapshots | 15      | 41     | 0             | Jan 03, 2023 10:46 AM GMT+2 | 38s      |
 | 17-11-2022-partial-hyperion-db2ieqvqt_6n7st4htawpa | partial-mainnet-snapshots | 15      | 41     | 0             | Jan 01, 2023 1:08 PM GMT+2  | 39s      |
 | 16-11-2022-partial-hyperion-vdxv_gjbsjebvtqdlsuezq | partial-mainnet-snapshots | 15      | 41     | 0             | Dec 30, 2022 10:21 AM GMT+2 | 32s      |
 | 15-11-2022-partial-hyperion-hjwcddp_qscghooqegc4gq | partial-mainnet-snapshots | 15      | 41     | 0             | Dec 28, 2022 3:56 PM GMT+2  | 13s      |
@@ -87,13 +88,6 @@ POST _snapshot/partial-mainnet-snapshots/02-10-2022-partial-hyperion-yrvehaihro2
 | 14-10-2022-partial-hyperion-pjf76n5prvm8fposhca_bw | partial-mainnet-snapshots | 13      | 33     | 0             | Nov 26, 2022 9:52 PM GMT+2  | 27s      |
 | 13-10-2022-partial-hyperion-qbnlzswnsuizyb8t-6eeyw | partial-mainnet-snapshots | 13      | 33     | 0             | Nov 26, 2022 5:36 PM GMT+2  | 40s      |
 | 12-10-2022-partial-hyperion-xvgrp-l1slgbfyw2y_d_oa | partial-mainnet-snapshots | 13      | 33     | 0             | Nov 24, 2022 10:31 PM GMT+2 | 34s      |
-| 11-10-2022-partial-hyperion-fesewejtrhgv92xp515jpg | partial-mainnet-snapshots | 13      | 33     | 0             | Nov 23, 2022 8:40 PM GMT+2  | 21s      |
-| 10-10-2022-partial-hyperion-fjo3ryzttdubtrzb-wxocg | partial-mainnet-snapshots | 13      | 33     | 0             | Nov 22, 2022 9:11 PM GMT+2  | 32s      |
-| 09-10-2022-partial-hyperion-13ibqjmnq8eweed_f79q6q | partial-mainnet-snapshots | 13      | 33     | 0             | Nov 21, 2022 8:35 PM GMT+2  | 15s      |
-| 08-10-2022-partial-hyperion-ymtnf2jws3w-ffwefvqyiw | partial-mainnet-snapshots | 13      | 33     | 0             | Nov 21, 2022 7:43 AM GMT+2  | 22s      |
-| 07-10-2022-partial-hyperion-paeeudburdea4nvcz37z4w | partial-mainnet-snapshots | 13      | 33     | 0             | Nov 19, 2022 10:38 PM GMT+2 | 31s      |
-| 06-10-2022-partial-hyperion-konaakl_rsqwfo9z1byjow | partial-mainnet-snapshots | 13      | 33     | 0             | Nov 18, 2022 5:18 PM GMT+2  | 26s      |
-| 05-10-2022-partial-hyperion-taozmbatr4gidxjbxmvqhq | partial-mainnet-snapshots | 13      | 33     | 0             | Nov 17, 2022 4:55 PM GMT+2  | 23s      |
 
 
 ## Latest Restore Validated
