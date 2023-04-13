@@ -60,6 +60,11 @@ POST _snapshot/partial-mainnet-snapshots/02-10-2022-partial-hyperion-yrvehaihro2
 
 | Snapshot                                           | Repository                | Indices | Shards | Failed shards | Date created                | Duration |
 |----------------------------------------------------|---------------------------|---------|--------|---------------|-----------------------------|----------|
+| 02-03-2023-partial-hyperion-cslgjemnq0ek8cdzcpr5gw | partial-mainnet-snapshots | 17      | 49     | 0             | Apr 13, 2023 10:21 AM GMT+2 | 29s      |
+| 01-03-2023-partial-hyperion-iq6iyohst4abl9znqenefa | partial-mainnet-snapshots | 17      | 49     | 0             | Apr 12, 2023 7:35 AM GMT+2  | 18s      |
+| 28-02-2023-partial-hyperion-ssx7mhe_tgq5xmlk9mkejw | partial-mainnet-snapshots | 17      | 49     | 0             | Apr 11, 2023 2:18 PM GMT+2  | 30s      |
+| 27-02-2023-partial-hyperion-0tbargn8tccbtzgfipbvkq | partial-mainnet-snapshots | 17      | 49     | 0             | Apr 10, 2023 10:27 AM GMT+2 | 21s      |
+| 26-02-2023-partial-hyperion-6y_gbi2lskueb5orvo4ica | partial-mainnet-snapshots | 17      | 49     | 0             | Apr 09, 2023 8:56 AM GMT+2  | 24s      |
 | 25-02-2023-partial-hyperion-jhcqrvzjsdqik-wgtgdvba | partial-mainnet-snapshots | 17      | 49     | 0             | Apr 08, 2023 11:17 AM GMT+2 | 24s      |
 | 24-02-2023-partial-hyperion-yupemznoq0clru6eeftpbg | partial-mainnet-snapshots | 17      | 49     | 0             | Apr 07, 2023 9:08 AM GMT+2  | 25s      |
 | 23-02-2023-partial-hyperion-vwa9e81itqkndmleaw2vdg | partial-mainnet-snapshots | 17      | 49     | 0             | Apr 06, 2023 7:40 PM GMT+2  | 47s      |
