@@ -234,4 +234,4 @@ Note that you can restore quicker if you have more nodes available (i.e. more sh
 
 ## Snapshot list
 
-[snapshots](file://wiki/wiki/docs/assets/listed-snapshots.md)
+Please find the latest snapshots [here](./assets/listed-snapshots.md)
