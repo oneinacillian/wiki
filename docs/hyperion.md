@@ -7,7 +7,7 @@
 - Reset elastic credentials
 - Upgrade Elasticsearch from 7.x to 8.x using upgrade assistant - <span style="color:red">**not yet complete**</span>
 - Recover Missing documents via a script
-- Recover Missing documents manually (failures during indexing operations) - <span style="color:red">**not yet complete**</span>
+- Recover Missing documents manually (failures during indexing operations)
 - pin up container on secondary host to participate in indexing operations - <span style="color:red">**not yet complete**</span>
 
 ### *Create an indexing snapshot*
