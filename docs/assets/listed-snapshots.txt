@@ -1,3 +1,5 @@
+| Snapshot                                           | Repository                | Indices | Shards | Failed shards | Date created                | Duration |
+|----------------------------------------------------|---------------------------|---------|--------|---------------|-----------------------------|----------|
 | 01-02-2023-partial-hyperion-5ranjnm0tcccrox6ftxp6g | partial-mainnet-snapshots | 49 | 0 | 2023-03-15 16:59:00 |
 | 02-02-2023-partial-hyperion-a5duapzjt3gme_pdc9fazq | partial-mainnet-snapshots | 49 | 0 | 2023-03-16 16:28:18 |
 | 04-02-2023-partial-hyperion-mlfmhmdcs3mbq9thbcjd-g | partial-mainnet-snapshots | 49 | 0 | 2023-03-18 08:57:15 |
