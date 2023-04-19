@@ -231,3 +231,7 @@ curl -v http://127.0.0.1:7000/v2/health | json_pp
 21:25 -> 07:36 (9 hours, 11 minutes)
 Note that you can restore quicker if you have more nodes available (i.e. more shards to do the work)
 ```
+
+## Snapshot list
+
+[snapshots](file://wiki/wiki/docs/listed_snapshots.md)
