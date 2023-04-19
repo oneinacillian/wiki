@@ -234,4 +234,4 @@ Note that you can restore quicker if you have more nodes available (i.e. more sh
 
 ## Snapshot list
 
-[snapshots](file://wiki/wiki/docs/listed_snapshots.md)
+[snapshots](file://wiki/wiki/docs/listed-snapshots.md)
