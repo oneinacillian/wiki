@@ -58,41 +58,7 @@ POST _snapshot/partial-mainnet-snapshots/02-10-2022-partial-hyperion-yrvehaihro2
 
 ## Current Snapshots
 
-| Snapshot                                           | Repository                | Indices | Shards | Failed shards | Date created                | Duration |
-|----------------------------------------------------|---------------------------|---------|--------|---------------|-----------------------------|----------|
-|08-03-2023-partial-hyperion-jdssjd3nroqosh1pwvflma  | partial-mainnet-snapshots | 19      | 57     | 0             | Apr 19, 2023 4:11 PM GMT+2  | 33s	     |
-| 07-03-2023-partial-hyperion-qyhfilvjsjuwty759ynj1q | partial-mainnet-snapshots | 19      | 57     | 0             | Apr 18, 2023 7:44 AM GMT+2  | 15s      |
-| 06-03-2023-partial-hyperion-tbptovmxtokzichcm8h8hq | partial-mainnet-snapshots | 19      | 57     | 0             | Apr 17, 2023 5:22 PM GMT+2  | 31s      |
-| 05-03-2023-partial-hyperion-d1dbjjdorv22ub16o8zv-w | partial-mainnet-snapshots | 19      | 57     | 0             | Apr 16, 2023 12:02 PM GMT+2 | 27s      |
-| 04-03-2023-partial-hyperion-q78seixwtkikrqx4uswk-q | partial-mainnet-snapshots | 19      | 57     | 0             | Apr 15, 2023 7:01 AM GMT+2  | 27s      |
-| 03-03-2023-partial-hyperion-y5v_5vpctmu17krlgabkdq | partial-mainnet-snapshots | 17      | 49     | 0             | Apr 14, 2023 7:09 AM GMT+2  | 16s      |
-| 02-03-2023-partial-hyperion-cslgjemnq0ek8cdzcpr5gw | partial-mainnet-snapshots | 17      | 49     | 0             | Apr 13, 2023 10:21 AM GMT+2 | 29s      |
-| 01-03-2023-partial-hyperion-iq6iyohst4abl9znqenefa | partial-mainnet-snapshots | 17      | 49     | 0             | Apr 12, 2023 7:35 AM GMT+2  | 18s      |
-| 28-02-2023-partial-hyperion-ssx7mhe_tgq5xmlk9mkejw | partial-mainnet-snapshots | 17      | 49     | 0             | Apr 11, 2023 2:18 PM GMT+2  | 30s      |
-| 27-02-2023-partial-hyperion-0tbargn8tccbtzgfipbvkq | partial-mainnet-snapshots | 17      | 49     | 0             | Apr 10, 2023 10:27 AM GMT+2 | 21s      |
-| 26-02-2023-partial-hyperion-6y_gbi2lskueb5orvo4ica | partial-mainnet-snapshots | 17      | 49     | 0             | Apr 09, 2023 8:56 AM GMT+2  | 24s      |
-| 25-02-2023-partial-hyperion-jhcqrvzjsdqik-wgtgdvba | partial-mainnet-snapshots | 17      | 49     | 0             | Apr 08, 2023 11:17 AM GMT+2 | 24s      |
-| 24-02-2023-partial-hyperion-yupemznoq0clru6eeftpbg | partial-mainnet-snapshots | 17      | 49     | 0             | Apr 07, 2023 9:08 AM GMT+2  | 25s      |
-| 23-02-2023-partial-hyperion-vwa9e81itqkndmleaw2vdg | partial-mainnet-snapshots | 17      | 49     | 0             | Apr 06, 2023 7:40 PM GMT+2  | 47s      |
-| 21-02-2023-partial-hyperion--hfge0frskwksgugk6ooca | partial-mainnet-snapshots | 17      | 49     | 0             | Apr 04, 2023 7:42 AM GMT+2  | 25s      |
-| 20-02-2023-partial-hyperion-bqzlj28psl-za5iognxhga | partial-mainnet-snapshots | 17      | 49     | 0             | Apr 03, 2023 7:55 AM GMT+2  | 15s      |
-| 19-02-2023-partial-hyperion-5fmdldrvrhwywlujkzbugg | partial-mainnet-snapshots | 17      | 49     | 0             | Apr 02, 2023 6:45 PM GMT+2  | 30s      |
-| 18-02-2023-partial-hyperion-byi5nv-1rekq4aq7l9hccw | partial-mainnet-snapshots | 17      | 49     | 0             | Apr 01, 2023 2:44 PM GMT+2  | 26s      |
-| 17-02-2023-partial-hyperion-gtxx3qjjrgoab2e7qhjh-w | partial-mainnet-snapshots | 17      | 49     | 0             | Mar 31, 2023 6:50 AM GMT+2  | 19s      |
-| 16-02-2023-partial-hyperion-hfz72ocet--qjnyj8zzd5q | partial-mainnet-snapshots | 17      | 49     | 0             | Mar 30, 2023 9:23 PM GMT+2  | 24s      |
-| 15-02-2023-partial-hyperion-nkb9lbjrq3wvaiioqjj41g | partial-mainnet-snapshots | 17      | 49     | 0             | Mar 29, 2023 8:05 AM GMT+2  | 26s      |
-| 14-02-2023-partial-hyperion-jc3qhcbjr8qnjbyhzsfy0w | partial-mainnet-snapshots | 17      | 49     | 0             | Mar 28, 2023 4:40 PM GMT+2  | 23s      |
-| 13-02-2023-partial-hyperion-wzsrvjnfr8kscr5etpqz8q | partial-mainnet-snapshots | 17      | 49     | 0             | Mar 27, 2023 10:00 PM GMT+2 | 42s      |
-| 12-02-2023-partial-hyperion-xox0xh6rtt6ko-tgzzsq8q | partial-mainnet-snapshots | 17      | 49     | 0             | Mar 26, 2023 8:04 AM GMT+2  | 28s      |
-| 11-02-2023-partial-hyperion-19by85pmrx2g4cj5nwbswa | partial-mainnet-snapshots | 17      | 49     | 0             | Mar 25, 2023 1:22 PM GMT+2  | 38s      |
-| 10-02-2023-partial-hyperion-3uud0n07q4ejcyvbvuq-dq | partial-mainnet-snapshots | 17      | 49     | 0             | Mar 24, 2023 6:59 AM GMT+2  | 26s      |
-| 09-02-2023-partial-hyperion-i94mwxyktgm82desuwxy9w | partial-mainnet-snapshots | 17      | 49     | 0             | Mar 23, 2023 7:37 AM GMT+2  | 31s      |
-| 08-02-2023-partial-hyperion-bmgmusgasm2vgdna9gqoeq | partial-mainnet-snapshots | 17      | 49     | 0             | Mar 22, 2023 7:27 AM GMT+2  | 19s      |
-| 07-02-2023-partial-hyperion-et8fu6h5rpw4avxho9owgq | partial-mainnet-snapshots | 17      | 49     | 0             | Mar 21, 2023 7:44 PM GMT+2  | 55s      |
-| 04-02-2023-partial-hyperion-mlfmhmdcs3mbq9thbcjd-g | partial-mainnet-snapshots | 17      | 49     | 0             | Mar 18, 2023 10:57 AM GMT+2 | 46s      |
-| 02-02-2023-partial-hyperion-a5duapzjt3gme_pdc9fazq | partial-mainnet-snapshots | 17      | 49     | 0             | Mar 16, 2023 6:28 PM GMT+2  | 21s      |
-| 01-02-2023-partial-hyperion-5ranjnm0tcccrox6ftxp6g | partial-mainnet-snapshots | 17      | 49     | 0             | Mar 15, 2023 6:59 PM GMT+2  | 27s      |
-
+Please find the latest hyperion snapshots for partial restores => [here](./assets/listed-snapshots.txt)
 
 ## Latest Restore Validated
 
@@ -232,6 +198,3 @@ curl -v http://127.0.0.1:7000/v2/health | json_pp
 Note that you can restore quicker if you have more nodes available (i.e. more shards to do the work)
 ```
 
-## Snapshot list
-
-Please find the latest snapshots [here](./assets/listed-snapshots.txt)
