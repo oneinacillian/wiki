@@ -47,3 +47,4 @@
 | 22-03-2023-partial-hyperion-ypzkmkkesl6cmhncuro2lq | partial-mainnet-snapshots | 2023-05-03 05:57:25 |
 | 23-03-2023-partial-hyperion-fn7zdh0hrpowczihikgb2q | partial-mainnet-snapshots | 2023-05-04 06:22:03 |
 | 24-03-2023-partial-hyperion-g4guy2vbstcmt1cvt62k8g | partial-mainnet-snapshots | 2023-05-05 06:05:36 |
+| 25-03-2023-partial-hyperion-kzg-7db2qckimvrcyxhmww | partial-mainnet-snapshots | 2023-05-06 13:17:30 |
