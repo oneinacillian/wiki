@@ -35,3 +35,4 @@
 | 01-04-2023-partial-hyperion-tmmfihlzrxue4fiumaferq | partial-mainnet-snapshots | 2023-05-13 08:14:38 |
 | 02-04-2023-partial-hyperion-z7t0tbxws7wbjulvdcrm8w | partial-mainnet-snapshots | 2023-05-14 08:29:12 |
 | 03-04-2023-partial-hyperion-j0clrlltssokobv41dry4g | partial-mainnet-snapshots | 2023-05-15 19:17:46 |
+| 04-04-2023-partial-hyperion-juepdxhotdog2x82ufmjtq | partial-mainnet-snapshots | 2023-05-16 18:56:39 |
