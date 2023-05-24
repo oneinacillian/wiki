@@ -42,3 +42,4 @@
 | 09-04-2023-partial-hyperion-byaikjc1qgch-hjhz_p9aw | partial-mainnet-snapshots | 2023-05-21 08:34:03 |
 | 10-04-2023-partial-hyperion-rgmmrd9yr5max5jb0xaqua | partial-mainnet-snapshots | 2023-05-22 05:04:52 |
 | 11-04-2023-partial-hyperion-pf8b824nsoanzqfw49bdta | partial-mainnet-snapshots | 2023-05-23 15:06:44 |
+| 12-04-2023-partial-hyperion-ukgflwwssgmyzvn2ygusja | partial-mainnet-snapshots | 2023-05-24 14:37:17 |
