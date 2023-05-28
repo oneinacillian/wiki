@@ -45,3 +45,4 @@
 | 12-04-2023-partial-hyperion-ukgflwwssgmyzvn2ygusja | partial-mainnet-snapshots | 2023-05-24 14:37:17 |
 | 13-04-2023-partial-hyperion-pd7ahbltskuqxaaqk7qw0a | partial-mainnet-snapshots | 2023-05-25 15:36:31 |
 | 15-04-2023-partial-hyperion-pb8crr8ztk2capcujw-h8w | partial-mainnet-snapshots | 2023-05-27 14:45:17 |
+| 16-04-2023-partial-hyperion-ko2pqu0fsasaejkli9e38a | partial-mainnet-snapshots | 2023-05-28 08:43:40 |
