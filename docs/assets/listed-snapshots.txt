@@ -49,3 +49,4 @@
 | 17-04-2023-partial-hyperion-lr1lnramru2boxgrsoaorg | partial-mainnet-snapshots | 2023-05-29 13:04:33 |
 | 18-04-2023-partial-hyperion-bucyvlnst0y2kfckyhemta | partial-mainnet-snapshots | 2023-05-30 15:26:29 |
 | 19-04-2023-partial-hyperion-vspdfr7dsdovdagvlel5wa | partial-mainnet-snapshots | 2023-05-31 18:16:37 |
+| 20-04-2023-partial-hyperion-n6qxy_xargc1twnusk5wlq | partial-mainnet-snapshots | 2023-06-01 10:42:45 |
