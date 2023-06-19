@@ -45,3 +45,4 @@
 | 03-05-2023-partial-hyperion-vese-n2usv6jngxugjv2qg | partial-mainnet-snapshots | 2023-06-14 12:56:51 |
 | 05-05-2023-partial-hyperion-fv6r4a9zslkvjlddfzgiya | partial-mainnet-snapshots | 2023-06-16 08:49:51 |
 | 07-05-2023-partial-hyperion-hvujr941sd2-wsqgpm6s1q | partial-mainnet-snapshots | 2023-06-18 08:46:00 |
+| 08-05-2023-partial-hyperion-wr24aqjcsaev8kekll63pa | partial-mainnet-snapshots | 2023-06-19 17:28:44 |
