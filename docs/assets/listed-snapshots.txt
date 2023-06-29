@@ -50,3 +50,4 @@
 | 12-05-2023-partial-hyperion-gmemfdu3rtmrxuf5gsuunw | partial-mainnet-snapshots | 2023-06-23 19:57:15 |
 | 14-05-2023-partial-hyperion-c0n0ic8sqia1rkkpf8jzcw | partial-mainnet-snapshots | 2023-06-25 09:02:14 |
 | 15-05-2023-partial-hyperion-jtdxz6ubrzgembmmcernpa | partial-mainnet-snapshots | 2023-06-26 19:44:53 |
+| 18-05-2023-partial-hyperion-s2tdm2ufsai6azmidi9rqq | partial-mainnet-snapshots | 2023-06-29 09:09:04 |
