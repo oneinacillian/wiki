@@ -52,3 +52,4 @@
 | 15-05-2023-partial-hyperion-jtdxz6ubrzgembmmcernpa | partial-mainnet-snapshots | 2023-06-26 19:44:53 |
 | 18-05-2023-partial-hyperion-s2tdm2ufsai6azmidi9rqq | partial-mainnet-snapshots | 2023-06-29 09:09:04 |
 | 19-05-2023-partial-hyperion-ckmkmg-0sawp48nzg9prqa | partial-mainnet-snapshots | 2023-06-30 14:21:28 |
+| 20-05-2023-partial-hyperion-qmkkuuzptaatvw_wyrmj6a | partial-mainnet-snapshots | 2023-07-01 09:05:41 |
