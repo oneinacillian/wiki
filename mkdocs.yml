@@ -10,7 +10,7 @@ nav:
   - Home: index.md
   - Installations: installation.md
   - Hyperion: hyperion.md
-  - Hyperion - Snapshot remote NFS: Hyperion - Snapshot remote NFS.md
+  - Hyperion - Snapshot remote NFS: HHyperionSnapshotremoteNFS.md
   - Atomic API: atomic-api.md
   - PostgreSQL: postgresql.md
   - Nodeos: nodeos.md
