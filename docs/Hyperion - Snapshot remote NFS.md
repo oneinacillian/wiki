@@ -4,7 +4,7 @@
 - Configure NFS client on current (elasticsearch) Hyperion server
 - Test NFS share
 - Configure snapshot repository with throttling enabled on current Hyperion server
-- Configure snapshot repository on new Hyperion server
+- Configure snapshot repository on new Hyperion server <br> 
 
 > Please note that you will need to have a VPN configured between the 2 Hyperion server <br>
 
@@ -41,7 +41,7 @@ If this works, NFS is configure and you can continue to configure your snapshot 
 
 ## Configure snapshot repository with throttling enabled on current Hyperion server
 
-> Please not to add your path.repo to your elasticsearch.yml <br>
+> Please note to add your path.repo to your elasticsearch.yml <br>
 
 ```
 path.repo: ["/data/snapshots/"]
@@ -68,7 +68,7 @@ PUT /_snapshot/hyperion_testnet_snapshots
 - "location": "/data/snapshots" = the directory we mapped to the NFS share
 - "max_snapshot_bytes_per_sec": "10mb" = You might need to throttle your snapshot throughput to ensure your network capacity does not impact your current API hosting
 
-You can then go ahead and configure the snapshot policy and kick off the index snapshots
+You can then go ahead and configure the snapshot policy and kick off the index snapshotting
 
 ```
 PUT /_slm/policy/hyperion_testnet_snapshot
