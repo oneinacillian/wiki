@@ -7,6 +7,9 @@
 - Configure snapshot repository on new Hyperion server <br> 
 
 > Please note that you will need to have a VPN configured between the 2 Hyperion server <br>
+> In this example: <br>
+> 172.168.40.185 = new Hyperion server <br> 
+> 172.168.40.160 = current Hyperion server <br>
 
 ## Configure NFS server on new Hyperion server <br>
 
