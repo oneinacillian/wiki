@@ -39,8 +39,8 @@ Take note for the mount command above: <br>
 
 ## Test NFS share
 
-On your current Hyperion server, copy a large file to the /data/snapshots directory and confirm it is placed on the new Hyperion server, also within the /data/snapshots directory
-If this works, NFS is configure and you can continue to configure your snapshot repository
+On your current Hyperion server, copy a large file to the /data/snapshots directory and confirm it is placed on the new Hyperion server, also within the /data/snapshots directory <br>
+If this works, NFS is configure and you can continue to configure your snapshot repository <br>
 
 ## Configure snapshot repository with throttling enabled on current Hyperion server
 
