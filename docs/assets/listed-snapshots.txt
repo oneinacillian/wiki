@@ -1,2 +1,3 @@
 | Snapshot                                           | Repository                | Date Created        |
 | 07-12-2023-partial-hyperion-5pdpvguprludtklb-9ylfw | partial-mainnet-snapshots | 2024-01-18 13:43:33 |
+| 08-12-2023-partial-hyperion-79nhpmu6rjkwohhltkn7sw | partial-mainnet-snapshots | 2024-01-19 10:51:46 |
