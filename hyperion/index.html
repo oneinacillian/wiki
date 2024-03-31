@@ -1,0 +1,1391 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://wiki.oiac.io/hyperion/">
+      
+      
+        <link rel="prev" href="../installation/">
+      
+      
+        <link rel="next" href="../HyperionSnapshotremoteNFS/">
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.16">
+    
+    
+      
+        <title>Hyperion - WAX Performance/General Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-following-will-be-covered-here" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="WAX Performance/General Wiki" class="md-header__button md-logo" aria-label="WAX Performance/General Wiki" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WAX Performance/General Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hyperion
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="WAX Performance/General Wiki" class="md-nav__button md-logo" aria-label="WAX Performance/General Wiki" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    WAX Performance/General Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Hyperion
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Hyperion
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-an-indexing-snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create an indexing snapshot
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restore-a-snapshot-from-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restore a snapshot from url
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimize-indexing-operations-for-bulk-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimize indexing operations for bulk processing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reset-elastic-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reset elastic credentials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgrade-elasticsearch-from-7x-to-8x-do-not-perform-the-upgrade-yet-as-this-process-is-being-writtentested" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upgrade Elasticsearch from 7.x to 8.x ==&gt; !!Do not perform the upgrade yet as this process is being written/tested!!
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Upgrade Elasticsearch from 7.x to 8.x ==> !!Do not perform the upgrade yet as this process is being written/tested!!">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-snapshot-of-all-your-elastic-indexes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create snapshot of all your elastic indexes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recover-missing-documents-via-a-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recover Missing documents via a script
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recover Missing documents via a script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recover-via-a-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recover via a script
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recover-missing-documents-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recover Missing documents manually
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spin-up-container-on-secondary-host-to-participate-in-indexing-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spin up container on secondary host to participate in indexing operations
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HyperionSnapshotremoteNFS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hyperion - Snapshot remote NFS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../atomic-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Atomic API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nodeos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nodeos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ubuntu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../containers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Monitoring (Prometheus/Grafana)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../locust/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Loadtest setup using Locust
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../haproxy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HAProxy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wireguard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VPN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../snapshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hyperion Snapshots
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-an-indexing-snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create an indexing snapshot
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restore-a-snapshot-from-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restore a snapshot from url
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimize-indexing-operations-for-bulk-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimize indexing operations for bulk processing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reset-elastic-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reset elastic credentials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgrade-elasticsearch-from-7x-to-8x-do-not-perform-the-upgrade-yet-as-this-process-is-being-writtentested" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upgrade Elasticsearch from 7.x to 8.x ==&gt; !!Do not perform the upgrade yet as this process is being written/tested!!
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Upgrade Elasticsearch from 7.x to 8.x ==> !!Do not perform the upgrade yet as this process is being written/tested!!">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-snapshot-of-all-your-elastic-indexes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create snapshot of all your elastic indexes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recover-missing-documents-via-a-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recover Missing documents via a script
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recover Missing documents via a script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recover-via-a-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recover via a script
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recover-missing-documents-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recover Missing documents manually
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spin-up-container-on-secondary-host-to-participate-in-indexing-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spin up container on secondary host to participate in indexing operations
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<blockquote>
+<p>Take note of ubuntu performance performance when configuring a Atomic instance</p>
+</blockquote>
+<h1 id="the-following-will-be-covered-here">The following will be covered here</h1>
+<ul>
+<li>Create an indexing snapshot</li>
+<li>Restore a snapshot</li>
+<li>Optimize indexing operations for bulk processing - <span style="color:red"><strong>not yet complete</strong></span></li>
+<li>Reset elastic credentials</li>
+<li>Upgrade Elasticsearch from 7.x to 8.x using upgrade assistant - <span style="color:red"><strong>not yet complete</strong></span></li>
+<li>Recover Missing documents via a script</li>
+<li>Recover Missing documents manually (failures during indexing operations)</li>
+<li>pin up container on secondary host to participate in indexing operations - <span style="color:red"><strong>not yet complete</strong></span></li>
+</ul>
+<h3 id="create-an-indexing-snapshot"><em>Create an indexing snapshot</em></h3>
+<ol>
+<li>Add path.repo: ["/data/snapshots"] to elasticsearch.yml where you would like to store your snapshots</li>
+<li>Stop your hyperion indexer and api process</li>
+<li>Restart elasticsearch</li>
+<li>Log into kibana</li>
+<li>
+<p>Using dev tools under management, create a snapshot repository
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>PUT /_snapshot/my_repository
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>{
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  &quot;type&quot;: &quot;fs&quot;,
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  &quot;settings&quot;: {
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    &quot;location&quot;: &quot;/data/snapshots&quot;,
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    &quot;compress&quot;: true,
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    &quot;max_restore_bytes_per_sec&quot;: &quot;1gb&quot;,
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    &quot;max_snapshot_bytes_per_sec&quot;: &quot;1gb&quot;    
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  }
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>}
+</code></pre></div>
+Please note that the above settings has been optimized for throughput <br>
+<img src="/assets/Configure snapshot repo - Elastic.png"/> <br>
+You should now see your repository being visible for snapshots <br>
+<img src="/assets/repo visible - Elastic.png"/> <br></p>
+</li>
+<li>
+<p>Make sure that you set ownership to elasticsearch on the snapshot directory
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>chown -R elasticsearch:elasticsearch /data/snapshots
+</code></pre></div></p>
+</li>
+<li>
+<p>Create a daily snapshot policy
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>PUT /_slm/policy/daily_snapshot
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>{
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  &quot;schedule&quot;: &quot;0 30 1 * * ?&quot;, 
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  &quot;name&quot;: &quot;daily_snapshot&quot;, 
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  &quot;repository&quot;: &quot;my_repository&quot;, 
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  &quot;config&quot;: { 
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    &quot;indices&quot;: [&quot;wax-action-v1-000001&quot;], 
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    &quot;ignore_unavailable&quot;: false,
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    &quot;include_global_state&quot;: false
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  },
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  &quot;retention&quot;: { 
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    &quot;expire_after&quot;: &quot;30d&quot;, 
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    &quot;min_count&quot;: 5, 
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    &quot;max_count&quot;: 50 
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>  }
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>}
+</code></pre></div>
+You should now see the configure snapshot policy <br>
+<img src="/assets/snapshot policy - Elastic.png"/> <br></p>
+</li>
+<li>
+<p>Trigger a run to make sure that the index/s you selected, backed up successfully <br></p>
+</li>
+</ol>
+<p><img src="/assets/snapshot complete.png"/></p>
+<h3 id="restore-a-snapshot-from-url"><em>Restore a snapshot from url</em></h3>
+<blockquote>
+<p>Configure your repository URL from which you want to restart in your allowed list within the elasticsearch.yml
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>repositories.url.allowed_urls: &quot;http://23.88.71.224:8080/downloads/&quot;
+</code></pre></div>
+<img src="/assets/snapshot restore.png"/> <br></p>
+</blockquote>
+<h3 id="optimize-indexing-operations-for-bulk-processing"><em>Optimize indexing operations for bulk processing</em></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>
+</code></pre></div>
+<h3 id="reset-elastic-credentials"><em>Reset elastic credentials</em></h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>yes | /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto &gt; credentials.file
+</code></pre></div>
+You can then have a copy of the following stored in credentials.file</p>
+<ul>
+<li>apm_system</li>
+<li>kibana_system (configured in kibana.yml)</li>
+<li>kibana</li>
+<li>logstash_system</li>
+<li>beats_system</li>
+<li>remote_monitoring_user</li>
+<li>elastic (used to log into Kibana UI)</li>
+</ul>
+<h3 id="upgrade-elasticsearch-from-7x-to-8x-do-not-perform-the-upgrade-yet-as-this-process-is-being-writtentested"><em>Upgrade Elasticsearch from 7.x to 8.x</em> ==&gt; <span style="color:red"><strong>!!Do not perform the upgrade yet as this process is being written/tested!!</strong></span> <br></h3>
+<p><img src="/assets/Upgrade Assistant - Elastic.png"/> <br></p>
+<ol>
+<li>Create snapshot of all your elastic indexes</li>
+<li>Migrate system indices (if not already ticked)</li>
+<li>Review deprecated settings and resole issues for critical errors (if not already ticked)</li>
+<li>Address API deprecations if necessary</li>
+</ol>
+<h4 id="create-snapshot-of-all-your-elastic-indexes">Create snapshot of all your elastic indexes</h4>
+<blockquote>
+<p>Create the following <strong>policy</strong></p>
+</blockquote>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>PUT /_slm/policy/upgrade_snapshot
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>{
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  &quot;schedule&quot;: &quot;0 30 1 * * ?&quot;, 
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  &quot;name&quot;: &quot;upgrade_snapshot&quot;, 
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  &quot;repository&quot;: &quot;my_repository&quot;, 
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  &quot;config&quot;: { 
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    &quot;indices&quot;: [&quot;wax-*&quot;], 
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    &quot;ignore_unavailable&quot;: false,
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    &quot;include_global_state&quot;: false
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>  },
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>  &quot;retention&quot;: { 
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    &quot;expire_after&quot;: &quot;30d&quot;, 
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    &quot;min_count&quot;: 5, 
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    &quot;max_count&quot;: 50 
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>  }
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>}
+</code></pre></div>
+Kick off the above policy to backup all your wax indexes <br>
+<img src="/assets/index snapshot prior upgrade.png"/> <br></p>
+<blockquote>
+<p>Indexes (at the time of the upgrade on testnet)</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>wax-abi-v1
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>wax-action-v1-000001
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>wax-action-v1-000002
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>wax-action-v1-000003
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>wax-action-v1-000004
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>wax-action-v1-000005
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>wax-action-v1-000006
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>wax-action-v1-000007
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>wax-action-v1-000008
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>wax-action-v1-000009
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>wax-action-v1-000010
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>wax-action-v1-000011
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>wax-action-v1-000012
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>wax-action-v1-000013
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>wax-action-v1-000014
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>wax-action-v1-000015
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>wax-action-v1-000016
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>wax-action-v1-000017
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>wax-block-v1
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>wax-delta-v1-000001
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>wax-delta-v1-000002
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>wax-delta-v1-000003
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>wax-delta-v1-000004
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>wax-delta-v1-000005
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>wax-delta-v1-000006
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>wax-delta-v1-000007
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>wax-delta-v1-000008
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>wax-delta-v1-000009
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>wax-delta-v1-000010
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>wax-delta-v1-000011
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>wax-delta-v1-000012
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>wax-delta-v1-000013
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>wax-delta-v1-000014
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>wax-delta-v1-000015
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>wax-delta-v1-000016
+<a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>wax-delta-v1-000017
+<a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a>wax-link-v1
+<a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a>wax-logs-v1
+<a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a>wax-perm-v1
+<a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a>wax-table-accounts-v1
+<a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a>wax-table-proposals-v1
+<a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a>wax-table-voters-v1
+</code></pre></div>
+<blockquote>
+<p>Using the optimized repository settings specific earlier in <strong>Create an indexing snapshot</strong>, it took 428s to snapshot 315GB of data</p>
+</blockquote>
+<p><img src="/assets/snapshot result.png"/> <br></p>
+<p>To Upgrade you elasticsearch, perform the following:</p>
+<ol>
+<li>Disable shard allocation
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>PUT _cluster/settings
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>{
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  &quot;persistent&quot;: {
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    &quot;cluster.routing.allocation.enable&quot;: &quot;primaries&quot;
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>  }
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>}
+</code></pre></div></li>
+<li>Stop non-essential indexing and perform a flush
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>POST /_flush
+</code></pre></div></li>
+<li>Temporarily stop the tasks associated with active machine learning jobs and datafeeds
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>POST _ml/set_upgrade_mode?enabled=true
+</code></pre></div></li>
+</ol>
+<blockquote>
+<p>still to check
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>PUT /_cluster/settings
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>{
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>  &quot;transient&quot;: {
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    &quot;cluster.routing.allocation.enable&quot;: null
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>  },
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>  &quot;persistent&quot;: {
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    &quot;cluster.routing.allocation.enable&quot;: null
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>  }
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>}
+</code></pre></div></p>
+</blockquote>
+<ol>
+<li>Shutdown node
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo -i service elasticsearch stop
+</code></pre></div></li>
+<li>
+<p>Register the new stable package apt source for elastic-8.x
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>rm -rf /etc/apt/sources.list.d/elastic-7.x.list
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>echo &quot;deb https://artifacts.elastic.co/packages/8.x/apt stable main&quot; | tee /etc/apt/sources.list.d/elastic-8.x.list
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>apt-get update
+</code></pre></div></p>
+<blockquote>
+<p>You should see <strong>https://artifacts.elastic.co/packages/8.x/apt stable InRelease</strong> in the repository being listed</p>
+</blockquote>
+</li>
+<li>
+<p>Upgrade elasticsearch to 8.x
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>root@26b4315c7b5c:/etc/apt/sources.list.d# apt-get upgrade elasticsearch
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Reading package lists... Done
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Building dependency tree
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>Reading state information... Done
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>Calculating upgrade... Done
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>The following packages will be upgraded:
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>  curl dirmngr elasticsearch erlang-asn1 erlang-base erlang-crypto erlang-eldap erlang-ftp erlang-inets erlang-mnesia erlang-os-mon erlang-parsetools erlang-public-key erlang-runtime-tools erlang-snmp
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>  erlang-ssl erlang-syntax-tools erlang-tftp erlang-tools erlang-xmerl git git-man gnupg gnupg-l10n gnupg-utils gpg gpg-agent gpg-wks-client gpg-wks-server gpgconf gpgsm gpgv kibana libcurl3-gnutls
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>  libcurl4 libhttp-daemon-perl libpython2.7-minimal libpython2.7-stdlib libpython3.8 libpython3.8-minimal libpython3.8-stdlib libssl-dev libssl1.1 linux-libc-dev openssl python2.7 python2.7-minimal
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>  python3.8 python3.8-minimal rabbitmq-server redis redis-server redis-tools
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>53 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>Need to get 870 MB of archives.
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>After this operation, 606 MB of additional disk space will be used.
+</code></pre></div></p>
+</li>
+</ol>
+<h3 id="recover-missing-documents-via-a-script"><em>Recover Missing documents via a script</em></h3>
+<blockquote>
+<p>It often can happen that during the indexing operation you encountered a component failure which causes the indexing operation to miss certain blocks during the indexing.</p>
+</blockquote>
+<h4 id="recover-via-a-script"><em>Recover via a script</em></h4>
+<blockquote>
+<p>One of you valued community members has provided a python based utility to automate the recovery of documents which were lost during the indexing operations.</p>
+</blockquote>
+<p><a href="https://github.com/eosrio/hyperion-history-api/tree/v3.3.5/scripts/fix_missing_blocks">Please follow this link as a first attempt to resolve all missing documents</a> </p>
+<p>To confirm that no block data is missing, connect to Kibana and open <strong>dev tools</strong> under management <br>
+<img src="/assets/dev tools - Elastic.png"/> <br>
+Run the following POST command to view the block histogram. <strong>Note</strong> that each bucket contains 10,000,000 documents <br>
+This way you can also easily verify which bucket has missing data <br>
+<img src="/assets/missing_block_1  - Elastic.png"/> <br>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>POST wax-block-*/_search
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>{
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>  &quot;aggs&quot;: {
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    &quot;block_histogram&quot;: {
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>      &quot;histogram&quot;: {
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>        &quot;field&quot;: &quot;block_num&quot;,
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>        &quot;interval&quot;: 10000000,
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>        &quot;min_doc_count&quot;: 1
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>      },
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>      &quot;aggs&quot;: {
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>        &quot;max_block&quot;: {
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>          &quot;max&quot;: {
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>            &quot;field&quot;: &quot;block_num&quot;
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>          }
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>        }
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>      }
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>    }
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a>  },
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>  &quot;size&quot;: 0,
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>  &quot;query&quot;: {
+<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>    &quot;match_all&quot;: {}
+<a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a>  }
+<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a>}
+</code></pre></div>
+Check the block histogram on the results pane to see if any documents are missing. <br>
+The expectation here is that each bucket prior to the bucket in which documents are indexed, are fully populated with 10,000,000 documents <br>
+Run the wax indexer utility until you catch up with headblock the run the following to query hyperion health
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>http://hyperion.oiac.io/v2/health
+</code></pre></div>
+The expected respone will be to have your <strong>head_block_num</strong>, <strong>last_indexed_block</strong> and <strong>total_indexed_blocks</strong> in sync <br>
+<img src="/assets/elastic block status.png"/> <br>
+Should this not be the case, start the manual recovery process as explained in the below section</p>
+<h4 id="recover-missing-documents-manually"><em>Recover Missing documents manually</em></h4>
+<p>In this section, I will explain the manual process of finding the blocks and recovering the manually via the wax-indexer operations.</p>
+<p>Determine the amount of documents stored in each bucket, which should contain 10000000 items
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>POST wax-block-*/_search
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>{
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>  &quot;aggs&quot;: {
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>    &quot;block_histogram&quot;: {
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>      &quot;histogram&quot;: {
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>        &quot;field&quot;: &quot;block_num&quot;,
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>        &quot;interval&quot;: 10000000,
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>        &quot;min_doc_count&quot;: 1
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>      },
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>      &quot;aggs&quot;: {
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>        &quot;max_block&quot;: {
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>          &quot;max&quot;: {
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>            &quot;field&quot;: &quot;block_num&quot;
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>          }
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>        }
+<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>      }
+<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>    }
+<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>  },
+<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>  &quot;size&quot;: 0,
+<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>  &quot;query&quot;: {
+<a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a>    &quot;match_all&quot;: {}
+<a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a>  }
+<a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a>} 
+</code></pre></div>
+Result will look like follows =&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>&quot;aggregations&quot; : {
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>    &quot;block_histogram&quot; : {
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>      &quot;buckets&quot; : [
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>        {
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>          &quot;key&quot; : 0.0,
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>          &quot;doc_count&quot; : 9999998,
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>          &quot;max_block&quot; : {
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>            &quot;value&quot; : 9999999.0
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>          }
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>        },
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>        {
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>          &quot;key&quot; : 1.0E7,
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>          &quot;doc_count&quot; : 10000000,
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>          &quot;max_block&quot; : {
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>            &quot;value&quot; : 1.9999999E7
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>          }
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>        },
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>        {
+<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a>          &quot;key&quot; : 2.0E7,
+<a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a>          &quot;doc_count&quot; : 10000000,
+<a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a>          &quot;max_block&quot; : {
+<a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a>            &quot;value&quot; : 2.9999999E7
+<a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a>          }
+<a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a>        },
+<a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a>        {
+<a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a>          &quot;key&quot; : 3.0E7,
+<a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a>          &quot;doc_count&quot; : 10000000,
+<a id="__codelineno-18-28" name="__codelineno-18-28" href="#__codelineno-18-28"></a>          &quot;max_block&quot; : {
+<a id="__codelineno-18-29" name="__codelineno-18-29" href="#__codelineno-18-29"></a>            &quot;value&quot; : 3.9999999E7
+<a id="__codelineno-18-30" name="__codelineno-18-30" href="#__codelineno-18-30"></a>          }
+<a id="__codelineno-18-31" name="__codelineno-18-31" href="#__codelineno-18-31"></a>        },
+<a id="__codelineno-18-32" name="__codelineno-18-32" href="#__codelineno-18-32"></a>        {
+<a id="__codelineno-18-33" name="__codelineno-18-33" href="#__codelineno-18-33"></a>          &quot;key&quot; : 4.0E7,
+<a id="__codelineno-18-34" name="__codelineno-18-34" href="#__codelineno-18-34"></a>          &quot;doc_count&quot; : 10000000,
+<a id="__codelineno-18-35" name="__codelineno-18-35" href="#__codelineno-18-35"></a>          &quot;max_block&quot; : {
+<a id="__codelineno-18-36" name="__codelineno-18-36" href="#__codelineno-18-36"></a>            &quot;value&quot; : 4.9999999E7
+<a id="__codelineno-18-37" name="__codelineno-18-37" href="#__codelineno-18-37"></a>          }
+<a id="__codelineno-18-38" name="__codelineno-18-38" href="#__codelineno-18-38"></a>        },
+<a id="__codelineno-18-39" name="__codelineno-18-39" href="#__codelineno-18-39"></a>        {
+<a id="__codelineno-18-40" name="__codelineno-18-40" href="#__codelineno-18-40"></a>          &quot;key&quot; : 5.0E7,
+<a id="__codelineno-18-41" name="__codelineno-18-41" href="#__codelineno-18-41"></a>          &quot;doc_count&quot; : 10000000,
+<a id="__codelineno-18-42" name="__codelineno-18-42" href="#__codelineno-18-42"></a>          &quot;max_block&quot; : {
+<a id="__codelineno-18-43" name="__codelineno-18-43" href="#__codelineno-18-43"></a>            &quot;value&quot; : 5.9999999E7
+<a id="__codelineno-18-44" name="__codelineno-18-44" href="#__codelineno-18-44"></a>          }
+<a id="__codelineno-18-45" name="__codelineno-18-45" href="#__codelineno-18-45"></a>        },
+<a id="__codelineno-18-46" name="__codelineno-18-46" href="#__codelineno-18-46"></a>        {
+<a id="__codelineno-18-47" name="__codelineno-18-47" href="#__codelineno-18-47"></a>          &quot;key&quot; : 6.0E7,
+<a id="__codelineno-18-48" name="__codelineno-18-48" href="#__codelineno-18-48"></a>          &quot;doc_count&quot; : 10000000,
+<a id="__codelineno-18-49" name="__codelineno-18-49" href="#__codelineno-18-49"></a>          &quot;max_block&quot; : {
+<a id="__codelineno-18-50" name="__codelineno-18-50" href="#__codelineno-18-50"></a>            &quot;value&quot; : 6.9999999E7
+<a id="__codelineno-18-51" name="__codelineno-18-51" href="#__codelineno-18-51"></a>          }
+<a id="__codelineno-18-52" name="__codelineno-18-52" href="#__codelineno-18-52"></a>        },
+<a id="__codelineno-18-53" name="__codelineno-18-53" href="#__codelineno-18-53"></a>        {
+<a id="__codelineno-18-54" name="__codelineno-18-54" href="#__codelineno-18-54"></a>          &quot;key&quot; : 7.0E7,
+<a id="__codelineno-18-55" name="__codelineno-18-55" href="#__codelineno-18-55"></a>          &quot;doc_count&quot; : 10000000,
+<a id="__codelineno-18-56" name="__codelineno-18-56" href="#__codelineno-18-56"></a>          &quot;max_block&quot; : {
+<a id="__codelineno-18-57" name="__codelineno-18-57" href="#__codelineno-18-57"></a>            &quot;value&quot; : 7.9999999E7
+<a id="__codelineno-18-58" name="__codelineno-18-58" href="#__codelineno-18-58"></a>          }
+<a id="__codelineno-18-59" name="__codelineno-18-59" href="#__codelineno-18-59"></a>        },
+<a id="__codelineno-18-60" name="__codelineno-18-60" href="#__codelineno-18-60"></a>        {
+<a id="__codelineno-18-61" name="__codelineno-18-61" href="#__codelineno-18-61"></a>          &quot;key&quot; : 8.0E7,
+<a id="__codelineno-18-62" name="__codelineno-18-62" href="#__codelineno-18-62"></a>          &quot;doc_count&quot; : 10000000,
+<a id="__codelineno-18-63" name="__codelineno-18-63" href="#__codelineno-18-63"></a>          &quot;max_block&quot; : {
+<a id="__codelineno-18-64" name="__codelineno-18-64" href="#__codelineno-18-64"></a>            &quot;value&quot; : 8.9999999E7
+<a id="__codelineno-18-65" name="__codelineno-18-65" href="#__codelineno-18-65"></a>          }
+<a id="__codelineno-18-66" name="__codelineno-18-66" href="#__codelineno-18-66"></a>        },
+<a id="__codelineno-18-67" name="__codelineno-18-67" href="#__codelineno-18-67"></a>        {
+<a id="__codelineno-18-68" name="__codelineno-18-68" href="#__codelineno-18-68"></a>          &quot;key&quot; : 9.0E7,
+<a id="__codelineno-18-69" name="__codelineno-18-69" href="#__codelineno-18-69"></a>          &quot;doc_count&quot; : 10000000,
+<a id="__codelineno-18-70" name="__codelineno-18-70" href="#__codelineno-18-70"></a>          &quot;max_block&quot; : {
+<a id="__codelineno-18-71" name="__codelineno-18-71" href="#__codelineno-18-71"></a>            &quot;value&quot; : 9.9999999E7
+<a id="__codelineno-18-72" name="__codelineno-18-72" href="#__codelineno-18-72"></a>          }
+<a id="__codelineno-18-73" name="__codelineno-18-73" href="#__codelineno-18-73"></a>        },
+<a id="__codelineno-18-74" name="__codelineno-18-74" href="#__codelineno-18-74"></a>        {
+<a id="__codelineno-18-75" name="__codelineno-18-75" href="#__codelineno-18-75"></a>          &quot;key&quot; : 1.0E8,
+<a id="__codelineno-18-76" name="__codelineno-18-76" href="#__codelineno-18-76"></a>          &quot;doc_count&quot; : 10000000,
+<a id="__codelineno-18-77" name="__codelineno-18-77" href="#__codelineno-18-77"></a>          &quot;max_block&quot; : {
+<a id="__codelineno-18-78" name="__codelineno-18-78" href="#__codelineno-18-78"></a>            &quot;value&quot; : 1.09999999E8
+<a id="__codelineno-18-79" name="__codelineno-18-79" href="#__codelineno-18-79"></a>          }
+<a id="__codelineno-18-80" name="__codelineno-18-80" href="#__codelineno-18-80"></a>        },
+<a id="__codelineno-18-81" name="__codelineno-18-81" href="#__codelineno-18-81"></a>        {
+<a id="__codelineno-18-82" name="__codelineno-18-82" href="#__codelineno-18-82"></a>          &quot;key&quot; : 1.1E8,
+<a id="__codelineno-18-83" name="__codelineno-18-83" href="#__codelineno-18-83"></a>          &quot;doc_count&quot; : 10000000,
+<a id="__codelineno-18-84" name="__codelineno-18-84" href="#__codelineno-18-84"></a>          &quot;max_block&quot; : {
+<a id="__codelineno-18-85" name="__codelineno-18-85" href="#__codelineno-18-85"></a>            &quot;value&quot; : 1.19999999E8
+<a id="__codelineno-18-86" name="__codelineno-18-86" href="#__codelineno-18-86"></a>          }
+<a id="__codelineno-18-87" name="__codelineno-18-87" href="#__codelineno-18-87"></a>        },
+<a id="__codelineno-18-88" name="__codelineno-18-88" href="#__codelineno-18-88"></a>        {
+<a id="__codelineno-18-89" name="__codelineno-18-89" href="#__codelineno-18-89"></a>          &quot;key&quot; : 1.2E8,
+<a id="__codelineno-18-90" name="__codelineno-18-90" href="#__codelineno-18-90"></a>          &quot;doc_count&quot; : 10000000,
+<a id="__codelineno-18-91" name="__codelineno-18-91" href="#__codelineno-18-91"></a>          &quot;max_block&quot; : {
+<a id="__codelineno-18-92" name="__codelineno-18-92" href="#__codelineno-18-92"></a>            &quot;value&quot; : 1.29999999E8
+<a id="__codelineno-18-93" name="__codelineno-18-93" href="#__codelineno-18-93"></a>          }
+<a id="__codelineno-18-94" name="__codelineno-18-94" href="#__codelineno-18-94"></a>        },
+<a id="__codelineno-18-95" name="__codelineno-18-95" href="#__codelineno-18-95"></a>        {
+<a id="__codelineno-18-96" name="__codelineno-18-96" href="#__codelineno-18-96"></a>          &quot;key&quot; : 1.3E8,
+<a id="__codelineno-18-97" name="__codelineno-18-97" href="#__codelineno-18-97"></a>          &quot;doc_count&quot; : 10000000,
+<a id="__codelineno-18-98" name="__codelineno-18-98" href="#__codelineno-18-98"></a>          &quot;max_block&quot; : {
+<a id="__codelineno-18-99" name="__codelineno-18-99" href="#__codelineno-18-99"></a>            &quot;value&quot; : 1.39999999E8
+<a id="__codelineno-18-100" name="__codelineno-18-100" href="#__codelineno-18-100"></a>          }
+<a id="__codelineno-18-101" name="__codelineno-18-101" href="#__codelineno-18-101"></a>        },
+<a id="__codelineno-18-102" name="__codelineno-18-102" href="#__codelineno-18-102"></a>        {
+<a id="__codelineno-18-103" name="__codelineno-18-103" href="#__codelineno-18-103"></a>          &quot;key&quot; : 1.4E8,
+<a id="__codelineno-18-104" name="__codelineno-18-104" href="#__codelineno-18-104"></a>          &quot;doc_count&quot; : 10000000,
+<a id="__codelineno-18-105" name="__codelineno-18-105" href="#__codelineno-18-105"></a>          &quot;max_block&quot; : {
+<a id="__codelineno-18-106" name="__codelineno-18-106" href="#__codelineno-18-106"></a>            &quot;value&quot; : 1.49999999E8
+<a id="__codelineno-18-107" name="__codelineno-18-107" href="#__codelineno-18-107"></a>          }
+<a id="__codelineno-18-108" name="__codelineno-18-108" href="#__codelineno-18-108"></a>        },
+<a id="__codelineno-18-109" name="__codelineno-18-109" href="#__codelineno-18-109"></a>        {
+<a id="__codelineno-18-110" name="__codelineno-18-110" href="#__codelineno-18-110"></a>          &quot;key&quot; : 1.5E8,
+<a id="__codelineno-18-111" name="__codelineno-18-111" href="#__codelineno-18-111"></a>          &quot;doc_count&quot; : 10000000,
+<a id="__codelineno-18-112" name="__codelineno-18-112" href="#__codelineno-18-112"></a>          &quot;max_block&quot; : {
+<a id="__codelineno-18-113" name="__codelineno-18-113" href="#__codelineno-18-113"></a>            &quot;value&quot; : 1.59999999E8
+<a id="__codelineno-18-114" name="__codelineno-18-114" href="#__codelineno-18-114"></a>          }
+<a id="__codelineno-18-115" name="__codelineno-18-115" href="#__codelineno-18-115"></a>        },
+<a id="__codelineno-18-116" name="__codelineno-18-116" href="#__codelineno-18-116"></a>        {
+<a id="__codelineno-18-117" name="__codelineno-18-117" href="#__codelineno-18-117"></a>          &quot;key&quot; : 1.6E8,
+<a id="__codelineno-18-118" name="__codelineno-18-118" href="#__codelineno-18-118"></a>          &quot;doc_count&quot; : 3904020,
+<a id="__codelineno-18-119" name="__codelineno-18-119" href="#__codelineno-18-119"></a>          &quot;max_block&quot; : {
+<a id="__codelineno-18-120" name="__codelineno-18-120" href="#__codelineno-18-120"></a>            &quot;value&quot; : 1.639114E8
+<a id="__codelineno-18-121" name="__codelineno-18-121" href="#__codelineno-18-121"></a>          }
+<a id="__codelineno-18-122" name="__codelineno-18-122" href="#__codelineno-18-122"></a>        }
+<a id="__codelineno-18-123" name="__codelineno-18-123" href="#__codelineno-18-123"></a>      ]
+<a id="__codelineno-18-124" name="__codelineno-18-124" href="#__codelineno-18-124"></a>    }
+<a id="__codelineno-18-125" name="__codelineno-18-125" href="#__codelineno-18-125"></a>  }
+</code></pre></div>
+In this example above, you can see that each bucket starts at a key which defines the starting block number <br>
+In this case, there are 16 buckets, 15 should contain 10,000,000 blocks each, with the last one still indexing <br>
+If at any time you do not have a doc_count of 10,000,000 in each bucket (except for the last one), there are document missing and validators will mark the system as incomplete <br></p>
+<blockquote>
+<p>Example of 2 buckets having missing data<br></p>
+</blockquote>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>        {
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>          &quot;key&quot; : 1.4E8,
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>          &quot;doc_count&quot; : 9950000,
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>          &quot;max_block&quot; : {
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>            &quot;value&quot; : 1.49999999E8
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>          }
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>        },
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>        {
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>          &quot;key&quot; : 1.5E8,
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>          &quot;doc_count&quot; : 9998000,
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>          &quot;max_block&quot; : {
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>            &quot;value&quot; : 1.59999999E8
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>          }
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>        },
+</code></pre></div>
+Above you can see 
+- Bucket starting at 140000000 has <span style="color:red"><strong>50,000</strong></span> documents missing
+- Bucket starting at 150000000 has <span style="color:red"><strong>2,000</strong></span> documents missing</p>
+<p>Next would be to view the individual buckets to narrow down the searches to find and index the missing blocks <br>
+Let us start by working on the <strong>1st index</strong> which has missing data <br>
+Narrow down the search to 1,000,000 documents <br></p>
+<blockquote>
+<p>Run the following command to retrieve 1,000,000 items at a time on bucket starting at 140,000,000
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>POST wax-block-*/_search
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>{
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>  &quot;aggs&quot;: {
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>    &quot;block_histogram&quot;: {
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>      &quot;histogram&quot;: {
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>        &quot;field&quot;: &quot;block_num&quot;,
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>        &quot;interval&quot;: 1000000,
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>        &quot;min_doc_count&quot;: 1
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>      },
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>      &quot;aggs&quot;: {
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>        &quot;max_block&quot;: {
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>          &quot;max&quot;: {
+<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>            &quot;field&quot;: &quot;block_num&quot;
+<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>          }
+<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>        }
+<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>      }
+<a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a>    }
+<a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a>  },
+<a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a>  &quot;size&quot;: 0,
+<a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a>  &quot;query&quot;: {
+<a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a>    &quot;bool&quot;: {
+<a id="__codelineno-20-22" name="__codelineno-20-22" href="#__codelineno-20-22"></a>      &quot;must&quot;: [
+<a id="__codelineno-20-23" name="__codelineno-20-23" href="#__codelineno-20-23"></a>        {
+<a id="__codelineno-20-24" name="__codelineno-20-24" href="#__codelineno-20-24"></a>          &quot;range&quot;: {
+<a id="__codelineno-20-25" name="__codelineno-20-25" href="#__codelineno-20-25"></a>            &quot;block_num&quot;: {
+<a id="__codelineno-20-26" name="__codelineno-20-26" href="#__codelineno-20-26"></a>              &quot;gte&quot;: 140000000,
+<a id="__codelineno-20-27" name="__codelineno-20-27" href="#__codelineno-20-27"></a>              &quot;lte&quot;: 150000000
+<a id="__codelineno-20-28" name="__codelineno-20-28" href="#__codelineno-20-28"></a>            }
+<a id="__codelineno-20-29" name="__codelineno-20-29" href="#__codelineno-20-29"></a>          }
+<a id="__codelineno-20-30" name="__codelineno-20-30" href="#__codelineno-20-30"></a>        }
+<a id="__codelineno-20-31" name="__codelineno-20-31" href="#__codelineno-20-31"></a>      ]
+<a id="__codelineno-20-32" name="__codelineno-20-32" href="#__codelineno-20-32"></a>    }
+<a id="__codelineno-20-33" name="__codelineno-20-33" href="#__codelineno-20-33"></a>  }
+<a id="__codelineno-20-34" name="__codelineno-20-34" href="#__codelineno-20-34"></a>}
+</code></pre></div>
+<img src="/assets/recover docs 1 - Elastic.png"/> <br>
+Viewing the results of the above query, either the blocks can be missing in multiple buckets, or in only 1, but the recovery process remains the same <br>
+The recovery process that be run for the entire bucket as well, but could be time consuming <br>
+For the purpose of this document, I will recover missing blocks from 2 buckets <br>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>        {
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>          &quot;key&quot; : 1.45E8,
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>          &quot;doc_count&quot; : 975000,
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>          &quot;max_block&quot; : {
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>            &quot;value&quot; : 1.45999999E8
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>          }
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>        },
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>        {
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>          &quot;key&quot; : 1.46E8,
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>          &quot;doc_count&quot; : 975000,
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>          &quot;max_block&quot; : {
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>            &quot;value&quot; : 1.46999999E8
+<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>          }
+<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>        },
+</code></pre></div>
+Above, you can see</p>
+</blockquote>
+<ul>
+<li>bucket starting 145000000 (represented by key 1.45E8) has <span style="color:red"><strong>25,000</strong></span> blocks missing <br></li>
+<li>bucket starting 146000000 (represented by key 1.46E8) has <span style="color:red"><strong>25,000</strong></span> blocks missing <br></li>
+</ul>
+<p>To start recovery the missing blocks, we need to use the wax indexer app provided as part of the hyperion install, and which is used to run the main indexing operations <br>
+Stop your current indexing
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>./stop.sh wax-indexer
+</code></pre></div>
+Then modify the following in your wax.config.json to recover the first bucket missing 25,000 blocks <br>
+<img src="/assets/recover docs 2 - Elastic.png"/> <br>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>  &quot;indexer&quot;: {
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    &quot;enabled&quot;: true,
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>    &quot;node_max_old_space_size&quot;: 8192,
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>    &quot;start_on&quot;: 145975000,
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>    &quot;stop_on&quot;: 146000000,
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>    &quot;rewrite&quot;: true,
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>    &quot;purge_queues&quot;: true,
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>    &quot;live_reader&quot;: false,
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>    &quot;live_only_mode&quot;: false,
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>    &quot;abi_scan_mode&quot;: false,
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>    &quot;fetch_block&quot;: true,
+<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>    &quot;fetch_traces&quot;: true,
+<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a>    &quot;disable_reading&quot;: false,
+<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a>    &quot;disable_indexing&quot;: false,
+<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a>    &quot;process_deltas&quot;: true,
+<a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a>    &quot;disable_delta_rm&quot;: true
+<a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a>  },
+</code></pre></div></p>
+<ul>
+<li>disable <strong>live_reader</strong></li>
+<li>enable <strong>purge_queues</strong> and <strong>rewrite</strong></li>
+<li>configure the <strong>start_on</strong> and <strong>stop_on</strong> parameters which will tell the indexer which blocks to recover (note examples used for recovery above)</li>
+</ul>
+<p>Start your idexing operations to recover the first 25,000 blocks. <br>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>./run.sh wax-indexer
+</code></pre></div>
+Once completed, modify the <strong>start_on</strong> and <strong>stop_on</strong> parameters to recover missing blocks for the next bucket (note examples used for recovery above) <br>
+<strong><em>NOTE:</em></strong> to restart your wax-indexer after each change to take effect</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>  &quot;indexer&quot;: {
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>    &quot;enabled&quot;: true,
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>    &quot;node_max_old_space_size&quot;: 8192,
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>    &quot;start_on&quot;: 145975000,
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>    &quot;stop_on&quot;: 146000000,
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>    &quot;rewrite&quot;: true,
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>    &quot;purge_queues&quot;: true,
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>    &quot;live_reader&quot;: false,
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>    &quot;live_only_mode&quot;: false,
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>    &quot;abi_scan_mode&quot;: false,
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>    &quot;fetch_block&quot;: true,
+<a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>    &quot;fetch_traces&quot;: true,
+<a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a>    &quot;disable_reading&quot;: false,
+<a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a>    &quot;disable_indexing&quot;: false,
+<a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a>    &quot;process_deltas&quot;: true,
+<a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a>    &quot;disable_delta_rm&quot;: true
+<a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a>  },
+</code></pre></div>
+Once all the blocks has been restored</p>
+<ul>
+<li>disable <strong>purge_queues</strong> and <strong>rewrite</strong></li>
+<li>enable <strong>live_reader</strong></li>
+</ul>
+<p>Restart and let it catch up to headblock again.</p>
+<h3 id="spin-up-container-on-secondary-host-to-participate-in-indexing-operations"><em>Spin up container on secondary host to participate in indexing operations</em></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,902 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://wiki.oiac.io/snapshots/">
+      
+      
+        <link rel="prev" href="../wireguard/">
+      
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.16">
+    
+    
+      
+        <title>Hyperion Snapshots - WAX Performance/General Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#current-snapshots" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="WAX Performance/General Wiki" class="md-header__button md-logo" aria-label="WAX Performance/General Wiki" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WAX Performance/General Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hyperion Snapshots
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="WAX Performance/General Wiki" class="md-nav__button md-logo" aria-label="WAX Performance/General Wiki" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    WAX Performance/General Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hyperion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hyperion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HyperionSnapshotremoteNFS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hyperion - Snapshot remote NFS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../atomic-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Atomic API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nodeos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nodeos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ubuntu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../containers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Monitoring (Prometheus/Grafana)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../locust/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Loadtest setup using Locust
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../haproxy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HAProxy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wireguard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VPN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Hyperion Snapshots
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Hyperion Snapshots
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#current-snapshots" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current Snapshots
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#latest-restore-validated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Latest Restore Validated
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#current-snapshots" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current Snapshots
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#latest-restore-validated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Latest Restore Validated
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Hyperion Snapshots</h1>
+
+<blockquote>
+<p>6 week snapshot listing <br></p>
+</blockquote>
+<p>It is clear that the elastic indexes are growing at a rapid pace in terms of sizing. <br>
+This will make it extremely difficult to maintain full hyperion history, or even get started since you need to pull an entire snapshot before any maintenance can be done. <br>
+Since the OIG still validate 6 weeks of Hyperion history as partial and for running partial Hyperion you receive scoring, I started creating snapshots daily that contains all data later than 6 weeks. <br></p>
+<p><strong>Please note the following on the snapshots</strong></p>
+<ul>
+<li>Validated for no missing blocks (used hyperion 3.3.6) <br></li>
+<li>Syned up to headblock at the time of the snapshot <br></li>
+<li>The snapshot naming convention is as follows <br></li>
+</ul>
+<p><img src="/assets/snapshot-name.png"/> <br></p>
+<p>The name (for instance 11-09-22) will be the identifier for which data is contained in the snapshot. <br>
+For instance, in the case above, the indexes will contain data populated from 11-09-2022 00:00:00 GMT +2</p>
+<p><strong>To restore the snapshot to your hyperion instance, the following will be necessary</strong></p>
+<blockquote>
+<p>Update your Elasticsearch.yml to trust the repository from which you will download the snapshotted data</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>repositories.url.allowed_urls: [&quot;https://snapshots.oiac.io/downloads/partialsnapshots/&quot;]
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>service elasticsearch restart
+</code></pre></div>
+<blockquote>
+<p>Add the repository using dev tools in elasticsearch <br>
+<strong>Note:</strong> I named the repository partial-mainnet-snapshots</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>PUT _snapshot/partial-mainnet-snapshots
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>{
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>   &quot;type&quot;: &quot;url&quot;,
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>   &quot;settings&quot;: {
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>       &quot;url&quot;: &quot;https://snapshots.oiac.io/downloads/partialsnapshots/&quot;,
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>       &quot;max_restore_bytes_per_sec&quot;: &quot;4gb&quot;,
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>       &quot;max_snapshot_bytes_per_sec&quot;: &quot;4gb&quot; 
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>   }
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>}
+</code></pre></div>
+<blockquote>
+<p>List the snapshots</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>GET _snapshot/partial-mainnet-snapshots/_all
+</code></pre></div>
+<blockquote>
+<p>Restore the snapshot you want (in your case the latest will make sense) <br></p>
+</blockquote>
+<p><img src="/assets/snapshot_latest.png"/> <br></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>POST _snapshot/partial-mainnet-snapshots/02-10-2022-partial-hyperion-yrvehaihro2tg-wyx9gvja/_restore
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>{
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  &quot;indices&quot;: &quot;*&quot;
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>}
+</code></pre></div>
+<h2 id="current-snapshots">Current Snapshots</h2>
+<p>Please find the latest hyperion snapshots for partial restores =&gt; <a href="../assets/listed-snapshots.txt">here</a></p>
+<h2 id="latest-restore-validated">Latest Restore Validated</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>POST _snapshot/snaps-30/10-10-2022-partial-hyperion-fjo3ryzttdubtrzb-wxocg/_restore
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>{
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  &quot;indices&quot;: &quot;*&quot;
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>}
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Index</th>
+<th>Status</th>
+<th>Last activity</th>
+<th>Shards completed</th>
+<th>Shards in progress</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>wax-perm-v1</td>
+<td>Complete</td>
+<td>Nov 23, 2022 7:36 AM GMT+2</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>wax-abi-v1</td>
+<td>Complete</td>
+<td>Nov 23, 2022 7:35 AM GMT+2</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>wax-delta-v1-000021</td>
+<td>Complete</td>
+<td>Nov 23, 2022 7:35 AM GMT+2</td>
+<td>4</td>
+<td>0</td>
+</tr>
+<tr>
+<td>wax-block-v1</td>
+<td>Complete</td>
+<td>Nov 23, 2022 7:34 AM GMT+2</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>wax-table-accounts-v1</td>
+<td>Complete</td>
+<td>Nov 23, 2022 7:34 AM GMT+2</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>wax-table-voters-v1</td>
+<td>Complete</td>
+<td>Nov 23, 2022 7:31 AM GMT+2</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>wax-link-v1</td>
+<td>Complete</td>
+<td>Nov 23, 2022 7:31 AM GMT+2</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>wax-table-proposals-v1</td>
+<td>Complete</td>
+<td>Nov 23, 2022 7:31 AM GMT+2</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>wax-logs</td>
+<td>Complete</td>
+<td>Nov 23, 2022 7:17 AM GMT+2</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>wax-action-v1-000021</td>
+<td>Complete</td>
+<td>Nov 23, 2022 6:42 AM GMT+2</td>
+<td>4</td>
+<td>0</td>
+</tr>
+<tr>
+<td>wax-delta-v1-000022</td>
+<td>Complete</td>
+<td>Nov 23, 2022 4:30 AM GMT+2</td>
+<td>4</td>
+<td>0</td>
+</tr>
+<tr>
+<td>wax-action-v1-000022</td>
+<td>Complete</td>
+<td>Nov 23, 2022 2:26 AM GMT+2</td>
+<td>4</td>
+<td>0</td>
+</tr>
+<tr>
+<td>wax-logs-v1</td>
+<td>Complete</td>
+<td>Nov 22, 2022 9:25 PM GMT+2</td>
+<td>2</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>curl -v http://127.0.0.1:7000/v2/health | json_pp
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>*   Trying 127.0.0.1:7000...
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>* TCP_NODELAY set
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>                                 Dload  Upload   Total   Spent    Left  Speed
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 127.0.0.1 (127.0.0.1) port 7000 (#0)
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>&gt; GET /v2/health HTTP/1.1
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>&gt; Host: 127.0.0.1:7000
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>&gt; User-Agent: curl/7.68.0
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>&gt; Accept: */*
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>&gt; 
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>* Mark bundle as not supporting multiuse
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>&lt; HTTP/1.1 200 OK
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>&lt; vary: Origin
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>&lt; access-control-allow-origin: *
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>&lt; content-type: application/json; charset=utf-8
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>&lt; content-length: 1016
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>&lt; Date: Thu, 24 Nov 2022 02:36:23 GMT
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>&lt; Connection: keep-alive
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>&lt; Keep-Alive: timeout=5
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>&lt; 
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>{ [1016 bytes data]
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>100  1016  100  1016    0     0   1587      0 --:--:-- --:--:-- --:--:--  1587
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>* Connection #0 to host 127.0.0.1 left intact
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>{
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>   &quot;features&quot; : {
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>      &quot;deferred_trx&quot; : false,
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>      &quot;failed_trx&quot; : false,
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>      &quot;index_all_deltas&quot; : true,
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>      &quot;index_deltas&quot; : true,
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>      &quot;index_transfer_memo&quot; : true,
+<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>      &quot;resource_limits&quot; : false,
+<a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>      &quot;resource_usage&quot; : false,
+<a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>      &quot;streaming&quot; : {
+<a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>         &quot;deltas&quot; : true,
+<a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>         &quot;enable&quot; : true,
+<a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>         &quot;traces&quot; : true
+<a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a>      },
+<a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a>      &quot;tables&quot; : {
+<a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a>         &quot;accounts&quot; : true,
+<a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a>         &quot;proposals&quot; : true,
+<a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a>         &quot;voters&quot; : true
+<a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a>      }
+<a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a>   },
+<a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a>   &quot;health&quot; : [
+<a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a>      {
+<a id="__codelineno-5-47" name="__codelineno-5-47" href="#__codelineno-5-47"></a>         &quot;service&quot; : &quot;RabbitMq&quot;,
+<a id="__codelineno-5-48" name="__codelineno-5-48" href="#__codelineno-5-48"></a>         &quot;status&quot; : &quot;OK&quot;,
+<a id="__codelineno-5-49" name="__codelineno-5-49" href="#__codelineno-5-49"></a>         &quot;time&quot; : 1669257382974
+<a id="__codelineno-5-50" name="__codelineno-5-50" href="#__codelineno-5-50"></a>      },
+<a id="__codelineno-5-51" name="__codelineno-5-51" href="#__codelineno-5-51"></a>      {
+<a id="__codelineno-5-52" name="__codelineno-5-52" href="#__codelineno-5-52"></a>         &quot;service&quot; : &quot;NodeosRPC&quot;,
+<a id="__codelineno-5-53" name="__codelineno-5-53" href="#__codelineno-5-53"></a>         &quot;service_data&quot; : {
+<a id="__codelineno-5-54" name="__codelineno-5-54" href="#__codelineno-5-54"></a>            &quot;chain_id&quot; : &quot;1064487b3cd1a897ce03ae5b6a865651747e2e152090f99c1d19d44e01aea5a4&quot;,
+<a id="__codelineno-5-55" name="__codelineno-5-55" href="#__codelineno-5-55"></a>            &quot;head_block_num&quot; : 215586809,
+<a id="__codelineno-5-56" name="__codelineno-5-56" href="#__codelineno-5-56"></a>            &quot;head_block_time&quot; : &quot;2022-11-24T02:36:23.000&quot;,
+<a id="__codelineno-5-57" name="__codelineno-5-57" href="#__codelineno-5-57"></a>            &quot;last_irreversible_block&quot; : 215586474,
+<a id="__codelineno-5-58" name="__codelineno-5-58" href="#__codelineno-5-58"></a>            &quot;time_offset&quot; : -49
+<a id="__codelineno-5-59" name="__codelineno-5-59" href="#__codelineno-5-59"></a>         },
+<a id="__codelineno-5-60" name="__codelineno-5-60" href="#__codelineno-5-60"></a>         &quot;status&quot; : &quot;OK&quot;,
+<a id="__codelineno-5-61" name="__codelineno-5-61" href="#__codelineno-5-61"></a>         &quot;time&quot; : 1669257382951
+<a id="__codelineno-5-62" name="__codelineno-5-62" href="#__codelineno-5-62"></a>      },
+<a id="__codelineno-5-63" name="__codelineno-5-63" href="#__codelineno-5-63"></a>      {
+<a id="__codelineno-5-64" name="__codelineno-5-64" href="#__codelineno-5-64"></a>         &quot;service&quot; : &quot;Elasticsearch&quot;,
+<a id="__codelineno-5-65" name="__codelineno-5-65" href="#__codelineno-5-65"></a>         &quot;service_data&quot; : {
+<a id="__codelineno-5-66" name="__codelineno-5-66" href="#__codelineno-5-66"></a>            &quot;active_shards&quot; : &quot;100.0%&quot;,
+<a id="__codelineno-5-67" name="__codelineno-5-67" href="#__codelineno-5-67"></a>            &quot;first_indexed_block&quot; : 207796238,
+<a id="__codelineno-5-68" name="__codelineno-5-68" href="#__codelineno-5-68"></a>            &quot;head_offset&quot; : -1,
+<a id="__codelineno-5-69" name="__codelineno-5-69" href="#__codelineno-5-69"></a>            &quot;last_indexed_block&quot; : 215586810,
+<a id="__codelineno-5-70" name="__codelineno-5-70" href="#__codelineno-5-70"></a>            &quot;missing_blocks&quot; : 0,
+<a id="__codelineno-5-71" name="__codelineno-5-71" href="#__codelineno-5-71"></a>            &quot;missing_pct&quot; : &quot;0.00%&quot;,
+<a id="__codelineno-5-72" name="__codelineno-5-72" href="#__codelineno-5-72"></a>            &quot;total_indexed_blocks&quot; : 7790572
+<a id="__codelineno-5-73" name="__codelineno-5-73" href="#__codelineno-5-73"></a>         },
+<a id="__codelineno-5-74" name="__codelineno-5-74" href="#__codelineno-5-74"></a>         &quot;status&quot; : &quot;OK&quot;,
+<a id="__codelineno-5-75" name="__codelineno-5-75" href="#__codelineno-5-75"></a>         &quot;time&quot; : 1669257383566
+<a id="__codelineno-5-76" name="__codelineno-5-76" href="#__codelineno-5-76"></a>      }
+<a id="__codelineno-5-77" name="__codelineno-5-77" href="#__codelineno-5-77"></a>   ],
+<a id="__codelineno-5-78" name="__codelineno-5-78" href="#__codelineno-5-78"></a>   &quot;host&quot; : &quot;hyperion.oiac.io&quot;,
+<a id="__codelineno-5-79" name="__codelineno-5-79" href="#__codelineno-5-79"></a>   &quot;query_time_ms&quot; : 632.49,
+<a id="__codelineno-5-80" name="__codelineno-5-80" href="#__codelineno-5-80"></a>   &quot;version&quot; : &quot;3.3.6&quot;,
+<a id="__codelineno-5-81" name="__codelineno-5-81" href="#__codelineno-5-81"></a>   &quot;version_hash&quot; : &quot;3b74decbe6b07cad76cedafa57ef2746f0588bde&quot;
+<a id="__codelineno-5-82" name="__codelineno-5-82" href="#__codelineno-5-82"></a>}
+</code></pre></div>
+<blockquote>
+<p>Indexer <br></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>/root/.pm2/logs/wax-indexer-out.log last 15 lines:
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>0|wax-inde | 2022-11-24T02:41:11: [3003206 - 00_master] W:40 | R:2 | C:2 | A:694.6 | D:989.6 | I:1828.4
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>0|wax-inde | 2022-11-24T02:41:16: [3003206 - 00_master] W:40 | R:2 | C:2 | A:581 | D:580.8 | I:1465.8
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>0|wax-inde | 2022-11-24T02:41:21: [3003206 - 00_master] W:40 | R:2 | C:2 | A:649.4 | D:905.4 | I:1807.8
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>0|wax-inde | 2022-11-24T02:41:26: [3003206 - 00_master] W:40 | R:2 | C:1.8 | A:742.4 | D:980.6 | I:1881.8
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>0|wax-inde | 2022-11-24T02:41:31: [3003206 - 00_master] W:40 | R:1.8 | C:2 | A:827 | D:1069 | I:2099
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>0|wax-inde | 2022-11-24T02:41:36: [3003206 - 00_master] W:40 | R:2.2 | C:2.2 | A:740.2 | D:943.6 | I:1933.8
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>0|wax-inde | 2022-11-24T02:41:41: [3003206 - 00_master] W:40 | R:2 | C:2 | A:552.2 | D:787.2 | I:1440
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>0|wax-inde | 2022-11-24T02:41:46: [3003206 - 00_master] W:40 | R:2 | C:2 | A:655.8 | D:778.2 | I:1792.6
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>0|wax-inde | 2022-11-24T02:41:51: [3003206 - 00_master] W:40 | R:2 | C:1.8 | A:877.6 | D:1170 | I:2207.6
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>0|wax-inde | 2022-11-24T02:41:56: [3003206 - 00_master] W:40 | R:2 | C:2.2 | A:691 | D:1012.6 | I:1707.2
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>0|wax-inde | 2022-11-24T02:42:01: [3003206 - 00_master] W:40 | R:2 | C:2 | A:506.2 | D:611.4 | I:1501.2
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>0|wax-inde | 2022-11-24T02:42:06: [3003206 - 00_master] W:40 | R:2 | C:2 | A:706 | D:970.4 | I:1890.2
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>0|wax-inde | 2022-11-24T02:42:11: [3003206 - 00_master] W:40 | R:2 | C:2 | A:1009.2 | D:1437.8 | I:2538.8
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>0|wax-inde | 2022-11-24T02:42:16: [3003206 - 00_master] W:40 | R:2 | C:2 | A:860.2 | D:954 | I:2359.4
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>0|wax-inde | 2022-11-24T02:42:21: [3003206 - 00_master] W:40 | R:2 | C:2 | A:878.6 | D:1104.6 | I:2242.4
+</code></pre></div>
+<blockquote>
+<p>Estimated restore time (based on only having 4 shards available) <br></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>21:25 -&gt; 07:36 (9 hours, 11 minutes)
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Note that you can restore quicker if you have more nodes available (i.e. more shards to do the work)
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+    
+  </body>
+</html>

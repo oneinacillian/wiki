@@ -1,0 +1,1649 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://wiki.oiac.io/containers/">
+      
+      
+        <link rel="prev" href="../ubuntu/">
+      
+      
+        <link rel="next" href="../monitoring/">
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.16">
+    
+    
+      
+        <title>Containers - WAX Performance/General Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-following-will-be-covered-here" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="WAX Performance/General Wiki" class="md-header__button md-logo" aria-label="WAX Performance/General Wiki" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WAX Performance/General Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Containers
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="WAX Performance/General Wiki" class="md-nav__button md-logo" aria-label="WAX Performance/General Wiki" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    WAX Performance/General Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hyperion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hyperion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HyperionSnapshotremoteNFS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hyperion - Snapshot remote NFS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../atomic-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Atomic API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nodeos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nodeos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ubuntu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Containers
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Containers
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-docker-ce-community-edition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install docker-ce (community edition)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Install docker-ce (community edition)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uninstall-all-previous-docker-utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uninstall all previous docker utilities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-dockers-official-gpg-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Docker’s official GPG key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-up-the-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set up the repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-latest-version-of-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install latest version of docker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-select-version-of-docker-to-be-deployed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional (select version of docker to be deployed)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-and-use-a-docker-name-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure and use a docker name volume
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure and use a docker name volume">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-docker-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a docker volume
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-command-with-docker-cli-to-created-a-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue command with Docker CLI to created a volume
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#link-up-the-volume-to-an-external-mount-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      Link up the volume to an external mount point
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-a-micro-service-in-daemon-mode-with-access-to-the-external-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      Start a micro-service in daemon mode with access to the external volume
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-and-running-a-state-history-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building and running a state history container
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building and running a state history container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-state-history-in-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running State History in containers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-startup-script-startsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a startup script: start.sh
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-shutdown-script-stopsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a shutdown script: stop.sh
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to-make-use-of-the-named-docker-volume-testvolume-as-explained-previously-create-a-configini-file-in-your-build-directory-and-configure-your-blocks-and-state-dir-on-the-mounted-volume-within-the-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      To make use of the Named Docker volume (testvolume as explained previously), create a config.ini file in your build directory and configure your blocks and state dir on the mounted volume within the container
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-your-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create your Dockerfile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to-start-your-container-and-expose-ws-and-http-port-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      To start your container and expose WS and HTTP port (example)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-and-running-an-atomic-container-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building and running an atomic container service
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-and-running-an-hyperion-container-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building and running an hyperion container service
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building and running an hyperion container service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-your-dockerfile_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create your Dockerfile
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Monitoring (Prometheus/Grafana)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../locust/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Loadtest setup using Locust
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../haproxy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HAProxy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wireguard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VPN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../snapshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hyperion Snapshots
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-docker-ce-community-edition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install docker-ce (community edition)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Install docker-ce (community edition)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uninstall-all-previous-docker-utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uninstall all previous docker utilities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-dockers-official-gpg-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Docker’s official GPG key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-up-the-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set up the repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-latest-version-of-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install latest version of docker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-select-version-of-docker-to-be-deployed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional (select version of docker to be deployed)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-and-use-a-docker-name-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure and use a docker name volume
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure and use a docker name volume">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-docker-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a docker volume
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-command-with-docker-cli-to-created-a-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue command with Docker CLI to created a volume
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#link-up-the-volume-to-an-external-mount-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      Link up the volume to an external mount point
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-a-micro-service-in-daemon-mode-with-access-to-the-external-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      Start a micro-service in daemon mode with access to the external volume
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-and-running-a-state-history-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building and running a state history container
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building and running a state history container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-state-history-in-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running State History in containers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-startup-script-startsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a startup script: start.sh
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-shutdown-script-stopsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a shutdown script: stop.sh
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to-make-use-of-the-named-docker-volume-testvolume-as-explained-previously-create-a-configini-file-in-your-build-directory-and-configure-your-blocks-and-state-dir-on-the-mounted-volume-within-the-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      To make use of the Named Docker volume (testvolume as explained previously), create a config.ini file in your build directory and configure your blocks and state dir on the mounted volume within the container
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-your-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create your Dockerfile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to-start-your-container-and-expose-ws-and-http-port-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      To start your container and expose WS and HTTP port (example)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-and-running-an-atomic-container-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building and running an atomic container service
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-and-running-an-hyperion-container-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building and running an hyperion container service
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building and running an hyperion container service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-your-dockerfile_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create your Dockerfile
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<blockquote>
+<p>More a more users attempt to run micro-services for their applications due to the scalability, less overhead and portability. It is also provides a great efficiency</p>
+</blockquote>
+<h1 id="the-following-will-be-covered-here">The following will be covered here</h1>
+<ul>
+<li>Install Docker</li>
+<li>Configure and use a docker name volume</li>
+<li>Building and running a state history container</li>
+<li>Building and running an atomic container service</li>
+<li>Building and running a hyperion container service</li>
+</ul>
+<h2 id="install-docker-ce-community-edition">Install docker-ce (community edition)</h2>
+<ul>
+<li>uninstall all previous docker utilities</li>
+<li>Add Docker’s official GPG key</li>
+<li>Setup up the repository</li>
+<li>Install latest version of docker</li>
+<li>Optional (select version of docker to be deployed)</li>
+</ul>
+<h3 id="uninstall-all-previous-docker-utilities">Uninstall all previous docker utilities</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo apt-get remove docker docker-engine docker.io containerd runc
+</code></pre></div>
+<h3 id="add-dockers-official-gpg-key">Add Docker’s official GPG key</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo mkdir -p /etc/apt/keyrings
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+</code></pre></div>
+<h3 id="set-up-the-repository">Set up the repository</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>echo &quot;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot; | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+</code></pre></div>
+<h3 id="install-latest-version-of-docker">Install latest version of docker</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo apt-get update
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+</code></pre></div>
+<h3 id="optional-select-version-of-docker-to-be-deployed">Optional (select version of docker to be deployed)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>apt-cache madison docker-ce
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sudo apt-get install docker-ce=&lt;VERSION_STRING&gt; docker-ce-cli=&lt;VERSION_STRING&gt; containerd.io docker-compose-plugin
+</code></pre></div>
+<h2 id="configure-and-use-a-docker-name-volume">Configure and use a docker name volume</h2>
+<blockquote>
+<p>For your data driven application which require optimized disk configuration (i.e zfs which is raided and optimized), it is best to configure a named docker volume and have it mounted inside your micro-service opposed to bind a volume for use. With docker volumes, the storage is not coupled to the lifecycle of the container, but instead exists outside of it. You’ll also find that volumes don’t increase the size of the Docker container using them. It also provides more flexible backups and data are easier to migrate.</p>
+</blockquote>
+<h3 id="create-a-docker-volume">Create a docker volume</h3>
+<ul>
+<li>Issue command with Docker CLI to created a volume</li>
+<li>Link up the volume to an external mount point</li>
+<li>Start a micro-service in daemon mode with access to the external volume</li>
+</ul>
+<h3 id="issue-command-with-docker-cli-to-created-a-volume">Issue command with Docker CLI to created a volume</h3>
+<blockquote>
+<p><strong><em>NOTE:</em></strong> In this example, I created a docker volume named testvolume to use
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker volume create testvolume
+</code></pre></div></p>
+</blockquote>
+<h3 id="link-up-the-volume-to-an-external-mount-point">Link up the volume to an external mount point</h3>
+<p><strong><em>NOTE:</em></strong> By default all volume will be located in /var/lib/docker/volumes if you have not previously configured your graph driver to point elsewhere. </p>
+<p><strong><em>NOTE:</em></strong> In this example your optimized disk will be mounted in linux for example in /apps/datavolume
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo rm -rf /var/lib/docker/volumes/testvolume/_data/
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>mkdir /apps/datavolume/testvolume
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>sudo ln -s /apps/datavolume/testvolume /var/lib/docker/volumes/testvolume/_data
+</code></pre></div></p>
+<h3 id="start-a-micro-service-in-daemon-mode-with-access-to-the-external-volume">Start a micro-service in daemon mode with access to the external volume</h3>
+<p>In this example: </p>
+<ul>
+<li>The container name will be: testvolumecontainerservice</li>
+<li>The container image used will be ubuntu:22.04</li>
+<li>The named docker volume being used will be testvolume</li>
+<li>The names docker volume will be accessible by the container through /data
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker run -d --name testvolumecontainerservice --mount source=testvolume,target=/data --tty ubuntu:22.04
+</code></pre></div></li>
+</ul>
+<h2 id="building-and-running-a-state-history-container">Building and running a state history container</h2>
+<h3 id="running-state-history-in-containers">Running State History in containers</h3>
+<ul>
+<li>Proceed to a directory from which you would like to build your SHIP images</li>
+<li>Create the genesis file (testnet's one for example)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>{
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a> &quot;initial_timestamp&quot;: &quot;2019-12-06T06:06:06.000&quot;,
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a> &quot;initial_key&quot;: &quot;EOS7PmWAXLBaqCzSgbq8cyr2HFztQpwBpXk3djBJA8fyoyUnYM37q&quot;,
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a> &quot;initial_configuration&quot;: {
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a> &quot;max_block_net_usage&quot;: 1048576,
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a> &quot;target_block_net_usage_pct&quot;: 1000,
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a> &quot;max_transaction_net_usage&quot;: 524288,
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a> &quot;base_per_transaction_net_usage&quot;: 12,
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a> &quot;net_usage_leeway&quot;: 500,
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a> &quot;context_free_discount_net_usage_num&quot;: 20,
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a> &quot;context_free_discount_net_usage_den&quot;: 100,
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a> &quot;max_block_cpu_usage&quot;: 200000,
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a> &quot;target_block_cpu_usage_pct&quot;: 2500,
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a> &quot;max_transaction_cpu_usage&quot;: 150000,
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a> &quot;min_transaction_cpu_usage&quot;: 100,
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a> &quot;max_transaction_lifetime&quot;: 3600,
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a> &quot;deferred_trx_expiration_window&quot;: 600,
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a> &quot;max_transaction_delay&quot;: 3888000,
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a> &quot;max_inline_action_size&quot;: 4096,
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a> &quot;max_inline_action_depth&quot;: 6,
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a> &quot;max_authority_depth&quot;: 6
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a> }
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>}
+</code></pre></div></li>
+</ul>
+<h3 id="create-a-startup-script-startsh">Create a startup script: start.sh</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>#!/bin/bash
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>for x in /sys/devices/system/cpu/cpu*/cpufreq/;do
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>echo performance &gt; $x/scaling_governor
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>done
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>DATADIR=&quot;/apps/waxdata&quot;
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>NODEOSBINDIR=&quot;/apps/eosio/2.0/bin&quot;
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>$DATADIR/stop.sh
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>echo -e &quot;Starting Nodeos \n&quot;;
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>$NODEOSBINDIR/nodeos --disable-replay-opts --data-dir $DATADIR --config-dir $DATADIR --genesis-json=/apps/waxdata/genesis.json &quot;$@&quot; &gt; $DATADIR/stdout.txt 2&gt; $DATADIR/stderr.txt &amp;  echo $! &gt; $DATADIR/nodeos.pid
+</code></pre></div>
+<h3 id="create-a-shutdown-script-stopsh">Create a shutdown script: stop.sh</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>#!/bin/bash
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>DIR=&quot;/apps/waxdata&quot;
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a> if [ -f $DIR&quot;/nodeos.pid&quot; ]; then
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>        pid=`cat $DIR&quot;/nodeos.pid&quot;`
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>        echo $pid
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>        kill $pid
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>        echo -ne &quot;Stoping Nodeos&quot;
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>        while true; do
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>            [ ! -d &quot;/proc/$pid/fd&quot; ] &amp;&amp; break
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>            echo -ne &quot;.&quot;
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>            sleep 1
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>        done
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>        rm -r $DIR&quot;/nodeos.pid&quot;
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>        DATE=$(date -d &quot;now&quot; +&#39;%Y_%m_%d-%H_%M&#39;)
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>        if [ ! -d $DIR/logs ]; then
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>            mkdir $DIR/logs
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>        fi
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>        tar -pcvzf $DIR/logs/stderr-$DATE.txt.tar.gz stderr.txt stdout.txt
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>        echo -ne &quot;\rNodeos Stopped.  \n&quot;
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>    fi
+</code></pre></div>
+<h3 id="to-make-use-of-the-named-docker-volume-testvolume-as-explained-previously-create-a-configini-file-in-your-build-directory-and-configure-your-blocks-and-state-dir-on-the-mounted-volume-within-the-container">To make use of the Named Docker volume (testvolume as explained previously), create a config.ini file in your build directory and configure your blocks and state dir on the mounted volume within the container</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>blocks-dir = /data/blocks-2
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>state-history-dir = /data/state-history
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>chain-threads = 8
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>wasm-runtime = eos-vm-jit
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>eos-vm-oc-compile-threads = 4
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>...
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>...
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>...
+</code></pre></div>
+<h3 id="create-your-dockerfile">Create your Dockerfile</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>FROM ubuntu:18.04
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>#COPY 01norecommend /etc/apt/apt.conf.d
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>RUN apt-get update &amp;&amp; apt -y install git &amp;&amp; git clone https://github.com/worldwide-asset-exchange/wax-blockchain.git &amp;&amp; cd wax-blockchain \
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>&amp;&amp; git checkout v2.0.12wax02 &amp;&amp; git submodule update --init --recursive &amp;&amp; cd scripts &amp;&amp; yes | ./eosio_build.sh -P &amp;&amp; ./eosio_install.sh &amp;&amp; apt -y install vim \
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>&amp;&amp; mkdir -p /apps/waxdata &amp;&amp; mv /wax-* /apps &amp;&amp; mv /root/eosio* /apps
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>COPY config.ini genesis.json start.sh stop.sh /apps/waxdata/
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>RUN chmod +x /apps/waxdata/start.sh &amp;&amp; chmod +x /apps/waxdata/stop.sh
+</code></pre></div>
+Execute your build command
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>docker built -t yourrepo:yourtag -f ./yourdockerfile .
+</code></pre></div></p>
+<h3 id="to-start-your-container-and-expose-ws-and-http-port-example">To start your container and expose WS and HTTP port (example)</h3>
+<ul>
+<li>name of container = wax2012wax02</li>
+<li>expose state history in config.ini on port 8888</li>
+<li>expose http port in config.ini on port 9876</li>
+<li>named docker volume named testvolume (follow instructions in previous steps)</li>
+<li>named volume mounted in container @ /data</li>
+<li>WAX nodeos image built and tagged as 2.0.12wax02:latest
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>docker run -d --name wax2012wax02 --publish 8888:8888 --publish 9876:9876 --mount source=testvolume,target=/data --tty 2.0.12wax02:latest
+</code></pre></div>
+You can now start the nodeos process in the container
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>cd /apps/waxdata
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>./start.sh
+</code></pre></div></li>
+</ul>
+<h2 id="building-and-running-an-atomic-container-service">Building and running an atomic container service</h2>
+<blockquote>
+<p>Create your Dockerfile</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>FROM ubuntu:20.04
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>WORKDIR /apps
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>ARG DEBIAN_FRONTEND=noninteractive
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>RUN apt-get update &amp;&amp; apt-get -y install curl &amp;&amp; curl -o file.sh https://deb.nodesource.com/setup_16.x &amp;&amp; chmod +x file.sh &amp;&amp; ./file.sh &amp;&amp; apt-get install -y nodejs \
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>&amp;&amp; npm install pm2 -g &amp;&amp; apt-get -y install wget ca-certificates &amp;&amp; apt-get -y install wget &amp;&amp; wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>&amp;&amp; sh -c &#39;echo &quot;deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main&quot; &gt; /etc/apt/sources.list.d/pgdg.list&#39; &amp;&amp; apt-get update &amp;&amp; apt-get -y install postgresql postgresql-contrib \
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>&amp;&amp; apt-get -y install vim &amp;&amp; curl -fsSL https://packages.redis.io/gpg | gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg &amp;&amp; echo &quot;deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main&quot; | tee /etc/apt/sources.list.d/redis.list &amp;&amp; apt-get update &amp;&amp; apt-get -y install redis \
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>&amp;&amp; npm install --global yarn &amp;&amp; apt-get -y install git &amp;&amp; git clone https://github.com/pinknetworkx/eosio-contract-api.git &amp;&amp; cd /apps/eosio-contract-api &amp;&amp; yarn install
+</code></pre></div>
+<blockquote>
+<p>Build your docker images</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>docker build -t atomicimage:atomicimage -f ./Dockerfile .
+</code></pre></div>
+<blockquote>
+<p>Map an external volume for your container persistent data</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>docker volume create atomictest
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>rm -rf /var/lib/docker/volumes/atomictest/_data/
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>mkdir /data/containers/atomictest
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>sudo ln -s /data/containers/atomictest /var/lib/docker/volumes/atomictest/_data
+</code></pre></div>
+<blockquote>
+<p>Start up atomic container, publishing the ports necessary to expose the API to the community</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>docker run -d --name atomictest --publish 9000:9000 --publish 9001:9001 --mount source=atomictest,target=/data --tty atomictest:atomictest
+</code></pre></div>
+<blockquote>
+<p>Exec into the container and start postgresql. Get your current data directory</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>postgres@52c2bc761f47:~$ psql
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>psql (14.4 (Ubuntu 14.4-1.pgdg20.04+1))
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>Type &quot;help&quot; for help.
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>postgres=# SHOW data_directory;
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>       data_directory        
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>-----------------------------
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a> /var/lib/postgresql/14/main
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>(1 row)
+</code></pre></div>
+<p>In the above instance, you can see that the data directory is mapped inside the container in /var/lib
+Ideally you want your data to persistent on a faster volume, which is not bound to the container</p>
+<blockquote>
+<p>Move the data directory and update postgresql config</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>service postgresql stop
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>cp -var /var/lib/postgresql/ /data/
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>nano /etc/postgresql/14/main/postgresql.conf
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>****
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>update data directory
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>data_directory = &#39;/data/postgresql/14/main&#39;             # use data in another directory
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>****
+</code></pre></div>
+<blockquote>
+<p>Confirm that your postgresl directory is on the newly specified volume</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>root@36bbb3a2788d:/etc/postgresql/14/main# service postgresql start
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a> * Starting PostgreSQL 14 database server                                                                                                                                                                                                                                                                                                 [ OK ] 
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>root@36bbb3a2788d:/etc/postgresql/14/main# su - postgres
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>postgres@36bbb3a2788d:~$ psql
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>psql (14.4 (Ubuntu 14.4-1.pgdg20.04+1))
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>Type &quot;help&quot; for help.
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>postgres=# SHOW data_directory;
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>      data_directory      
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>--------------------------
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a> /data/postgresql/14/main
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>(1 row)
+</code></pre></div>
+<blockquote>
+<p>Restore n atomic database</p>
+</blockquote>
+<p>create the database which you would like to restore and attempt the restore</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>postgres=# CREATE DATABASE &quot;api-wax-mainnet-atomic-1&quot;;
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>pg_restore --verbose -Fc -d api-wax-mainnet-atomic-1 -1 /data/backups/atomictest.dump
+</code></pre></div>
+<blockquote>
+<p><strong><em>NOTE:</em></strong> The backup was create by a guild member that used a specific role as the owner of the database</p>
+</blockquote>
+<p>If you encounter issues with the restore process as such:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>pg_restore: error: could not execute query: ERROR:  role &quot;wecan_user&quot; does not exist
+</code></pre></div></p>
+<p>Create a role with the same name the backup was created</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>postgres=# CREATE ROLE wecan_user;
+</code></pre></div>
+<p>Reattempt the restore and it should complete, unless you encounter issue with the backup</p>
+<blockquote>
+<p>View the database once restored by using psql</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>postgres=# \l+
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>                                                                       List of databases
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>           Name           |  Owner   | Encoding | Collate |  Ctype  |   Access privileges   |  Size   | Tablespace |                Description                 
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>--------------------------+----------+----------+---------+---------+-----------------------+---------+------------+--------------------------------------------
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a> api-wax-mainnet-atomic-1 | postgres | UTF8     | C.UTF-8 | C.UTF-8 |                       | 20 GB   | pg_default | 
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a> postgres                 | postgres | UTF8     | C.UTF-8 | C.UTF-8 |                       | 8545 kB | pg_default | default administrative connection database
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a> template0                | postgres | UTF8     | C.UTF-8 | C.UTF-8 | =c/postgres          +| 8377 kB | pg_default | unmodifiable empty database
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>                          |          |          |         |         | postgres=CTc/postgres |         |            | 
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a> template1                | postgres | UTF8     | C.UTF-8 | C.UTF-8 | =c/postgres          +| 8529 kB | pg_default | default template for new databases
+<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>                          |          |          |         |         | postgres=CTc/postgres |         |            | 
+<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>(4 rows)
+</code></pre></div>
+<blockquote>
+<p>Configure your eosio contract configuration files accordingly. </p>
+</blockquote>
+<ul>
+<li>readers.config.json</li>
+<li>server.config.json</li>
+<li>connections.config.json (confirm that your postgresql authentication is configured properly as well as your ship settings)</li>
+</ul>
+<blockquote>
+<p>Start your atomic filler until is has caught up to the main block, then your API as well (run from within your /apps/eosio-contract-api folder).</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>pm2 start ecosystems.config.json --only eosio-contract-api-filler
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>pm2 start ecosystems.config.json --only eosio-contract-api-server
+</code></pre></div>
+<h2 id="building-and-running-an-hyperion-container-service">Building and running an hyperion container service</h2>
+<h3 id="create-your-dockerfile_1">Create your Dockerfile</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>FROM ubuntu:20.04
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>WORKDIR /apps
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>ARG DEBIAN_FRONTEND=noninteractive
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>RUN apt-get update \
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>&amp;&amp; apt-get -y upgrade \
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>&amp;&amp; apt -y install npm git wget curl vim htop systemctl aptitude git lxc-utils netfilter-persistent sysstat ntp gpg \
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>&amp;&amp; wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add - \
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>&amp;&amp; apt-get install apt-transport-https \
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>&amp;&amp; echo &quot;deb https://artifacts.elastic.co/packages/7.x/apt stable main&quot; | tee /etc/apt/sources.list.d/elastic-7.x.list \
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>&amp;&amp; apt-get update \
+<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>&amp;&amp; apt-get install elasticsearch \
+<a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>&amp;&amp; git clone https://github.com/eosrio/hyperion-history-api.git --branch v3.3.5 \
+<a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>&amp;&amp; echo &quot;-Xms31g&quot; &gt;&gt; /etc/elasticsearch/jvm.options \
+<a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a>&amp;&amp; echo &quot;-Xmx31g&quot; &gt;&gt; /etc/elasticsearch/jvm.options \
+<a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a>#&amp;&amp; sed -i &#39;s/var\/lib\/elasticsearch/data\/es-data/g&#39; /etc/elasticsearch/elasticsearch.yml \
+<a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a>#&amp;&amp; sed -i &#39;s/var\/log\/elasticsearch/data\/es-logs/g&#39; /etc/elasticsearch/elasticsearch.yml \
+<a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a>&amp;&amp; service elasticsearch start \
+<a id="__codelineno-28-18" name="__codelineno-28-18" href="#__codelineno-28-18"></a>&amp;&amp; echo &quot;xpack.security.enabled: true&quot; &gt;&gt; /etc/elasticsearch/elasticsearch.yml \
+<a id="__codelineno-28-19" name="__codelineno-28-19" href="#__codelineno-28-19"></a>&amp;&amp; service elasticsearch restart &amp;&amp; sleep 20 \
+<a id="__codelineno-28-20" name="__codelineno-28-20" href="#__codelineno-28-20"></a>&amp;&amp; yes | /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto &gt; credentials.file \
+<a id="__codelineno-28-21" name="__codelineno-28-21" href="#__codelineno-28-21"></a>&amp;&amp; wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add - \
+<a id="__codelineno-28-22" name="__codelineno-28-22" href="#__codelineno-28-22"></a>&amp;&amp; apt-get update &amp;&amp; apt-get install kibana \
+<a id="__codelineno-28-23" name="__codelineno-28-23" href="#__codelineno-28-23"></a>&amp;&amp; echo &quot;server.host: 0.0.0.0&quot; &gt;&gt; /etc/kibana/kibana.yml \
+<a id="__codelineno-28-24" name="__codelineno-28-24" href="#__codelineno-28-24"></a>&amp;&amp; cred=$(cat credentials.file | awk &#39;/PASSWORD kibana_system = /{print}&#39; | cut -d &#39;=&#39; -f 2 | sed &#39;s/ //&#39;) \
+<a id="__codelineno-28-25" name="__codelineno-28-25" href="#__codelineno-28-25"></a>&amp;&amp; echo &#39;elasticsearch.username: &quot;kibana_system&quot;&#39; &gt;&gt; /etc/kibana/kibana.yml \
+<a id="__codelineno-28-26" name="__codelineno-28-26" href="#__codelineno-28-26"></a>&amp;&amp; echo &quot;elasticsearch.password: \&quot;$cred\&quot;&quot; &gt;&gt; /etc/kibana/kibana.yml &gt;&gt; /etc/kibana/kibana.yml \
+<a id="__codelineno-28-27" name="__codelineno-28-27" href="#__codelineno-28-27"></a>&amp;&amp; service kibana start \
+<a id="__codelineno-28-28" name="__codelineno-28-28" href="#__codelineno-28-28"></a>&amp;&amp; curl -o nodefile.sh https://deb.nodesource.com/setup_16.x &amp;&amp; chmod +x nodefile.sh \
+<a id="__codelineno-28-29" name="__codelineno-28-29" href="#__codelineno-28-29"></a>&amp;&amp; apt-get install -y nodejs &amp;&amp; node -v \
+<a id="__codelineno-28-30" name="__codelineno-28-30" href="#__codelineno-28-30"></a>&amp;&amp; curl -fsSL https://packages.redis.io/gpg | gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg  \
+<a id="__codelineno-28-31" name="__codelineno-28-31" href="#__codelineno-28-31"></a>&amp;&amp; echo &quot;deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb focal main&quot; | tee /etc/apt/sources.list.d/redis.list \
+<a id="__codelineno-28-32" name="__codelineno-28-32" href="#__codelineno-28-32"></a>&amp;&amp; apt-get update &amp;&amp; apt-get -y install redis \
+<a id="__codelineno-28-33" name="__codelineno-28-33" href="#__codelineno-28-33"></a>&amp;&amp; sed -i &#39;s/supervised auto/supervised systemd/g&#39; /etc/redis/redis.conf \
+<a id="__codelineno-28-34" name="__codelineno-28-34" href="#__codelineno-28-34"></a>&amp;&amp; service redis-server start \
+<a id="__codelineno-28-35" name="__codelineno-28-35" href="#__codelineno-28-35"></a>&amp;&amp; npm install pm2@latest -g \
+<a id="__codelineno-28-36" name="__codelineno-28-36" href="#__codelineno-28-36"></a>&amp;&amp; pm2 startup \
+<a id="__codelineno-28-37" name="__codelineno-28-37" href="#__codelineno-28-37"></a>&amp;&amp; apt-get install curl gnupg apt-transport-https -y \
+<a id="__codelineno-28-38" name="__codelineno-28-38" href="#__codelineno-28-38"></a>&amp;&amp; curl -1sLf &quot;https://keys.openpgp.org/vks/v1/by-fingerprint/0A9AF2115F4687BD29803A206B73A36E6026DFCA&quot; | gpg --dearmor | tee /usr/share/keyrings/com.rabbitmq.team.gpg &gt; /dev/null \
+<a id="__codelineno-28-39" name="__codelineno-28-39" href="#__codelineno-28-39"></a>&amp;&amp; curl -1sLf &quot;https://keyserver.ubuntu.com/pks/lookup?op=get&amp;search=0xf77f1eda57ebb1cc&quot; | gpg --dearmor | tee /usr/share/keyrings/net.launchpad.ppa.rabbitmq.erlang.gpg &gt; /dev/null \
+<a id="__codelineno-28-40" name="__codelineno-28-40" href="#__codelineno-28-40"></a>&amp;&amp; curl -1sLf &quot;https://packagecloud.io/rabbitmq/rabbitmq-server/gpgkey&quot; | gpg --dearmor | tee /usr/share/keyrings/io.packagecloud.rabbitmq.gpg &gt; /dev/null \
+<a id="__codelineno-28-41" name="__codelineno-28-41" href="#__codelineno-28-41"></a>&amp;&amp; echo &quot;deb [signed-by=/usr/share/keyrings/net.launchpad.ppa.rabbitmq.erlang.gpg] http://ppa.launchpad.net/rabbitmq/rabbitmq-erlang/ubuntu bionic main&quot; &gt;&gt; /etc/apt/sources.list.d/rabbitmq.list \
+<a id="__codelineno-28-42" name="__codelineno-28-42" href="#__codelineno-28-42"></a>&amp;&amp; echo &quot;deb-src [signed-by=/usr/share/keyrings/net.launchpad.ppa.rabbitmq.erlang.gpg] http://ppa.launchpad.net/rabbitmq/rabbitmq-erlang/ubuntu bionic main&quot; &gt;&gt; /etc/apt/sources.list.d/rabbitmq.list \
+<a id="__codelineno-28-43" name="__codelineno-28-43" href="#__codelineno-28-43"></a>&amp;&amp; echo &quot;deb [signed-by=/usr/share/keyrings/io.packagecloud.rabbitmq.gpg] https://packagecloud.io/rabbitmq/rabbitmq-server/ubuntu/ bionic main&quot; &gt;&gt; /etc/apt/sources.list.d/rabbitmq.list \
+<a id="__codelineno-28-44" name="__codelineno-28-44" href="#__codelineno-28-44"></a>&amp;&amp; echo &quot;deb-src [signed-by=/usr/share/keyrings/io.packagecloud.rabbitmq.gpg] https://packagecloud.io/rabbitmq/rabbitmq-server/ubuntu/ bionic main&quot; &gt;&gt; /etc/apt/sources.list.d/rabbitmq.list \
+<a id="__codelineno-28-45" name="__codelineno-28-45" href="#__codelineno-28-45"></a>&amp;&amp; apt-get update -y \
+<a id="__codelineno-28-46" name="__codelineno-28-46" href="#__codelineno-28-46"></a>&amp;&amp; apt-get install -y erlang-base erlang-asn1 erlang-crypto erlang-eldap erlang-ftp erlang-inets erlang-mnesia erlang-os-mon erlang-parsetools erlang-public-key erlang-runtime-tools erlang-snmp erlang-ssl erlang-syntax-tools erlang-tftp erlang-tools erlang-xmerl \
+<a id="__codelineno-28-47" name="__codelineno-28-47" href="#__codelineno-28-47"></a>&amp;&amp; apt-get install rabbitmq-server -y --fix-missing \
+<a id="__codelineno-28-48" name="__codelineno-28-48" href="#__codelineno-28-48"></a>&amp;&amp; service rabbitmq-server start \
+<a id="__codelineno-28-49" name="__codelineno-28-49" href="#__codelineno-28-49"></a>&amp;&amp; rabbitmq-plugins enable rabbitmq_management \
+<a id="__codelineno-28-50" name="__codelineno-28-50" href="#__codelineno-28-50"></a>&amp;&amp; rabbitmqctl add_vhost hyperion \
+<a id="__codelineno-28-51" name="__codelineno-28-51" href="#__codelineno-28-51"></a>&amp;&amp; rabbitmqctl add_user hyper 123456 \
+<a id="__codelineno-28-52" name="__codelineno-28-52" href="#__codelineno-28-52"></a>&amp;&amp; rabbitmqctl set_user_tags hyper administrator \
+<a id="__codelineno-28-53" name="__codelineno-28-53" href="#__codelineno-28-53"></a>&amp;&amp; rabbitmqctl set_permissions -p hyperion hyper &quot;.*&quot; &quot;.*&quot; &quot;.*&quot; \
+<a id="__codelineno-28-54" name="__codelineno-28-54" href="#__codelineno-28-54"></a>&amp;&amp; rabbitmqctl add_vhost /hyperion \
+<a id="__codelineno-28-55" name="__codelineno-28-55" href="#__codelineno-28-55"></a>&amp;&amp; rabbitmqctl set_permissions -p /hyperion hyper &quot;.*&quot; &quot;.*&quot; &quot;.*&quot; \
+<a id="__codelineno-28-56" name="__codelineno-28-56" href="#__codelineno-28-56"></a>&amp;&amp; cd /apps/hyperion-history-api &amp;&amp; npm install \
+<a id="__codelineno-28-57" name="__codelineno-28-57" href="#__codelineno-28-57"></a>&amp;&amp; echo &quot;service elasticsearch start&quot; &gt;&gt; /apps/startup.sh \
+<a id="__codelineno-28-58" name="__codelineno-28-58" href="#__codelineno-28-58"></a>&amp;&amp; echo &quot;service kibana start&quot; &gt;&gt; /apps/startup.sh \
+<a id="__codelineno-28-59" name="__codelineno-28-59" href="#__codelineno-28-59"></a>&amp;&amp; echo &quot;service rabbitmq-server start&quot; &gt;&gt; /apps/startup.sh \
+<a id="__codelineno-28-60" name="__codelineno-28-60" href="#__codelineno-28-60"></a>&amp;&amp; echo &quot;service redis-server start&quot; &gt;&gt; /apps/startup.sh \
+<a id="__codelineno-28-61" name="__codelineno-28-61" href="#__codelineno-28-61"></a>&amp;&amp; echo &quot;service elasticsearch stop&quot; &gt;&gt; /apps/stop.sh \
+<a id="__codelineno-28-62" name="__codelineno-28-62" href="#__codelineno-28-62"></a>&amp;&amp; echo &quot;service kibana stop&quot; &gt;&gt; /apps/stop.sh \
+<a id="__codelineno-28-63" name="__codelineno-28-63" href="#__codelineno-28-63"></a>&amp;&amp; echo &quot;service rabbitmq-server stop&quot; &gt;&gt; /apps/stop.sh \
+<a id="__codelineno-28-64" name="__codelineno-28-64" href="#__codelineno-28-64"></a>&amp;&amp; echo &quot;service redis-server stop&quot; &gt;&gt; /apps/stop.sh \
+<a id="__codelineno-28-65" name="__codelineno-28-65" href="#__codelineno-28-65"></a>&amp;&amp; chmod +x /apps/startup.sh \
+<a id="__codelineno-28-66" name="__codelineno-28-66" href="#__codelineno-28-66"></a>&amp;&amp; chmod +x /apps/stop.sh
+<a id="__codelineno-28-67" name="__codelineno-28-67" href="#__codelineno-28-67"></a>RUN apt-get install -y systemd
+</code></pre></div>
+<blockquote>
+<p>build your docker image</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>docker build -t hyperiontest:latest -f ./Dockerfile .
+</code></pre></div>
+<blockquote>
+<p>Map an external volume for your container persistent data</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>docker volume create hyperiontest
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>rm -rf /var/lib/docker/volumes/hyperiontest/_data/
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>mkdir /data/containers/hyperiontest
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>sudo ln -s /data/containers/hyperiontest /var/lib/docker/volumes/hyperiontest/_data
+</code></pre></div>
+<blockquote>
+<p>Start up atomic container, publishing the ports necessary to expose the API to the community</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>docker run -d --name hyperiontest --publish 7000:7000 --publish 5601:5601 --mount source=hyperiontest,target=/data --tty hyperiontest:latest
+</code></pre></div>
+<blockquote>
+<p>Execute to a terminal in the hyperion container</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>docker exec -ti hyperiontest /bin/bash
+</code></pre></div>
+<blockquote>
+<p>Move the data and log volumes for elasticsearch to your named volume</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>chown -R elasticsearch:elasticsearch /data
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>mkdir -p /data/es-data
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>mkdir -p /data/es-logs
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>cp -var /var/lib/elasticsearch/* /data/es-data
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>cp -var /var/log/elasticsearch/* /data/es-logs
+</code></pre></div>
+<blockquote>
+<p>Modify the configuration (elasticsearch) to reference the new volumes for data and log management (elasticsearch.yml)</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>path.data: /data/es-data
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>path.logs: /data/es-logs
+</code></pre></div>
+<blockquote>
+<p>Startup elasticsearch and all dependant services. You will have a stop and startup.sh file located in /apps</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>bash /apps/startup.sh
+</code></pre></div>
+<p>Once all the application has been started, proceed to kibana through your web console on the port you expose (in this example, ::5601)</p>
+<p><strong><em>NOTE:</em></strong> Should you have trouble starting Kibana, reset the elastic passwords (yes | /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto &gt; credentials.file, take not of the password and update your password reference in /etc/kibana/kibana.yml)</p>
+<blockquote>
+<p>Restore snapshot (if not indexing from the 1st block). In this example, I exposed a snapshot via http "http://23.88.71.224:8080/downloads/" and named the repository "gipi-repo". Perform this using DEV tools under management</p>
+</blockquote>
+<p>Create repository
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>PUT _snapshot/gipi-repo
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>{
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>   &quot;type&quot;: &quot;url&quot;,
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>   &quot;settings&quot;: {
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>       &quot;url&quot;: &quot;http://23.88.71.224:8080/downloads/&quot;,
+<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>       &quot;max_restore_bytes_per_sec&quot;: &quot;1gb&quot;,
+<a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a>       &quot;max_snapshot_bytes_per_sec&quot;: &quot;1gb&quot;
+<a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a>   }
+<a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a>}
+</code></pre></div></p>
+<p>List all snapshots
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>GET _snapshot/gipi-repo/_all
+</code></pre></div></p>
+<p>Set the repository url as trusted by elasticsearch (modification in elasticsearch.yml) and restart elasticsearch
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>repositories.url.allowed_urls: &quot;http://23.88.71.224:8080/downloads/&quot;
+</code></pre></div></p>
+<p>Start a restore of a snapshot (DEV tools)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>POST _snapshot/gipi-repo/daily_snapshot-qu4_uyc0tuotoaj1x3lsjq/_restore
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>{
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>  &quot;indices&quot;: &quot;*,-.*&quot;
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>}
+</code></pre></div></p>
+<blockquote>
+<p>Wait for the restore to complete, then configure your hyperion contract information</p>
+</blockquote>
+<ul>
+<li>/apps/hyperion-history-api/connections.json <strong>NOTE</strong> RabbitMQ password will be what you have defined in the Dockerfile build 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>{
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>  &quot;amqp&quot;: {
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>    &quot;host&quot;: &quot;127.0.0.1:5672&quot;,
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>    &quot;api&quot;: &quot;127.0.0.1:15672&quot;,
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>    &quot;protocol&quot;: &quot;http&quot;,
+<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>    &quot;user&quot;: &quot;&lt;from dockerfile&gt;&quot;,
+<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a>    &quot;pass&quot;: &quot;&lt;from dockerfile&gt;&quot;,
+<a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a>    &quot;vhost&quot;: &quot;hyperion&quot;,
+<a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a>    &quot;frameMax&quot;: &quot;0x10000&quot;
+<a id="__codelineno-40-10" name="__codelineno-40-10" href="#__codelineno-40-10"></a>  },
+<a id="__codelineno-40-11" name="__codelineno-40-11" href="#__codelineno-40-11"></a>  &quot;elasticsearch&quot;: {
+<a id="__codelineno-40-12" name="__codelineno-40-12" href="#__codelineno-40-12"></a>    &quot;protocol&quot;: &quot;http&quot;,
+<a id="__codelineno-40-13" name="__codelineno-40-13" href="#__codelineno-40-13"></a>    &quot;host&quot;: &quot;127.0.0.1:9200&quot;,
+<a id="__codelineno-40-14" name="__codelineno-40-14" href="#__codelineno-40-14"></a>    &quot;ingest_nodes&quot;: [
+<a id="__codelineno-40-15" name="__codelineno-40-15" href="#__codelineno-40-15"></a>      &quot;127.0.0.1:9200&quot;
+<a id="__codelineno-40-16" name="__codelineno-40-16" href="#__codelineno-40-16"></a>    ],
+<a id="__codelineno-40-17" name="__codelineno-40-17" href="#__codelineno-40-17"></a>    &quot;user&quot;: &quot;elastic&quot;,
+<a id="__codelineno-40-18" name="__codelineno-40-18" href="#__codelineno-40-18"></a>    &quot;pass&quot;: &quot;&lt;from credentials file in /apps&gt;&quot;
+<a id="__codelineno-40-19" name="__codelineno-40-19" href="#__codelineno-40-19"></a>  },
+<a id="__codelineno-40-20" name="__codelineno-40-20" href="#__codelineno-40-20"></a>  &quot;redis&quot;: {
+<a id="__codelineno-40-21" name="__codelineno-40-21" href="#__codelineno-40-21"></a>    &quot;host&quot;: &quot;127.0.0.1&quot;,
+<a id="__codelineno-40-22" name="__codelineno-40-22" href="#__codelineno-40-22"></a>    &quot;port&quot;: &quot;6379&quot;
+<a id="__codelineno-40-23" name="__codelineno-40-23" href="#__codelineno-40-23"></a>  },
+<a id="__codelineno-40-24" name="__codelineno-40-24" href="#__codelineno-40-24"></a>  &quot;chains&quot;: {
+<a id="__codelineno-40-25" name="__codelineno-40-25" href="#__codelineno-40-25"></a>    &quot;wax&quot;: {
+<a id="__codelineno-40-26" name="__codelineno-40-26" href="#__codelineno-40-26"></a>      &quot;name&quot;: &quot;Wax&quot;,
+<a id="__codelineno-40-27" name="__codelineno-40-27" href="#__codelineno-40-27"></a>      &quot;ship&quot;: &quot;ws://172.168.40.201:10876&quot;,
+<a id="__codelineno-40-28" name="__codelineno-40-28" href="#__codelineno-40-28"></a>      &quot;http&quot;: &quot;http://172.168.40.201:9888&quot;,
+<a id="__codelineno-40-29" name="__codelineno-40-29" href="#__codelineno-40-29"></a>      &quot;chain_id&quot;: &quot;f16b1833c747c43682f4386fca9cbb327929334a762755ebec17f6f23c9b8a12&quot;,
+<a id="__codelineno-40-30" name="__codelineno-40-30" href="#__codelineno-40-30"></a>      &quot;WS_ROUTER_HOST&quot;: &quot;127.0.0.1&quot;,
+<a id="__codelineno-40-31" name="__codelineno-40-31" href="#__codelineno-40-31"></a>      &quot;WS_ROUTER_PORT&quot;: 7001
+<a id="__codelineno-40-32" name="__codelineno-40-32" href="#__codelineno-40-32"></a>    }
+<a id="__codelineno-40-33" name="__codelineno-40-33" href="#__codelineno-40-33"></a>  }
+<a id="__codelineno-40-34" name="__codelineno-40-34" href="#__codelineno-40-34"></a>}
+</code></pre></div></li>
+<li>/apps/hyperion-history-api/chains/wax.config.json
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>{
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>  &quot;api&quot;: {
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>    &quot;enabled&quot;: true,
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>    &quot;pm2_scaling&quot;: 1,
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>    &quot;node_max_old_space_size&quot;: 1024,
+<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a>    &quot;chain_name&quot;: &quot;wax&quot;,
+<a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a>    &quot;server_addr&quot;: &quot;172.168.40.100&quot;,
+<a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a>    &quot;server_port&quot;: 7000,
+<a id="__codelineno-41-9" name="__codelineno-41-9" href="#__codelineno-41-9"></a>    &quot;server_name&quot;: &quot;hyperion-test.oiac.io&quot;,
+<a id="__codelineno-41-10" name="__codelineno-41-10" href="#__codelineno-41-10"></a>    &quot;provider_name&quot;: &quot;Oneinacillian&quot;,
+<a id="__codelineno-41-11" name="__codelineno-41-11" href="#__codelineno-41-11"></a>    &quot;provider_url&quot;: &quot;https://oiac.io&quot;,
+<a id="__codelineno-41-12" name="__codelineno-41-12" href="#__codelineno-41-12"></a>    &quot;chain_api&quot;: &quot;&quot;,
+<a id="__codelineno-41-13" name="__codelineno-41-13" href="#__codelineno-41-13"></a>    &quot;push_api&quot;: &quot;&quot;,
+<a id="__codelineno-41-14" name="__codelineno-41-14" href="#__codelineno-41-14"></a>    &quot;chain_logo_url&quot;: &quot;&quot;,
+<a id="__codelineno-41-15" name="__codelineno-41-15" href="#__codelineno-41-15"></a>    &quot;enable_caching&quot;: true,
+<a id="__codelineno-41-16" name="__codelineno-41-16" href="#__codelineno-41-16"></a>    &quot;cache_life&quot;: 1,
+<a id="__codelineno-41-17" name="__codelineno-41-17" href="#__codelineno-41-17"></a>    &quot;limits&quot;: {
+<a id="__codelineno-41-18" name="__codelineno-41-18" href="#__codelineno-41-18"></a>      &quot;get_actions&quot;: 1000,
+<a id="__codelineno-41-19" name="__codelineno-41-19" href="#__codelineno-41-19"></a>      &quot;get_voters&quot;: 100,
+<a id="__codelineno-41-20" name="__codelineno-41-20" href="#__codelineno-41-20"></a>      &quot;get_links&quot;: 1000,
+<a id="__codelineno-41-21" name="__codelineno-41-21" href="#__codelineno-41-21"></a>      &quot;get_deltas&quot;: 1000,
+<a id="__codelineno-41-22" name="__codelineno-41-22" href="#__codelineno-41-22"></a>      &quot;get_trx_actions&quot;: 200
+<a id="__codelineno-41-23" name="__codelineno-41-23" href="#__codelineno-41-23"></a>    },
+<a id="__codelineno-41-24" name="__codelineno-41-24" href="#__codelineno-41-24"></a>    &quot;access_log&quot;: false,
+<a id="__codelineno-41-25" name="__codelineno-41-25" href="#__codelineno-41-25"></a>    &quot;chain_api_error_log&quot;: false,
+<a id="__codelineno-41-26" name="__codelineno-41-26" href="#__codelineno-41-26"></a>    &quot;custom_core_token&quot;: &quot;&quot;,
+<a id="__codelineno-41-27" name="__codelineno-41-27" href="#__codelineno-41-27"></a>    &quot;enable_export_action&quot;: false,
+<a id="__codelineno-41-28" name="__codelineno-41-28" href="#__codelineno-41-28"></a>    &quot;disable_rate_limit&quot;: false,
+<a id="__codelineno-41-29" name="__codelineno-41-29" href="#__codelineno-41-29"></a>    &quot;rate_limit_rpm&quot;: 1000,
+<a id="__codelineno-41-30" name="__codelineno-41-30" href="#__codelineno-41-30"></a>    &quot;rate_limit_allow&quot;: [],
+<a id="__codelineno-41-31" name="__codelineno-41-31" href="#__codelineno-41-31"></a>    &quot;disable_tx_cache&quot;: false,
+<a id="__codelineno-41-32" name="__codelineno-41-32" href="#__codelineno-41-32"></a>    &quot;tx_cache_expiration_sec&quot;: 3600,
+<a id="__codelineno-41-33" name="__codelineno-41-33" href="#__codelineno-41-33"></a>    &quot;v1_chain_cache&quot;: [
+<a id="__codelineno-41-34" name="__codelineno-41-34" href="#__codelineno-41-34"></a>      {
+<a id="__codelineno-41-35" name="__codelineno-41-35" href="#__codelineno-41-35"></a>        &quot;path&quot;: &quot;get_block&quot;,
+<a id="__codelineno-41-36" name="__codelineno-41-36" href="#__codelineno-41-36"></a>        &quot;ttl&quot;: 3000
+<a id="__codelineno-41-37" name="__codelineno-41-37" href="#__codelineno-41-37"></a>      },
+<a id="__codelineno-41-38" name="__codelineno-41-38" href="#__codelineno-41-38"></a>      {
+<a id="__codelineno-41-39" name="__codelineno-41-39" href="#__codelineno-41-39"></a>        &quot;path&quot;: &quot;get_info&quot;,
+<a id="__codelineno-41-40" name="__codelineno-41-40" href="#__codelineno-41-40"></a>        &quot;ttl&quot;: 500
+<a id="__codelineno-41-41" name="__codelineno-41-41" href="#__codelineno-41-41"></a>      }
+<a id="__codelineno-41-42" name="__codelineno-41-42" href="#__codelineno-41-42"></a>    ]
+<a id="__codelineno-41-43" name="__codelineno-41-43" href="#__codelineno-41-43"></a>  },
+<a id="__codelineno-41-44" name="__codelineno-41-44" href="#__codelineno-41-44"></a>  &quot;indexer&quot;: {
+<a id="__codelineno-41-45" name="__codelineno-41-45" href="#__codelineno-41-45"></a>    &quot;enabled&quot;: true,
+<a id="__codelineno-41-46" name="__codelineno-41-46" href="#__codelineno-41-46"></a>    &quot;node_max_old_space_size&quot;: 4096,
+<a id="__codelineno-41-47" name="__codelineno-41-47" href="#__codelineno-41-47"></a>    &quot;start_on&quot;: 0,
+<a id="__codelineno-41-48" name="__codelineno-41-48" href="#__codelineno-41-48"></a>    &quot;stop_on&quot;: 0,
+<a id="__codelineno-41-49" name="__codelineno-41-49" href="#__codelineno-41-49"></a>    &quot;rewrite&quot;: false,
+<a id="__codelineno-41-50" name="__codelineno-41-50" href="#__codelineno-41-50"></a>    &quot;purge_queues&quot;: false,
+<a id="__codelineno-41-51" name="__codelineno-41-51" href="#__codelineno-41-51"></a>    &quot;live_reader&quot;: true,
+<a id="__codelineno-41-52" name="__codelineno-41-52" href="#__codelineno-41-52"></a>    &quot;live_only_mode&quot;: false,
+<a id="__codelineno-41-53" name="__codelineno-41-53" href="#__codelineno-41-53"></a>    &quot;abi_scan_mode&quot;: false,
+<a id="__codelineno-41-54" name="__codelineno-41-54" href="#__codelineno-41-54"></a>    &quot;fetch_block&quot;: true,
+<a id="__codelineno-41-55" name="__codelineno-41-55" href="#__codelineno-41-55"></a>    &quot;fetch_traces&quot;: true,
+<a id="__codelineno-41-56" name="__codelineno-41-56" href="#__codelineno-41-56"></a>    &quot;disable_reading&quot;: false,
+<a id="__codelineno-41-57" name="__codelineno-41-57" href="#__codelineno-41-57"></a>    &quot;disable_indexing&quot;: false,
+<a id="__codelineno-41-58" name="__codelineno-41-58" href="#__codelineno-41-58"></a>    &quot;process_deltas&quot;: true,
+<a id="__codelineno-41-59" name="__codelineno-41-59" href="#__codelineno-41-59"></a>    &quot;disable_delta_rm&quot;: true
+<a id="__codelineno-41-60" name="__codelineno-41-60" href="#__codelineno-41-60"></a>  },
+<a id="__codelineno-41-61" name="__codelineno-41-61" href="#__codelineno-41-61"></a>  &quot;settings&quot;: {
+<a id="__codelineno-41-62" name="__codelineno-41-62" href="#__codelineno-41-62"></a>    &quot;preview&quot;: false,
+<a id="__codelineno-41-63" name="__codelineno-41-63" href="#__codelineno-41-63"></a>    &quot;chain&quot;: &quot;wax&quot;,
+<a id="__codelineno-41-64" name="__codelineno-41-64" href="#__codelineno-41-64"></a>    &quot;eosio_alias&quot;: &quot;eosio&quot;,
+<a id="__codelineno-41-65" name="__codelineno-41-65" href="#__codelineno-41-65"></a>    &quot;parser&quot;: &quot;1.8&quot;,
+<a id="__codelineno-41-66" name="__codelineno-41-66" href="#__codelineno-41-66"></a>    &quot;auto_stop&quot;: 0,
+<a id="__codelineno-41-67" name="__codelineno-41-67" href="#__codelineno-41-67"></a>    &quot;index_version&quot;: &quot;v1&quot;,
+<a id="__codelineno-41-68" name="__codelineno-41-68" href="#__codelineno-41-68"></a>    &quot;debug&quot;: false,
+<a id="__codelineno-41-69" name="__codelineno-41-69" href="#__codelineno-41-69"></a>    &quot;bp_logs&quot;: false,
+<a id="__codelineno-41-70" name="__codelineno-41-70" href="#__codelineno-41-70"></a>    &quot;bp_monitoring&quot;: false,
+<a id="__codelineno-41-71" name="__codelineno-41-71" href="#__codelineno-41-71"></a>    &quot;ipc_debug_rate&quot;: 60000,
+<a id="__codelineno-41-72" name="__codelineno-41-72" href="#__codelineno-41-72"></a>    &quot;allow_custom_abi&quot;: false,
+<a id="__codelineno-41-73" name="__codelineno-41-73" href="#__codelineno-41-73"></a>    &quot;rate_monitoring&quot;: true,
+<a id="__codelineno-41-74" name="__codelineno-41-74" href="#__codelineno-41-74"></a>    &quot;max_ws_payload_mb&quot;: 1024,
+<a id="__codelineno-41-75" name="__codelineno-41-75" href="#__codelineno-41-75"></a>    &quot;ds_profiling&quot;: false,
+<a id="__codelineno-41-76" name="__codelineno-41-76" href="#__codelineno-41-76"></a>    &quot;auto_mode_switch&quot;: false,
+<a id="__codelineno-41-77" name="__codelineno-41-77" href="#__codelineno-41-77"></a>    &quot;hot_warm_policy&quot;: false,
+<a id="__codelineno-41-78" name="__codelineno-41-78" href="#__codelineno-41-78"></a>    &quot;custom_policy&quot;: &quot;&quot;,
+<a id="__codelineno-41-79" name="__codelineno-41-79" href="#__codelineno-41-79"></a>    &quot;bypass_index_map&quot;: true,
+<a id="__codelineno-41-80" name="__codelineno-41-80" href="#__codelineno-41-80"></a>    &quot;index_partition_size&quot;: 10000000,
+<a id="__codelineno-41-81" name="__codelineno-41-81" href="#__codelineno-41-81"></a>    &quot;es_replicas&quot;: 0
+<a id="__codelineno-41-82" name="__codelineno-41-82" href="#__codelineno-41-82"></a>  },
+<a id="__codelineno-41-83" name="__codelineno-41-83" href="#__codelineno-41-83"></a>  &quot;blacklists&quot;: {
+<a id="__codelineno-41-84" name="__codelineno-41-84" href="#__codelineno-41-84"></a>    &quot;actions&quot;: [],
+<a id="__codelineno-41-85" name="__codelineno-41-85" href="#__codelineno-41-85"></a>    &quot;deltas&quot;: []
+<a id="__codelineno-41-86" name="__codelineno-41-86" href="#__codelineno-41-86"></a>  },
+<a id="__codelineno-41-87" name="__codelineno-41-87" href="#__codelineno-41-87"></a>  &quot;whitelists&quot;: {
+<a id="__codelineno-41-88" name="__codelineno-41-88" href="#__codelineno-41-88"></a>    &quot;actions&quot;: [],
+<a id="__codelineno-41-89" name="__codelineno-41-89" href="#__codelineno-41-89"></a>    &quot;deltas&quot;: [],
+<a id="__codelineno-41-90" name="__codelineno-41-90" href="#__codelineno-41-90"></a>    &quot;max_depth&quot;: 10,
+<a id="__codelineno-41-91" name="__codelineno-41-91" href="#__codelineno-41-91"></a>    &quot;root_only&quot;: false
+<a id="__codelineno-41-92" name="__codelineno-41-92" href="#__codelineno-41-92"></a>  },
+<a id="__codelineno-41-93" name="__codelineno-41-93" href="#__codelineno-41-93"></a>  &quot;scaling&quot;: {
+<a id="__codelineno-41-94" name="__codelineno-41-94" href="#__codelineno-41-94"></a>    &quot;readers&quot;: 1,
+<a id="__codelineno-41-95" name="__codelineno-41-95" href="#__codelineno-41-95"></a>    &quot;ds_queues&quot;: 1,
+<a id="__codelineno-41-96" name="__codelineno-41-96" href="#__codelineno-41-96"></a>    &quot;ds_threads&quot;: 1,
+<a id="__codelineno-41-97" name="__codelineno-41-97" href="#__codelineno-41-97"></a>    &quot;ds_pool_size&quot;: 1,
+<a id="__codelineno-41-98" name="__codelineno-41-98" href="#__codelineno-41-98"></a>    &quot;indexing_queues&quot;: 1,
+<a id="__codelineno-41-99" name="__codelineno-41-99" href="#__codelineno-41-99"></a>    &quot;ad_idx_queues&quot;: 1,
+<a id="__codelineno-41-100" name="__codelineno-41-100" href="#__codelineno-41-100"></a>    &quot;dyn_idx_queues&quot;: 1,
+<a id="__codelineno-41-101" name="__codelineno-41-101" href="#__codelineno-41-101"></a>    &quot;max_autoscale&quot;: 4,
+<a id="__codelineno-41-102" name="__codelineno-41-102" href="#__codelineno-41-102"></a>    &quot;batch_size&quot;: 5000,
+<a id="__codelineno-41-103" name="__codelineno-41-103" href="#__codelineno-41-103"></a>    &quot;resume_trigger&quot;: 5000,
+<a id="__codelineno-41-104" name="__codelineno-41-104" href="#__codelineno-41-104"></a>    &quot;auto_scale_trigger&quot;: 20000,
+<a id="__codelineno-41-105" name="__codelineno-41-105" href="#__codelineno-41-105"></a>    &quot;block_queue_limit&quot;: 10000,
+<a id="__codelineno-41-106" name="__codelineno-41-106" href="#__codelineno-41-106"></a>    &quot;max_queue_limit&quot;: 100000,
+<a id="__codelineno-41-107" name="__codelineno-41-107" href="#__codelineno-41-107"></a>    &quot;routing_mode&quot;: &quot;round_robin&quot;,
+<a id="__codelineno-41-108" name="__codelineno-41-108" href="#__codelineno-41-108"></a>    &quot;polling_interval&quot;: 10000
+<a id="__codelineno-41-109" name="__codelineno-41-109" href="#__codelineno-41-109"></a>  },
+<a id="__codelineno-41-110" name="__codelineno-41-110" href="#__codelineno-41-110"></a>  &quot;features&quot;: {
+<a id="__codelineno-41-111" name="__codelineno-41-111" href="#__codelineno-41-111"></a>    &quot;streaming&quot;: {
+<a id="__codelineno-41-112" name="__codelineno-41-112" href="#__codelineno-41-112"></a>      &quot;enable&quot;: true,
+<a id="__codelineno-41-113" name="__codelineno-41-113" href="#__codelineno-41-113"></a>      &quot;traces&quot;: true,
+<a id="__codelineno-41-114" name="__codelineno-41-114" href="#__codelineno-41-114"></a>      &quot;deltas&quot;: true
+<a id="__codelineno-41-115" name="__codelineno-41-115" href="#__codelineno-41-115"></a>    },
+<a id="__codelineno-41-116" name="__codelineno-41-116" href="#__codelineno-41-116"></a>    &quot;tables&quot;: {
+<a id="__codelineno-41-117" name="__codelineno-41-117" href="#__codelineno-41-117"></a>      &quot;proposals&quot;: true,
+<a id="__codelineno-41-118" name="__codelineno-41-118" href="#__codelineno-41-118"></a>      &quot;accounts&quot;: true,
+<a id="__codelineno-41-119" name="__codelineno-41-119" href="#__codelineno-41-119"></a>      &quot;voters&quot;: true
+<a id="__codelineno-41-120" name="__codelineno-41-120" href="#__codelineno-41-120"></a>    },
+<a id="__codelineno-41-121" name="__codelineno-41-121" href="#__codelineno-41-121"></a>    &quot;index_deltas&quot;: true,
+<a id="__codelineno-41-122" name="__codelineno-41-122" href="#__codelineno-41-122"></a>    &quot;index_transfer_memo&quot;: true,
+<a id="__codelineno-41-123" name="__codelineno-41-123" href="#__codelineno-41-123"></a>    &quot;index_all_deltas&quot;: true,
+<a id="__codelineno-41-124" name="__codelineno-41-124" href="#__codelineno-41-124"></a>    &quot;deferred_trx&quot;: false,
+<a id="__codelineno-41-125" name="__codelineno-41-125" href="#__codelineno-41-125"></a>    &quot;failed_trx&quot;: false,
+<a id="__codelineno-41-126" name="__codelineno-41-126" href="#__codelineno-41-126"></a>    &quot;resource_limits&quot;: false,
+<a id="__codelineno-41-127" name="__codelineno-41-127" href="#__codelineno-41-127"></a>    &quot;resource_usage&quot;: false
+<a id="__codelineno-41-128" name="__codelineno-41-128" href="#__codelineno-41-128"></a>  },
+<a id="__codelineno-41-129" name="__codelineno-41-129" href="#__codelineno-41-129"></a>  &quot;prefetch&quot;: {
+<a id="__codelineno-41-130" name="__codelineno-41-130" href="#__codelineno-41-130"></a>    &quot;read&quot;: 50,
+<a id="__codelineno-41-131" name="__codelineno-41-131" href="#__codelineno-41-131"></a>    &quot;block&quot;: 100,
+<a id="__codelineno-41-132" name="__codelineno-41-132" href="#__codelineno-41-132"></a>    &quot;index&quot;: 500
+<a id="__codelineno-41-133" name="__codelineno-41-133" href="#__codelineno-41-133"></a>  },
+<a id="__codelineno-41-134" name="__codelineno-41-134" href="#__codelineno-41-134"></a>  &quot;plugins&quot;: {}
+<a id="__codelineno-41-135" name="__codelineno-41-135" href="#__codelineno-41-135"></a>}
+</code></pre></div></li>
+</ul>
+<blockquote>
+<p>Start your api indexer to allow your data to index from the SHIP node</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>./run.sh wax-indexer
+</code></pre></div>
+<blockquote>
+<p>Once it has indexed all the outstanding blocks, you can expose the api</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>./run.sh wax-api
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+    
+  </body>
+</html>

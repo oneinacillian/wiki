@@ -1,0 +1,1098 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://wiki.oiac.io/haproxy/">
+      
+      
+        <link rel="prev" href="../locust/">
+      
+      
+        <link rel="next" href="../wireguard/">
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.16">
+    
+    
+      
+        <title>HAProxy - WAX Performance/General Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#haproxy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="WAX Performance/General Wiki" class="md-header__button md-logo" aria-label="WAX Performance/General Wiki" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WAX Performance/General Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HAProxy
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="WAX Performance/General Wiki" class="md-nav__button md-logo" aria-label="WAX Performance/General Wiki" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    WAX Performance/General Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hyperion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hyperion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HyperionSnapshotremoteNFS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hyperion - Snapshot remote NFS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../atomic-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Atomic API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgresql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nodeos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nodeos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ubuntu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../containers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Monitoring (Prometheus/Grafana)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../locust/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Loadtest setup using Locust
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    HAProxy
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    HAProxy
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#haproxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      HAProxy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HAProxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rate limiting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rate limiting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-the-maximum-connections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting the Maximum Connections
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sliding-window-rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sliding Window Rate Limiting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#letsencrypt-to-generate-a-public-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Letsencrypt to generate a public certificate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cors-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cors setup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wireguard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VPN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../snapshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hyperion Snapshots
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#haproxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      HAProxy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HAProxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rate limiting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rate limiting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-the-maximum-connections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting the Maximum Connections
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sliding-window-rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sliding Window Rate Limiting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#letsencrypt-to-generate-a-public-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Letsencrypt to generate a public certificate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cors-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cors setup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>HAProxy</h1>
+
+<blockquote>
+<p>To expose your Hyperion, History or Atomic API you need a load balancer. There are several community balancers available for use and the following ones will be explained</p>
+</blockquote>
+<ul>
+<li>HAProxy</li>
+<li>NGINX - <span style="color:red"><strong>not yet complete</strong></span></li>
+<li>Traefik - <span style="color:red"><strong>not yet complete</strong></span></li>
+</ul>
+<blockquote>
+<p>Other components that will be covered</p>
+</blockquote>
+<ul>
+<li>ACL <span style="color:red"><strong>some examples will be added soon</strong></span></li>
+<li>Rate limiting with explanation and examples <strong>(stick-tables, tarpit, etc)</strong></li>
+<li>Cors setup</li>
+<li>Letsencrypt to generate a public certificate</li>
+</ul>
+<h2 id="haproxy"><em>HAProxy</em></h2>
+<h3 id="install"><em>Install</em></h3>
+<p>Installation on Ubuntu (this installation was performed on ubuntu 18.04, but will be the same on 20.04)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>1. sudo apt install --no-install-recommends software-properties-common
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>2. sudo add-apt-repository ppa:vbernat/haproxy-2.4 -y
+</code></pre></div>
+Result =&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Reading package lists... Done
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Building dependency tree
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Reading state information... Done
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>software-properties-common is already the newest version (0.96.24.32.18).
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>The following packages were automatically installed and are no longer required:
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  liblua5.3-0 linux-image-4.15.0-156-generic linux-modules-4.15.0-156-generic linux-modules-extra-4.15.0-156-generic
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Use &#39;sudo apt autoremove&#39; to remove them.
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>root@vultr:~# sudo add-apt-repository ppa:vbernat/haproxy-2.4 -y
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>Hit:1 https://apprepo.vultr.com/debian buster InRelease
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>Get:2 http://ppa.launchpad.net/vbernat/haproxy-2.4/ubuntu bionic InRelease [20.8 kB]
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>Hit:3 http://de.clouds.archive.ubuntu.com/ubuntu bionic InRelease
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>Hit:4 http://security.ubuntu.com/ubuntu bionic-security InRelease
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>Get:5 http://ppa.launchpad.net/vbernat/haproxy-2.4/ubuntu bionic/main i386 Packages [976 B]
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>Get:6 http://ppa.launchpad.net/vbernat/haproxy-2.4/ubuntu bionic/main amd64 Packages [972 B]
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>Get:7 http://ppa.launchpad.net/vbernat/haproxy-2.4/ubuntu bionic/main Translation-en [704 B]
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>Hit:8 http://de.clouds.archive.ubuntu.com/ubuntu bionic-updates InRelease
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>Hit:9 http://de.clouds.archive.ubuntu.com/ubuntu bionic-backports InRelease
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>Fetched 23.4 kB in 1s (40.1 kB/s)
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>Reading package lists... Done
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>3. sudo apt install haproxy=2.4.\*
+</code></pre></div>
+Result =&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Reading package lists... Done
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Building dependency tree
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Reading state information... Done
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Selected version &#39;2.4.17-1ppa1~bionic&#39; (HAProxy 2.4:18.04/bionic [amd64]) for &#39;haproxy&#39;
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>The following packages were automatically installed and are no longer required:
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  linux-image-4.15.0-156-generic linux-modules-4.15.0-156-generic linux-modules-extra-4.15.0-156-generic
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>Use &#39;sudo apt autoremove&#39; to remove them.
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>The following additional packages will be installed:
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  libpcre2-8-0
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>Suggested packages:
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>  vim-haproxy haproxy-doc
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>The following NEW packages will be installed:
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>  haproxy libpcre2-8-0
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>Need to get 1,763 kB of archives.
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>After this operation, 4,209 kB of additional disk space will be used.
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>Do you want to continue? [Y/n] y
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>Get:1 http://ppa.launchpad.net/vbernat/haproxy-2.4/ubuntu bionic/main amd64 haproxy amd64 2.4.17-1ppa1~bionic [1,584 kB]
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>Get:2 http://de.clouds.archive.ubuntu.com/ubuntu bionic/universe amd64 libpcre2-8-0 amd64 10.31-2 [179 kB]
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>Fetched 1,763 kB in 1s (3,242 kB/s)
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>Selecting previously unselected package libpcre2-8-0:amd64.
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>(Reading database ... 146169 files and directories currently installed.)
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>Preparing to unpack .../libpcre2-8-0_10.31-2_amd64.deb ...
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>Unpacking libpcre2-8-0:amd64 (10.31-2) ...
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>Selecting previously unselected package haproxy.
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>Preparing to unpack .../haproxy_2.4.17-1ppa1~bionic_amd64.deb ...
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>Unpacking haproxy (2.4.17-1ppa1~bionic) ...
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>Setting up libpcre2-8-0:amd64 (10.31-2) ...
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>Setting up haproxy (2.4.17-1ppa1~bionic) ...
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>Installing new version of config file /etc/haproxy/errors/500.http ...
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>Installing new version of config file /etc/haproxy/haproxy.cfg ...
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>Installing new version of config file /etc/logrotate.d/haproxy ...
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>Installing new version of config file /etc/rsyslog.d/49-haproxy.conf ...
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>Processing triggers for libc-bin (2.27-3ubuntu1.6) ...
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>Processing triggers for systemd (237-3ubuntu10.53) ...
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>Processing triggers for rsyslog (8.32.0-1ubuntu4.2) ...
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>Processing triggers for ureadahead (0.100.0-21) ...
+</code></pre></div></p>
+<blockquote>
+<p>You should now have the latest version of 2.4.x installed</p>
+</blockquote>
+<p>Ensure that your haproxy installation is working and is running
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>4. service haproxy status
+</code></pre></div>
+Result =&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>* haproxy.service - HAProxy Load Balancer
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>   Loaded: loaded (/lib/systemd/system/haproxy.service; enabled; vendor preset: enabled)
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>   Active: active (running) since Thu 2022-07-14 19:03:36 UTC; 3min 43s ago
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>     Docs: man:haproxy(1)
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>           file:/usr/share/doc/haproxy/configuration.txt.gz
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a> Main PID: 721 (haproxy)
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    Tasks: 3 (limit: 2314)
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>   CGroup: /system.slice/haproxy.service
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>           |-721 /usr/sbin/haproxy -sf 725 -x /run/haproxy/admin.sock -Ws -f /etc/haproxy/haproxy.cfg -p /run/haproxy.pid -S /run/haproxy-master.sock
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>           `-775 /usr/sbin/haproxy -sf 725 -x /run/haproxy/admin.sock -Ws -f /etc/haproxy/haproxy.cfg -p /run/haproxy.pid -S /run/haproxy-master.sock
+</code></pre></div>
+There are four essential sections to an HAProxy configuration file. They are <strong>global</strong>, <strong>defaults</strong>, <strong>frontend</strong>, and <strong>backend</strong>. These four sections define how the server as a whole performs, what your default settings are, and how client requests are received and routed to your backend servers.</p>
+<p>The structure is as follows
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>global
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    # global settings here
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>defaults
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    # defaults here
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>frontend
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    # a frontend that accepts requests from clients
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>backend
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    # servers that fulfill the requests
+</code></pre></div>
+The following section will explain a typical configuration for <strong>Wax node</strong> use</p>
+<blockquote>
+<p><strong><em>NOTE:</em></strong> That the only difference here from the default configuration for the global section provided by the template is the enablement of CORS. This will be explained in more detail later</p>
+</blockquote>
+<p>Global and Defaults: 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>global
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>        log /dev/log    local0
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>        log /dev/log    local1 notice
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>        chroot /var/lib/haproxy
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>        stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>        stats timeout 30s
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>        user haproxy
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>        group haproxy
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>        lua-load /etc/haproxy/cors.lua
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>        daemon
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>        # Default SSL material locations
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>        ca-base /etc/ssl/certs
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>        crt-base /etc/ssl/private
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>        # See: https://ssl-config.mozilla.org/#server=haproxy&amp;server-version=2.0.3&amp;config=intermediate
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>        ssl-default-bind-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>        #ssl-default-bind-ciphersuites TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>        ssl-default-bind-options ssl-min-ver TLSv1.2 no-tls-tickets
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>defaults
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>        log     global
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>        mode    http
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>        option  httplog
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>        option  dontlognull
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>        timeout connect 5000
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>        timeout client  50000
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>        timeout server  50000
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>        errorfile 400 /etc/haproxy/errors/400.http
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>        errorfile 403 /etc/haproxy/errors/403.http
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>        errorfile 408 /etc/haproxy/errors/408.http
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>        errorfile 500 /etc/haproxy/errors/500.http
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>        errorfile 502 /etc/haproxy/errors/502.http
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>        errorfile 503 /etc/haproxy/errors/503.http
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>        errorfile 504 /etc/haproxy/errors/504.http
+</code></pre></div></p>
+<blockquote>
+<p><strong><em>NOTE:</em></strong> This is a basic example you need to allow both http/s traffic to be accepted to be offloaded to the backend/s</p>
+</blockquote>
+<p>Frontend:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>frontend eoshttps
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>        bind *:443 ssl crt /etc/haproxy/certs alpn h2,http/1.1
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>        http-request set-header X-Forwarded-Proto https
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>        acl &lt;identifier_for_rule&gt; hdr(host) -i &lt;hostheader_to_offload&gt;
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        http-request lua.cors
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>        http-response lua.cors &quot;GET,PUT,POST&quot; &quot;*&quot;
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>        use_backend &lt;backend_system&gt; if &lt;identifier_for_rule&gt;
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>frontend eoshttp
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>        bind *:80
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>        mode http
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>        acl &lt;identifier_for_rule&gt; hdr(host) -i &lt;hostheader_to_offload&gt;
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>        http-request lua.cors
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>        http-response lua.cors &quot;GET,PUT,POST&quot; &quot;*&quot;
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>        use_backend &lt;backend_system&gt; if &lt;identifier_for_rule&gt;
+</code></pre></div>
+Explanation for the <span style="color:green"><strong>values</strong></span> above:</p>
+<ul>
+<li><span style="color:green"><strong>identifier_for_rule</strong></span> can be any rule name you provide</li>
+<li><span style="color:green"><strong>backend_system</strong></span> can be any name of the backend system you will configure next so that the front-end requests know where to offload data</li>
+<li><span style="color:green"><strong>hostheader_to_offload</strong></span> the hostheader received by the call made to the proxy</li>
+<li>For tls communication, a certificate needs to be loaded so that the traffic between the (public client) and the proxy can be encrypted. In the configuration above, the certificate needs to be placed in <span style="color:green"><strong>/etc/haproxy/certs</strong></span>. WAX requires <strong>TLSv1.2</strong> as a minimum</li>
+</ul>
+<blockquote>
+<p><strong><em>NOTE:</em></strong> In this example I am offloading to 2 hyperion instances, both with their API's exposed on port 7000</p>
+</blockquote>
+<p>Backend:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>backend &lt;backend_system&gt;
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>        server wax 172.168.40.100:7000 maxconn 3000
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>        server wax 172.168.40.101:7000 maxconn 3000
+</code></pre></div></p>
+<h3 id="rate-limiting"><em>Rate limiting</em></h3>
+<blockquote>
+<p>Rate limiting can reduce your traffic and potentially improve throughput by reducing the number of records sent to a service over a given period of time. <br>
+This can also be used to mitigate abuse where your frontend and backends will be overloaded by abusers, affecting the availability of your service <br> </p>
+</blockquote>
+<h4 id="setting-the-maximum-connections"><em>Setting the Maximum Connections</em></h4>
+<p>Use the maxconn parameter on a server line to cap the number of concurrent connections that will be sent. <strong>Look at the example above which limits it too 3000 connections</strong></p>
+<p>If all 3000 connections are being used both servers, or in other words 6000 connections are active, then new connections will have to wait in line for a slot to free up. This means that the servers themselves won’t become overloaded.</p>
+<h4 id="sliding-window-rate-limiting"><em>Sliding Window Rate Limiting</em></h4>
+<p>Limit the number of requests that a user can make within a certain period of time <strong>to a certain url in this example</strong> <br>
+In your frontend configuration =&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>http-request track-sc0 src table wax_api_servers if { url_beg /v1/chain/push_transaction }
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>http-request tarpit deny_status 429 if { sc_http_req_rate(0) gt 20 } { url_beg /v1/chain/push_transaction }
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>timeout tarpit 10s
+</code></pre></div>
+Explanation for the <span style="color:green"><strong>components</strong></span> above: <br></p>
+<ul>
+<li><span style="color:green"><strong>track-sc0</strong></span> tracking specific event. Multiple rules can exist, which means <span style="color:green"><strong>track-sc1</strong></span>, <span style="color:green"><strong>track-sc2</strong></span>, etc <br></li>
+<li><span style="color:green"><strong>src table wax_api_servers</strong></span> the table which should be referenced for the evaluated data. <strong>Please note that for each rule (i.e. track-sc1,track-sc2), it needs to use a unique table</strong> <br></li>
+<li><span style="color:green"><strong>if { url_beg /v1/chain/push_transaction }</strong></span> will only apply the rule when the client calls a specific URL. In this case the API being hit resides in /v1/chain/push_transaction <br></li>
+<li><span style="color:green"><strong>tarpit</strong></span> will stall the request for a period of time before returning an error response <br></li>
+<li><span style="color:green"><strong>deny_status 429 if { sc_http_req_rate(0) gt 20 } { url_beg /v1/chain/push_transaction }</strong></span> return status code 429 if the request rate in table <span style="color:green"><strong>track-sc0</strong></span> is higher than the allowed value specified in the stick-table</li>
+</ul>
+<p>In your backend configuration =&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>backend wax_api_servers
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>        stick-table type ip size 1m expire 60s store http_req_rate(20s)
+</code></pre></div>
+Explanation for the <span style="color:green"><strong>components</strong></span> above: <br></p>
+<ul>
+<li><span style="color:green"><strong>wax_api_servers</strong></span> will be the table backend configured in the frontend reference <br></li>
+<li><span style="color:green"><strong>stick-table type ip</strong></span> directive creates a key-value store for storing counters like the HTTP request rate per client. The key is the client’s IP address, as configured by the type parameter, which is used to store and aggregate that client’s number of requests. he counters begin to be recorded as soon as the IP is added <br></li>
+<li><span style="color:green"><strong>size 1m</strong></span> we are allowing 1 million records to be stored in the table <br></li>
+<li><span style="color:green"><strong>expire 60s</strong></span> amount of time before the table record expires and is removed after a period of inactivity by the client <br></li>
+<li><span style="color:green"><strong>http_req_rate(20s)</strong></span> counts the requests over a period of 20 seconds. Meaning, in the frontend example above <span style="color:green"><strong>if { sc_http_req_rate(0) gt 20 }</strong></span>, if the request is greater than 20 within a timewindow of 20 seconds as specified in the backend <span style="color:green"><strong>http_req_rate(20s)</strong></span>, it will deny the request with a 429 <span style="color:green"><strong>deny_status 429</strong></span> which will wait 10s <span style="color:green"><strong>timeout tarpit 10s</strong></span> before sending the response back</li>
+</ul>
+<h3 id="letsencrypt-to-generate-a-public-certificate"><em>Letsencrypt to generate a public certificate</em></h3>
+<blockquote>
+<p>Install certbot</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo add-apt-repository -y ppa:certbot/certbot
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>sudo apt-get install -y certbot
+</code></pre></div>
+<blockquote>
+<p>Add the following in your proxy configuration (I used haproxy in this example)</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>frontend fe-scalinglaravel
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>       bind *:80
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>       acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>       use_backend letsencrypt-backend if letsencrypt-acl
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>backend letsencrypt-backend
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>       server letsencrypt 127.0.0.1:8889
+</code></pre></div>
+<blockquote>
+<p>Open up the firewall to accept public callback on letsencrypt backend</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>firewall-cmd --add-port=80/tcp --permanent
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>service firewalld reload
+</code></pre></div>
+<blockquote>
+<p>Ensure that your DNS record exist. In this example, I created wikibuild.oiac.io to point to the public interface</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>root@vultr:/etc/haproxy# dig wikibuild.oiac.io
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>; &lt;&lt;&gt;&gt; DiG 9.16.1-Ubuntu &lt;&lt;&gt;&gt; wikibuild.oiac.io
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>;; global options: +cmd
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>;; Got answer:
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 39166
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>;; OPT PSEUDOSECTION:
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>; EDNS: version: 0, flags:; udp: 65494
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>;; QUESTION SECTION:
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>;wikibuild.oiac.io.             IN      A
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>;; ANSWER SECTION:
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>wikibuild.oiac.io.      1505    IN      A       45.77.55.245
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>;; Query time: 0 msec
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a>;; SERVER: 127.0.0.53#53(127.0.0.53)
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>;; WHEN: Sat Jul 23 18:21:35 UTC 2022
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>;; MSG SIZE  rcvd: 62
+</code></pre></div>
+<blockquote>
+<p>Ensure that your certbot has started</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>service certbot start
+</code></pre></div>
+<blockquote>
+<p>Generate a certificate using certbot <strong>configure your e-mail address accordingly</strong></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>certbot certonly --standalone -d wikibuild.oiac.io --non-interactive --agree-tos --email ********@gmail.com --http-01-port=8889
+</code></pre></div>
+<p>Result=&gt;</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>root@vultr:/etc/haproxy# certbot certonly --standalone -d wikibuild.oiac.io --non-interactive --agree-tos --email ********@gmail.com --http-01-port=8889
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>Saving debug log to /var/log/letsencrypt/letsencrypt.log
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>Plugins selected: Authenticator standalone, Installer None
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>Obtaining a new certificate
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>Performing the following challenges:
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>http-01 challenge for wikibuild.oiac.io
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>Waiting for verification...
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>Cleaning up challenges
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>IMPORTANT NOTES:
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a> - Congratulations! Your certificate and chain have been saved at:
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>   /etc/letsencrypt/live/wikibuild.oiac.io/fullchain.pem
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>   Your key file has been saved at:
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>   /etc/letsencrypt/live/wikibuild.oiac.io/privkey.pem
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>   Your cert will expire on 2022-10-21. To obtain a new or tweaked
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>   version of this certificate in the future, simply run certbot
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>   again. To non-interactively renew *all* of your certificates, run
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>   &quot;certbot renew&quot;
+<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a> - If you like Certbot, please consider supporting our work by:
+<a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a>
+<a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a>   Donating to ISRG / Let&#39;s Encrypt:   https://letsencrypt.org/donate
+<a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a>   Donating to EFF:                    https://eff.org/donate-le
+</code></pre></div>
+<p>Take note of your full certificate chain and private key which is listed in the result run of the above</p>
+<blockquote>
+<p>Combine your certificate chain and private key, then save it to where haproxy will reference it for SSL termination</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>CERTIFICATE=wikibuild.oiac.io
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>mkdir -p /etc/haproxy/certs
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>cat /etc/letsencrypt/live/$CERTIFICATE/fullchain.pem /etc/letsencrypt/live/$CERTIFICATE/privkey.pem &gt; /etc/haproxy/certs/$CERTIFICATE.pem
+</code></pre></div>
+<blockquote>
+<p>Check your certificate</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>openssl x509 -in wikibuild.oiac.io.pem -text -noout
+</code></pre></div>
+<blockquote>
+<p>Check your key as well which is now contained in the same file </p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>openssl rsa -in wikibuild.oiac.io.pem -check
+</code></pre></div>
+<p>Your publicly signed certificate is now ready to be used</p>
+<h3 id="cors-setup"><em>Cors setup</em></h3>
+<blockquote>
+<p>CORS is a mechanism for whitelisting domains that would otherwise have been restricted by the browser’s same-origin policy.</p>
+</blockquote>
+<p>Please find the CORS module <a href="../assets/cors.lua">here</a> <br>
+Copy the file content to a file named cors.lua in /etc/haproxy</p>
+<blockquote>
+<p>Add the following to your proxy configuration</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>global
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>        lua-load /etc/haproxy/cors.lua
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>frontend eoshttps
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>        http-request lua.cors
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>        http-response lua.cors &quot;GET,PUT,POST&quot; &quot;*&quot;
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>frontend eoshttp
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>        http-request lua.cors
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>        http-response lua.cors &quot;GET,PUT,POST&quot; &quot;*&quot;
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+    
+  </body>
+</html>
